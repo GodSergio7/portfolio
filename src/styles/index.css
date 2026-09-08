@@ -1,0 +1,967 @@
+/* ============================================================
+   Sergio Vidal Moreno — Portfolio
+   Sistema de diseño: paleta base #B8F7E4 (menta) + #25272C (tinta)
+   ============================================================ */
+
+/* ---------- Design tokens ---------- */
+:root {
+  /* Colores de identidad */
+  --mint: #b8f7e4;
+  --mint-strong: #a4edD6;
+  --ink: #25272c;
+
+  /* Superficies derivadas */
+  --bg: #25272c;
+  --bg-soft: #2a2d33;
+  --surface: #2d3036;
+  --surface-hover: #33363e;
+
+  /* Texto y bordes neutros */
+  --text: #eef1f5;
+  --text-soft: #c6ccd6;
+  --muted: #9aa2ae;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+
+  /* Menta con transparencia */
+  --mint-10: rgba(184, 247, 228, 0.1);
+  --mint-20: rgba(184, 247, 228, 0.2);
+  --mint-35: rgba(184, 247, 228, 0.35);
+
+  /* Tipografía */
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Radios / transiciones */
+  --radius-sm: 0.5rem;
+  --radius: 0.875rem;
+  --radius-lg: 1.25rem;
+  --transition: 0.25s cubic-bezier(0.25, 0.6, 0.3, 1);
+}
+
+/* ---------- Base ---------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem; /* compensa el navbar fijo */
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+a {
+  color: var(--mint);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover {
+  color: var(--mint-strong);
+}
+
+::selection {
+  background: var(--mint);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--mint);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Scrollbar sutil */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ink);
+}
+::-webkit-scrollbar-thumb {
+  background: #3a3e46;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mint-35);
+}
+
+/* ---------- Utilidades de color ---------- */
+.text-mint { color: var(--mint); }
+.text-soft { color: var(--text-soft); }
+.text-muted { color: var(--muted); }
+.font-mono { font-family: var(--font-mono); }
+
+/* Fondo con retícula sutil, reutilizable */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(184, 247, 228, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184, 247, 228, 0.045) 1px, transparent 1px);
+  background-size: 46px 46px;
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  font-weight: 500;
+  border-radius: 999px;
+  padding: 0.65rem 1.5rem;
+  transition: background-color var(--transition), border-color var(--transition),
+    color var(--transition), transform var(--transition), box-shadow var(--transition);
+  white-space: nowrap;
+}
+.btn:active { transform: translateY(0) !important; }
+
+.btn-mint {
+  background-color: var(--mint);
+  border: 1px solid var(--mint);
+  color: var(--ink);
+}
+.btn-mint:hover,
+.btn-mint:focus {
+  background-color: #cdfaec;
+  border-color: #cdfaec;
+  color: var(--ink);
+}
+
+.btn-outline-mint {
+  background-color: transparent;
+  border: 1px solid var(--mint-35);
+  color: var(--mint);
+}
+.btn-outline-mint:hover,
+.btn-outline-mint:focus {
+  background-color: var(--mint-10);
+  border-color: var(--mint);
+  color: var(--mint);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  border: 1px solid var(--border-strong);
+  color: var(--text-soft);
+}
+.btn-ghost:hover,
+.btn-ghost:focus {
+  border-color: var(--mint-35);
+  color: var(--mint);
+}
+
+.btn-sm {
+  padding: 0.35rem 0.9rem;
+  font-size: 0.85rem;
+}
+
+/* Iconos sociales cuadrados */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  color: var(--text-soft);
+  background-color: transparent;
+  transition: color var(--transition), border-color var(--transition),
+    background-color var(--transition), transform var(--transition);
+}
+.icon-btn:hover {
+  color: var(--ink);
+  background-color: var(--mint);
+  border-color: var(--mint);
+  transform: translateY(-2px);
+}
+
+/* ---------- Secciones ---------- */
+.section {
+  padding: clamp(4.5rem, 9vw, 7.5rem) 0;
+  position: relative;
+  scroll-margin-top: 5.5rem;
+}
+.section-alt {
+  background-color: var(--bg-soft);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ---------- Cabeceras de sección ---------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mint);
+  margin-bottom: 0.9rem;
+}
+.eyebrow::after {
+  content: '';
+  width: 2.5rem;
+  height: 1px;
+  background: var(--mint-35);
+}
+
+.section-title {
+  font-size: clamp(1.9rem, 3.6vw, 2.75rem);
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+.section-lead {
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 60ch;
+  margin-bottom: 0;
+}
+
+/* ---------- Chips de tecnologías ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.32rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-soft);
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  transition: border-color var(--transition), color var(--transition),
+    background-color var(--transition);
+  white-space: nowrap;
+}
+.chip:hover {
+  border-color: var(--mint-35);
+  color: var(--mint);
+}
+.chip--mint {
+  border-color: var(--mint-20);
+  color: var(--mint);
+  background-color: var(--mint-10);
+}
+
+/* ---------- Navbar ---------- */
+.navbar-portfolio {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1040;
+  background-color: rgba(37, 39, 44, 0.72);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: background-color var(--transition), border-color var(--transition),
+    box-shadow var(--transition);
+}
+.navbar-portfolio.scrolled {
+  background-color: rgba(37, 39, 44, 0.92);
+  border-bottom-color: var(--border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+.navbar-portfolio .navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.15rem;
+  height: 2.15rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--mint-10);
+  border: 1px solid var(--mint-35);
+  color: var(--mint);
+}
+.navbar-portfolio .navbar-nav {
+  gap: 0.25rem;
+}
+.nav-link {
+  position: relative;
+  padding: 0.5rem 0.8rem !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-soft) !important;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0.8rem;
+  right: 0.8rem;
+  bottom: 0.15rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--mint);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--mint) !important;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.navbar-toggler {
+  border: 1px solid var(--border-strong) !important;
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.55rem;
+  color: var(--text);
+  box-shadow: none !important;
+}
+.navbar-toggler:focus {
+  border-color: var(--mint-35);
+}
+
+.navbar-collapse {
+  background: transparent;
+}
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: rgba(37, 39, 44, 0.97);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    margin-top: 0.75rem;
+  }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 7.5rem 0 4.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(700px 420px at 85% 18%, rgba(184, 247, 228, 0.07), transparent 65%),
+    radial-gradient(560px 360px at 8% 92%, rgba(184, 247, 228, 0.05), transparent 60%);
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  color: var(--mint);
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 2.2rem;
+  height: 1px;
+  background: var(--mint);
+}
+
+.hero-name {
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  margin: 0.9rem 0 1rem;
+}
+.hero-role {
+  font-family: var(--font-mono);
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  color: var(--mint);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.4rem;
+}
+.hero-role::before {
+  content: '>';
+  color: var(--mint-35);
+}
+.hero-tagline {
+  color: var(--text-soft);
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  max-width: 56ch;
+  margin-bottom: 2rem;
+}
+
+.hero-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 1.9rem 0;
+  position: relative;
+}
+
+/* Tarjeta de código */
+.code-card {
+  background: #1f2126;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  position: relative;
+  z-index: 1;
+}
+.code-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--border);
+}
+.code-card-dots {
+  display: flex;
+  gap: 0.4rem;
+}
+.code-card-dots span {
+  width: 0.68rem;
+  height: 0.68rem;
+  border-radius: 50%;
+  background: #3c4148;
+}
+.code-card-dots span:first-child { background: rgba(184, 247, 228, 0.55); }
+.code-card-filename {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.code-card-body {
+  padding: 1.4rem 1.4rem 1.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  line-height: 1.9;
+  overflow-x: auto;
+}
+@media (max-width: 575.98px) {
+  .code-card-body {
+    font-size: 0.7rem;
+    padding: 1.1rem 1.15rem;
+    line-height: 1.8;
+  }
+}
+.code-card-body pre {
+  margin: 0;
+  color: var(--text-soft);
+  font-family: inherit;
+  font-size: inherit;
+}
+.code-line { display: block; white-space: pre; }
+.code-token-key { color: var(--mint); }
+.code-token-str { color: #ffd9a0; }
+.code-token-prop { color: #9ecbff; }
+.code-token-punct { color: var(--muted); }
+.code-token-com { color: #6b7280; }
+
+/* ---------- Animación de entrada sutil ---------- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Reveal por scroll (clase añadida por JS) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fade-up, .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  * { transition-duration: 0.01ms !important; }
+}
+
+/* ---------- Tarjetas genéricas ---------- */
+.card-surface {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), transform var(--transition),
+    background-color var(--transition);
+}
+.card-surface:hover {
+  border-color: var(--mint-35);
+  background-color: var(--surface-hover);
+}
+
+/* ---------- Tarjetas de proyecto ---------- */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--transition), transform var(--transition),
+    box-shadow var(--transition);
+}
+.project-card:hover {
+  border-color: var(--mint-35);
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+.project-media {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  background-color: #202228;
+  position: relative;
+}
+.project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.project-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  background-image:
+    linear-gradient(rgba(184, 247, 228, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184, 247, 228, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.project-body {
+  padding: 1.4rem 1.5rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex: 1;
+}
+.project-title {
+  font-size: 1.15rem;
+  margin: 0;
+  font-weight: 600;
+}
+.project-desc {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin: 0;
+  flex: 1;
+}
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.project-tech .chip {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.7rem;
+}
+
+/* Proyecto destacado */
+.project-card--featured {
+  border-color: var(--mint-20);
+  background: linear-gradient(180deg, rgba(184, 247, 228, 0.05), var(--surface) 38%);
+}
+.project-card--featured:hover {
+  border-color: var(--mint);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+.featured-media {
+  aspect-ratio: 16 / 9; /* apilado en móvil/tablet */
+  border-bottom: 1px solid var(--border);
+  height: auto;
+  min-height: 0;
+}
+.featured-body {
+  padding: 1.7rem;
+}
+/* En escritorio la imagen y el contenido conviven en columnas */
+@media (min-width: 992px) {
+  .featured-media {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 100%;
+    border-bottom: none;
+  }
+  .featured-body {
+    padding: 2.2rem;
+  }
+}
+.featured-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink);
+  background: var(--mint);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  margin-bottom: 1.1rem;
+}
+
+/* ---------- Lista / timeline (experiencia y formación) ---------- */
+.timeline {
+  position: relative;
+  padding-left: 1.6rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: linear-gradient(var(--mint-35), var(--border));
+}
+.timeline-item {
+  position: relative;
+  padding: 0 0 2.4rem 1.2rem;
+}
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1.57rem;
+  top: 0.45rem;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 0 4px rgba(184, 247, 228, 0.15);
+}
+.timeline-item--current::before {
+  box-shadow: 0 0 0 4px rgba(184, 247, 228, 0.22), 0 0 0 7px rgba(184, 247, 228, 0.08);
+}
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--mint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+.timeline-title {
+  font-size: 1.2rem;
+  margin: 0 0 0.15rem;
+}
+.timeline-org {
+  color: var(--text-soft);
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+}
+.timeline-desc {
+  color: var(--muted);
+  margin-bottom: 0;
+  max-width: 70ch;
+}
+.tag-current {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--mint);
+  border-radius: 999px;
+  padding: 0.14rem 0.6rem;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+/* ---------- Sobre mí ---------- */
+.profile-card {
+  border-radius: var(--radius-lg);
+}
+.profile-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.05rem 0;
+}
+.profile-row + .profile-row {
+  border-top: 1px solid var(--border);
+}
+.profile-icon {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: var(--mint-10);
+  border: 1px solid var(--mint-20);
+  color: var(--mint);
+}
+.profile-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 0.15rem;
+}
+.profile-value {
+  color: var(--text);
+  margin: 0;
+}
+.about-intro p + p {
+  margin-top: 1rem;
+}
+
+/* ---------- Tecnologías ---------- */
+.tech-card {
+  height: 100%;
+  padding: 1.5rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition), transform var(--transition);
+}
+.tech-card:hover {
+  border-color: var(--mint-35);
+  transform: translateY(-4px);
+}
+.tech-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+.tech-card-icon {
+  width: 2.9rem;
+  height: 2.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: var(--mint-10);
+  border: 1px solid var(--mint-20);
+  color: var(--mint);
+}
+.tech-card-title {
+  font-size: 1.05rem;
+  margin: 0;
+}
+.tech-card-count {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tech-list .chip {
+  font-size: 0.86rem;
+  padding: 0.38rem 0.95rem;
+}
+
+/* ---------- Contacto ---------- */
+.contact-card {
+  border-radius: var(--radius-lg);
+  padding: 1.35rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  color: inherit;
+  transition: border-color var(--transition), transform var(--transition),
+    background-color var(--transition);
+}
+.contact-card:hover {
+  transform: translateX(6px);
+  border-color: var(--mint-35);
+  background-color: var(--surface-hover);
+}
+.contact-card h3 {
+  font-size: 1.02rem;
+  margin: 0;
+}
+.contact-card p {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  border-top: 1px solid var(--border);
+  background-color: #212328;
+  padding: 2.6rem 0 2.2rem;
+}
+.footer-brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+.footer-note {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.footer-link {
+  color: var(--muted);
+  transition: color var(--transition);
+}
+.footer-link:hover {
+  color: var(--mint);
+}
+.footer-sep {
+  color: #3f444d;
+  margin: 0 0.55rem;
+}
+
+/* ---------- Varios ---------- */
+.placeholder-hint {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--mint-35);
+  text-transform: uppercase;
+}
+.divider-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--mint-35);
+  display: inline-block;
+  margin: 0 0.6rem;
+  vertical-align: middle;
+}
+
+/* ---------- Contacto: panel CTA ---------- */
+.cta-panel {
+  border: 1px solid var(--mint-20);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(420px 200px at 90% 0%, rgba(184, 247, 228, 0.09), transparent 70%),
+    linear-gradient(120deg, rgba(184, 247, 228, 0.05), rgba(184, 247, 228, 0.01));
+  padding: clamp(1.6rem, 4vw, 2.6rem);
+}
+.cta-panel h3 {
+  font-size: clamp(1.35rem, 2.6vw, 1.8rem);
+  margin-bottom: 0.5rem;
+}
+.cta-panel p {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+/* Ajuste de la tarjeta de canal de contacto */
+.contact-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+}
+.contact-icon {
+  flex-shrink: 0;
+  width: 2.6rem;
+  height: 2.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: var(--mint-10);
+  border: 1px solid var(--mint-20);
+  color: var(--mint);
+}
+
+/* Botón de enlace pendiente (placeholder) */
+.project-link-pending {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 999px;
+  border: 1px dashed var(--border-strong);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+/* Nota que identifica contenido placeholder */
+.placeholder-note {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Cursor terminal en el hero */
+.hero-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-left: 0.3rem;
+  background: var(--mint);
+  vertical-align: text-bottom;
+  animation: cursorPulse 1.6s steps(1) infinite;
+}
+@keyframes cursorPulse {
+  50% { opacity: 0; }
+}
+
+/* Título dentro del proyecto destacado */
+.featured-title {
+  font-size: clamp(1.45rem, 2.6vw, 1.9rem);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Texto introductorio de Sobre mí */
+.about-intro {
+  font-size: 1.06rem;
+}
+.about-intro strong {
+  color: var(--mint);
+  font-weight: 600;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-sergio-vidal-moreno",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Portfolio prototipo de Sergio Vidal Moreno — Desarrollador Web (React + Vite + Bootstrap)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "lucide-react": "^1.43.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.1",
+    "vite": "^8.2.2"
+  }
+}
