@@ -23,15 +23,14 @@
 
 export const projects = [
   {
-    id: 'proyecto-destacado',
+    id: 'proyecto-1',
     featured: false,
-    title: '[Nombre del proyecto destacado]',
-    description:
-      '[Cuenta qué hace este proyecto, qué problema resuelve y qué aprendiste construyéndolo. El proyecto destacado recibe un tratamiento visual mayor: descríbelo con un poco más de detalle.]',
+    title: 'Portfolio',
+    description:'Portfolio personal creado con React, Vite, Bootstrap y JavaScript.',
     tech: ['React', 'JavaScript', 'Vite', 'Bootstrap'],
-    image: null,
-    repo: null,
-    demo: null,
+    image: '/proyectos/portfolio.png',
+    repo: 'https://github.com/GodSergio7/portfolio',
+    demo: 'https://portfolio-olive-rho-29.vercel.app/#inicio',
   },
   {
     id: 'proyecto-2',
