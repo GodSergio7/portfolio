@@ -40,7 +40,7 @@ export const projects = [
     description:
       'Lista de tareas con calendario perfecto para apuntar las tareas pendientes y no olvidarme de ninguna. Todavia en desarrollo.',
     tech: ['HTML', 'CSS', 'JavaScript'],
-    image: '/public/proyectos/todoapp.png',
+    image: '/proyectos/todoapp.png',
     repo: 'https://github.com/GodSergio7/todo-app',
     demo: 'https://todo-app-one-lilac-25.vercel.app/tareas/tareas.html',
   },
