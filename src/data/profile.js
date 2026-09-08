@@ -1,44 +1,81 @@
 // ============================================================
-// Datos personales del portfolio
+// Datos personales del portfolio.
 // ------------------------------------------------------------
-// IMPORTANTE: sustituye todo lo marcado como [PLACEHOLDER] por
-// tus datos reales. No se debe inventar información personal.
+// IMPORTANTE: solo se incluye información real proporcionada.
+// Lo pendiente (GitHub/LinkedIn, proyectos) permanece en null o
+// como placeholder para rellenarlo cuando esté disponible.
 // ============================================================
 
 export const profile = {
   name: 'Sergio Vidal Moreno',
   shortName: 'Sergio Vidal',
   role: 'Desarrollador Web',
+  location: 'Mula, Murcia, España',
+
+  // Formación actual (Grado Superior)
   formation: 'Desarrollo de Aplicaciones Web',
 
-  // Frase breve profesional (se muestra en el Hero)
+  // Frase breve profesional (Hero)
   tagline:
-    'Convierto ideas en aplicaciones web claras y eficientes: interfaces cuidadas, código limpio y una experiencia de uso pensada de principio a fin.',
+    'Desarrollador web en formación, especializado en el desarrollo de aplicaciones web y con experiencia trabajando con tecnologías frontend, backend y bases de datos.',
 
-  // Párrafos de la sección «Sobre mí». Cualquier párrafo entre
-  // corchetes se muestra como nota de placeholder en la interfaz.
+  // Párrafos de la sección «Sobre mí» (presentación resumida, no CV)
   about: [
-    'Soy Sergio Vidal Moreno, Desarrollador Web con formación en Desarrollo de Aplicaciones Web. Me centro en construir productos web funcionales y atractivos, escribiendo código claro, fácil de mantener y de ampliar.',
-    // TODO: sustitúyelo por un texto real (orientación profesional, motivación, siguiente objetivo…).
-    '[Párrafo opcional: cuenta tu orientación profesional (frontend, full-stack o backend), lo que te apasiona de este oficio o tu siguiente objetivo profesional.]',
+    'Soy Sergio Vidal Moreno, Desarrollador Web en formación. Actualmente curso el Grado Superior en Desarrollo de Aplicaciones Web y cuento con formación previa en Sistemas Microinformáticos y Redes, además de experiencia práctica en soporte técnico, instalación de equipos y configuración de redes locales.',
+    'Mi objetivo profesional está orientado al desarrollo web. Me interesan las tecnologías modernas y, de forma especial, el uso de herramientas de IA aplicadas al desarrollo como apoyo al aprendizaje, la resolución de problemas y la productividad.',
   ],
 
   // Valor que aparece en el perfil como «Orientación profesional»
-  orientation: '[Frontend / Full-stack / Backend]', // TODO: placeholder
+  orientation: 'Desarrollo web',
 
-  // Tecnologías principales destacadas dentro de «Sobre mí»
-  mainStack: ['React', 'JavaScript', 'Vite', 'Bootstrap'],
+  // Idiomas (solo los proporcionados)
+  languages: [{ language: 'Español', level: 'Nativo' }],
 
-  // ---------------- Contacto (todo [PLACEHOLDER]) ----------------
-  email: 'tu-email@ejemplo.com', // TODO: email real
+  // Habilidades transversales
+  softSkills: [
+    'Trabajo en equipo y colaboración',
+    'Aprendizaje rápido y adaptación a nuevas tecnologías',
+    'Organización y gestión del tiempo',
+    'Comunicación efectiva con usuarios y compañeros',
+  ],
 
+  // ---------------- Contacto (datos reales) ----------------
+  email: 'sergiovidalmoreno7@gmail.com',
+  phone: {
+    display: '+34 665 35 20 32',
+    href: 'tel:+34665352032',
+  },
+
+  // Redes: URL en null = todavía no proporcionada → se muestra
+  // como «próximamente» en la interfaz (no se inventan enlaces).
   social: [
-    // TODO: URLs reales de tus perfiles.
-    { id: 'github', label: 'GitHub', url: 'https://github.com/tu-usuario' },
-    {
-      id: 'linkedin',
-      label: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/tu-usuario',
-    },
+    { id: 'github', label: 'GitHub', url: null },
+    { id: 'linkedin', label: 'LinkedIn', url: null },
   ],
 }
+
+// Datos resumidos que aparecen en la tarjeta de «Sobre mí».
+// Solo hechos reales: formación, experiencia y orientación.
+export const aboutFacts = [
+  {
+    id: 'formacion',
+    icon: 'graduation',
+    label: 'Formación',
+    value: profile.formation,
+    sub: 'Grado Superior · IES Ribera de los Molinos',
+  },
+  {
+    id: 'experiencia',
+    icon: 'briefcase',
+    label: 'Experiencia',
+    value: 'Prácticas y auxiliar técnico',
+    sub: 'Soporte técnico, equipos y redes — Conecta Telecom S.L.',
+  },
+  {
+    id: 'orientacion',
+    icon: 'compass',
+    label: 'Orientación profesional',
+    value: profile.orientation,
+    sub: 'Frontend, backend y bases de datos',
+  },
+]

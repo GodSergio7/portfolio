@@ -1,32 +1,72 @@
 // ============================================================
-// Tecnologías organizadas por categoría.
-// No se inventan niveles de dominio: solo nombres.
-// Añade o quita tecnologías editando este único fichero.
+// Tecnologías y conocimientos, organizados por categoría.
+// ------------------------------------------------------------
+// Solo aparecen las tecnologías proporcionadas por Sergio.
+// NO se muestran niveles de dominio ni porcentajes.
+//
+// kind: 'list'    → se muestra como chips de tecnologías.
+//       'bullets' → se muestra como lista de conocimientos.
+//
+// Para añadir o quitar tecnología solo se edita este fichero.
 // ============================================================
 
 export const techCategories = [
   {
-    id: 'frontend',
-    title: 'Frontend',
-    caption: 'Interfaces y experiencia de usuario',
-    techs: ['HTML', 'CSS', 'JavaScript', 'React', 'Vite'],
+    id: 'desarrollo-web',
+    title: 'Desarrollo Web',
+    caption: 'Frontend, backend y bases de datos',
+    kind: 'list',
+    items: [
+      'HTML',
+      'CSS',
+      'Bootstrap',
+      'JavaScript',
+      'PHP',
+      'MySQL',
+      'Python',
+      'Java',
+      'Spring Boot',
+      'React',
+      'Angular',
+    ],
   },
   {
-    id: 'backend',
-    title: 'Backend',
-    caption: 'APIs y lógica de servidor',
-    techs: ['Java', 'Spring', 'Python', 'Node.js', 'Express.js'],
-  },
-  {
-    id: 'databases',
-    title: 'Bases de datos',
-    caption: 'Almacenamiento y consulta de datos',
-    techs: ['MySQL', 'SQL', 'Firebase'],
-  },
-  {
-    id: 'tools',
+    id: 'herramientas',
     title: 'Herramientas',
-    caption: 'Flujo de trabajo diario',
-    techs: ['Git', 'GitHub', 'Docker', 'VS Code', 'IntelliJ IDEA'],
+    caption: 'Entorno de trabajo',
+    kind: 'list',
+    items: ['Git', 'GitHub', 'Visual Studio Code', 'IntelliJ IDEA', 'Antigravity'],
+  },
+  {
+    id: 'sistemas-redes',
+    title: 'Sistemas y Redes',
+    caption: 'Conocimiento complementario',
+    kind: 'bullets',
+    items: [
+      'Instalación y mantenimiento de equipos',
+      'Configuración de redes locales',
+      'Soporte técnico a usuarios',
+    ],
+  },
+  {
+    id: 'ia-desarrollo',
+    title: 'IA aplicada al desarrollo',
+    caption: 'IA generativa como apoyo al desarrollo',
+    kind: 'bullets',
+    items: [
+      'Uso de IA generativa como asistencia en programación',
+      'Resolución de problemas mediante IA',
+      'Generación y optimización de código',
+      'Apoyo al aprendizaje técnico',
+      'Mejora de productividad',
+      'Integración de herramientas de IA en flujos de trabajo',
+    ],
+  },
+  {
+    id: 'productividad',
+    title: 'Productividad y organización',
+    caption: 'Gestión de tareas y comunicación',
+    kind: 'list',
+    items: ['Notion', 'Trello', 'Slack'],
   },
 ]

@@ -1,28 +1,41 @@
 // ============================================================
-// Formación y estudios relacionados con programación.
+// Formación (información real).
 // ------------------------------------------------------------
-// Formato de cada entrada:
-//   { id, degree, school, type, period, note }
-//
-// TODO: los campos entre corchetes son PLACEHOLDERS (centro,
-// fechas, notas…). Rellena solo lo que tengas real.
+// Cada entrada:
+//   { id, degree, school, period, current?, note? }
 // ============================================================
 
 export const education = [
   {
     id: 'daw',
-    degree: 'Desarrollo de Aplicaciones Web',
-    school: '[Centro de formación]', // TODO: placeholder
-    type: 'Ciclo Formativo de Grado Superior',
-    period: '[Año inicio] — [Año fin]', // TODO: placeholder
-    note: '[Detalla aquí los módulos o logros más relevantes del ciclo.]', // TODO: placeholder
+    degree: 'Grado Superior en Desarrollo de Aplicaciones Web',
+    school: 'IES Ribera de los Molinos',
+    period: '2023 — Actualidad',
+    current: true,
+    note: '',
   },
   {
-    id: 'formacion-complementaria',
-    degree: '[Curso o certificación complementaria]',
-    school: '[Plataforma / academia]',
-    type: 'Formación complementaria',
-    period: '[Año]',
-    note: '[Qué aprendiste y por qué aporta a tu perfil como desarrollador.]',
+    id: 'smr',
+    degree: 'Grado Medio en Sistemas Microinformáticos y Redes',
+    school: 'IES Ribera de los Molinos',
+    period: '2020 — 2023',
+    current: false,
+    note: '',
+  },
+  {
+    id: 'fp-basica',
+    degree: 'FP Básica en Comercio',
+    school: 'IES Ribera de los Molinos',
+    period: '2018 — 2020',
+    current: false,
+    note: '',
+  },
+  {
+    id: 'eso',
+    degree: 'Educación Secundaria Obligatoria (ESO)',
+    school: 'IES Ribera de los Molinos',
+    period: '2018 — 2020',
+    current: false,
+    note: '',
   },
 ]

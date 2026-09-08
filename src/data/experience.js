@@ -1,26 +1,39 @@
 // ============================================================
-// Experiencia profesional y prácticas.
+// Experiencia profesional y prácticas (información real).
 // ------------------------------------------------------------
-// Formato de cada entrada:
+// Cada entrada:
 //   {
-//     id, role, company, location, period,
-//     current: true | false (marca «Actual»),
-//     description: texto breve
+//     id, role, company, location?, period, current?,
+//     description?, bullets?: [responsabilidades concretas]
 //   }
-//
-// TODO: las entradas actuales son PLACEHOLDERS. Añade aquí tu
-// experiencia real cuando la tengas; el componente se adapta.
 // ============================================================
 
 export const experience = [
   {
-    id: 'experiencia-placeholder',
-    role: '[Puesto — p. ej. Desarrollador Web]',
-    company: '[Empresa / organización]',
-    location: '[Ciudad]',
-    period: '[Mes año] — [Mes año]',
+    id: 'conecta-telecom-practicas',
+    role: 'Prácticas del Grado Medio en Sistemas Microinformáticos y Redes',
+    company: 'Conecta Telecom S.L.',
+    location: '',
+    period: '2022 · 300 horas',
     current: false,
-    description:
-      '[Describe aquí tus responsabilidades, las tecnologías que utilizaste y los logros concretos. Si es una práctica, indica el tipo (FCT, beca…) y las tareas principales.]',
+    bullets: [
+      'Instalación y mantenimiento de equipos informáticos',
+      'Configuración y supervisión de redes locales',
+      'Soporte técnico básico a usuarios',
+      'Resolución de incidencias',
+      'Colaboración en proyectos internos bajo supervisión del equipo técnico',
+    ],
+  },
+  {
+    id: 'conecta-telecom-auxiliar',
+    role: 'Auxiliar técnico',
+    company: 'Conecta Telecom S.L.',
+    location: '',
+    period: 'Abril 2023 · 9 días',
+    current: false,
+    bullets: [
+      'Apoyo en tareas de mantenimiento y soporte informático',
+      'Asistencia en la gestión de incidencias de usuarios',
+    ],
   },
 ]

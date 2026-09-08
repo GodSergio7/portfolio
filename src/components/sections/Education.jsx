@@ -10,7 +10,7 @@ export default function Education() {
         index="05"
         label="Formación"
         title="Estudios y aprendizaje"
-        lead="Mi formación relacionada con el desarrollo de software y el diseño de aplicaciones web."
+        lead="Mi formación reglada, de la ESO al Grado Superior en Desarrollo de Aplicaciones Web."
       />
 
       <div className="row">
@@ -18,17 +18,22 @@ export default function Education() {
           {education.length > 0 ? (
             <div className="timeline">
               {education.map((item) => (
-                <div className="timeline-item" key={item.id}>
-                  <p className="timeline-date">{item.period}</p>
-                  <h3 className="timeline-title">{item.degree}</h3>
-                  <p className="timeline-org">
-                    {item.school}
-                    <span className="divider-dot" aria-hidden="true" />
-                    <span className="font-mono text-muted" style={{ fontSize: '0.82rem' }}>
-                      {item.type}
-                    </span>
+                <div
+                  className={`timeline-item ${item.current ? 'timeline-item--current' : ''}`}
+                  key={item.id}
+                >
+                  <p className="timeline-date">
+                    {item.period}
+                    {item.current &&
+                    !item.period.toLowerCase().includes('actualidad') ? (
+                      <span className="tag-current">Actual</span>
+                    ) : null}
                   </p>
-                  <p className="timeline-desc">{item.note}</p>
+                  <h3 className="timeline-title">{item.degree}</h3>
+                  <p className="timeline-org">{item.school}</p>
+                  {item.note ? (
+                    <p className="timeline-desc">{item.note}</p>
+                  ) : null}
                 </div>
               ))}
             </div>

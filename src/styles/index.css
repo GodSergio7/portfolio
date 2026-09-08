@@ -753,6 +753,7 @@ a:hover {
 .profile-value {
   color: var(--text);
   margin: 0;
+  overflow-wrap: anywhere; /* evita desbordes con valores largos (email…) */
 }
 .about-intro p + p {
   margin-top: 1rem;
@@ -807,33 +808,6 @@ a:hover {
   padding: 0.38rem 0.95rem;
 }
 
-/* ---------- Contacto ---------- */
-.contact-card {
-  border-radius: var(--radius-lg);
-  padding: 1.35rem 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1.1rem;
-  color: inherit;
-  transition: border-color var(--transition), transform var(--transition),
-    background-color var(--transition);
-}
-.contact-card:hover {
-  transform: translateX(6px);
-  border-color: var(--mint-35);
-  background-color: var(--surface-hover);
-}
-.contact-card h3 {
-  font-size: 1.02rem;
-  margin: 0;
-}
-.contact-card p {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  color: var(--muted);
-}
-
 /* ---------- Footer ---------- */
 .footer {
   border-top: 1px solid var(--border);
@@ -849,13 +823,6 @@ a:hover {
 .footer-note {
   color: var(--muted);
   font-size: 0.88rem;
-}
-.footer-link {
-  color: var(--muted);
-  transition: color var(--transition);
-}
-.footer-link:hover {
-  color: var(--mint);
 }
 .footer-sep {
   color: #3f444d;
@@ -896,24 +863,6 @@ a:hover {
 .cta-panel p {
   color: var(--muted);
   margin-bottom: 0;
-}
-
-/* Ajuste de la tarjeta de canal de contacto */
-.contact-card {
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-}
-.contact-icon {
-  flex-shrink: 0;
-  width: 2.6rem;
-  height: 2.6rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-sm);
-  background: var(--mint-10);
-  border: 1px solid var(--mint-20);
-  color: var(--mint);
 }
 
 /* Botón de enlace pendiente (placeholder) */
@@ -964,4 +913,132 @@ a:hover {
 .about-intro strong {
   color: var(--mint);
   font-weight: 600;
+}
+
+/* ---------- Subtítulo dentro de las filas de perfil ---------- */
+.profile-sub {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin: 0.2rem 0 0;
+}
+
+/* ---------- Lista de conocimientos con viñeta ---------- */
+.tech-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.tech-bullets li {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  color: var(--text-soft);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+.tech-bullets svg {
+  flex-shrink: 0;
+  margin-top: 0.28rem;
+  color: var(--mint);
+}
+
+/* ---------- Tarjetas informativas (Idiomas / Habilidades) ---------- */
+.info-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.5rem;
+  height: 100%;
+  transition: border-color var(--transition);
+}
+.info-card:hover {
+  border-color: var(--mint-35);
+}
+.info-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.1rem;
+}
+.info-card-head h3 {
+  font-size: 1.05rem;
+  margin: 0;
+}
+.language-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.language-name {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ---------- Viñetas de la línea de tiempo (experiencia) ---------- */
+.timeline-bullets {
+  list-style: none;
+  margin: 0.9rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.timeline-bullets li {
+  position: relative;
+  padding-left: 1.15rem;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.timeline-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--mint-35);
+}
+
+/* ---------- Icono social pendiente (sin URL real) ---------- */
+.icon-btn--pending {
+  opacity: 0.42;
+  cursor: default;
+}
+.icon-btn--pending:hover {
+  background-color: transparent;
+  border-color: var(--border-strong);
+  color: var(--text-soft);
+  transform: none;
+}
+
+/* ---------- Filas de canales de contacto ---------- */
+.contact-row {
+  color: var(--text);
+}
+.contact-row,
+.contact-row:hover {
+  text-decoration: none;
+  color: var(--text);
+}
+.contact-row-arrow {
+  align-self: center;
+  color: var(--muted);
+  transition: color var(--transition), transform var(--transition);
+}
+a.contact-row:hover .contact-row-arrow {
+  color: var(--mint);
+  transform: translate(2px, -2px);
+}
+a.contact-row:hover .profile-value {
+  color: var(--mint);
 }

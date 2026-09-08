@@ -5,6 +5,7 @@ import SocialLinks from '../ui/SocialLinks'
 /**
  * Tarjeta decorativa «sergio-vidal.js»: composición visual que
  * comunica de inmediato que esto es un portfolio de desarrollo.
+ * Contiene solo datos reales del perfil.
  */
 function CodeCard() {
   return (
@@ -24,7 +25,7 @@ function CodeCard() {
       <div className="code-card-body">
         <pre>
           <span className="code-line">
-            <span className="code-token-com">// portfolio — 2025</span>
+            <span className="code-token-com">// DAW · IES Ribera de los Molinos</span>
           </span>
           <span className="code-line">
             <span className="code-token-key">const</span>{' '}
@@ -38,28 +39,16 @@ function CodeCard() {
           <span className="code-line">
             {'  '}rol: <span className="code-token-str">'Desarrollador Web'</span>,
           </span>
-          <span className="code-line">{'  '}stack: [</span>
           <span className="code-line">
-            {'    '}<span className="code-token-str">'React'</span>,{' '}
-            <span className="code-token-str">'JavaScript'</span>,
+            {'  '}estudios: [<span className="code-token-str">'S.M.R.'</span>,{' '}
+            <span className="code-token-str">'D.A.W.'</span>],
           </span>
           <span className="code-line">
-            {'    '}<span className="code-token-str">'Vite'</span>,{' '}
-            <span className="code-token-str">'Bootstrap'</span>,
-          </span>
-          <span className="code-line">{'  '}],</span>
-          <span className="code-line">
-            {'  '}foco: <span className="code-token-str">'código limpio y buena UX'</span>,
+            {'  '}ubicacion:{' '}
+            <span className="code-token-str">'Mula, Murcia'</span>,
           </span>
           <span className="code-line">
             <span className="code-token-punct">{'};'}</span>
-          </span>
-          <span className="code-line">{'  '}</span>
-          <span className="code-line">
-            <span className="code-token-com">// construyendo la web,</span>
-          </span>
-          <span className="code-line">
-            <span className="code-token-com">// una línea a la vez.</span>
           </span>
         </pre>
       </div>
@@ -105,7 +94,7 @@ export default function Hero() {
               </a>
               <a href="#contacto" className="btn btn-outline-mint">
                 <Mail size={16} className="me-2" aria-hidden="true" />
-                Contactar
+                Contactar conmigo
               </a>
               <span
                 className="d-none d-md-inline-block footer-sep mx-1"
@@ -120,7 +109,7 @@ export default function Hero() {
               className="placeholder-hint mt-4 mb-0 fade-up"
               style={{ animationDelay: '380ms' }}
             >
-              * Enlaces sociales pendientes de sustituir (src/data/profile.js)
+              * GitHub y LinkedIn pendientes de añadir (src/data/profile.js)
             </p>
           </div>
 

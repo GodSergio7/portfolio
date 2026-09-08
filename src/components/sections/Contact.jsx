@@ -1,30 +1,87 @@
-import { ArrowUpRight, Mail } from 'lucide-react'
+import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react'
 import Section from '../layout/Section'
 import SectionHeading from '../ui/SectionHeading'
 import Reveal from '../ui/Reveal'
-import SocialLinks from '../ui/SocialLinks'
 import { getSocialIcon } from '../ui/BrandIcons'
 import { profile } from '../../data/profile'
 
-const displayUrl = (url) => url.replace(/^https?:\/\//, '').replace(/\/$/, '')
+/**
+ * Fila de un canal de contacto.
+ * Si el canal es enlazable (email, teléfono) se renderiza como
+ * <a>; en caso contrario (ubicación, redes sin URL) como <div>.
+ */
+function ContactRow({ row }) {
+  const Tag = row.href ? 'a' : 'div'
+  const anchorProps = row.href
+    ? {
+        href: row.href,
+        target: row.id === 'email' || row.id === 'phone' ? undefined : '_blank',
+        rel:
+          row.id === 'email' || row.id === 'phone'
+            ? undefined
+            : 'noopener noreferrer',
+        'aria-label': `${row.label}: ${row.value}`,
+      }
+    : {}
+
+  return (
+    <Tag className="profile-row contact-row" {...anchorProps}>
+      <span className="profile-icon" aria-hidden="true">
+        {row.Icon ? <row.Icon size={20} /> : null}
+      </span>
+      <span className="flex-grow-1">
+        <span className="profile-label d-block">{row.label}</span>
+        <span
+          className={`profile-value ${row.pending ? 'text-muted' : ''}`}
+        >
+          {row.value}
+        </span>
+      </span>
+      {row.href ? (
+        <ArrowUpRight
+          size={18}
+          className="contact-row-arrow"
+          aria-hidden="true"
+        />
+      ) : null}
+    </Tag>
+  )
+}
 
 export default function Contact() {
-  const channels = [
+  const rows = [
     {
       id: 'email',
+      Icon: Mail,
       label: 'Email',
       value: profile.email,
       href: `mailto:${profile.email}`,
-      Icon: Mail,
-      placeholder: true,
+      pending: false,
     },
+    {
+      id: 'phone',
+      Icon: Phone,
+      label: 'Teléfono',
+      value: profile.phone.display,
+      href: profile.phone.href,
+      pending: false,
+    },
+    {
+      id: 'location',
+      Icon: MapPin,
+      label: 'Ubicación',
+      value: profile.location,
+      href: null,
+      pending: false,
+    },
+    // Redes sin URL real todavía: se muestran como pendientes.
     ...profile.social.map((link) => ({
       id: link.id,
-      label: link.label,
-      value: displayUrl(link.url),
-      href: link.url,
       Icon: getSocialIcon(link.id),
-      placeholder: true,
+      label: link.label,
+      value: 'Próximamente',
+      href: null,
+      pending: true,
     })),
   ]
 
@@ -37,56 +94,40 @@ export default function Contact() {
         lead="¿Un proyecto en mente, una oportunidad profesional o simplemente quieres saludar? Cuéntamelo."
       />
 
-      <div className="row g-4">
-        {/* Panel CTA principal */}
-        <Reveal className="col-12">
-          <div className="cta-panel">
-            <div className="row g-4 align-items-center">
-              <div className="col-lg-7">
-                <h3>¿Tienes un proyecto en mente?</h3>
-                <p>
-                  Si buscas un Desarrollador Web para tu equipo o tu próximo
-                  proyecto, escríbeme y hablamos.
-                </p>
-              </div>
-              <div className="col-lg-5">
-                <div className="d-flex flex-wrap align-items-center gap-3 justify-content-lg-end">
-                  <a href={`mailto:${profile.email}`} className="btn btn-mint">
-                    <Mail size={17} className="me-2" aria-hidden="true" />
-                    Enviar un email
-                  </a>
-                  <SocialLinks links={profile.social} size={19} />
-                </div>
-              </div>
+      <div className="row g-4 g-lg-5">
+        {/* Panel principal con acciones */}
+        <Reveal className="col-lg-6">
+          <div className="cta-panel h-100">
+            <h3>¿Tienes un proyecto en mente?</h3>
+            <p className="mb-4">
+              Si buscas un Desarrollador Web para tu equipo o tu próximo
+              proyecto, escríbeme o llámame y hablamos sin compromiso.
+            </p>
+            <div className="d-flex flex-wrap align-items-center gap-2">
+              <a href={`mailto:${profile.email}`} className="btn btn-mint">
+                <Mail size={17} className="me-2" aria-hidden="true" />
+                Enviar email
+              </a>
+              <a href={profile.phone.href} className="btn btn-outline-mint">
+                <Phone size={16} className="me-2" aria-hidden="true" />
+                Llamar
+              </a>
             </div>
+            <p className="placeholder-hint mt-4 mb-0">
+              GitHub y LinkedIn se activarán cuando añadas tus perfiles en
+              src/data/profile.js
+            </p>
           </div>
         </Reveal>
 
-        {/* Canales de contacto */}
-        {channels.map((channel, index) => (
-          <Reveal className="col-md-6 col-xl-4" delay={index * 90} key={channel.id}>
-            <a
-              className="contact-card card-surface w-100"
-              href={channel.href}
-              target={channel.id === 'email' ? undefined : '_blank'}
-              rel={channel.id === 'email' ? undefined : 'noopener noreferrer'}
-              aria-label={`${channel.label}: ${channel.value}`}
-            >
-              <span className="contact-icon" aria-hidden="true">
-                {channel.Icon ? <channel.Icon size={21} /> : null}
-              </span>
-              <span className="flex-grow-1">
-                <h3>{channel.label}</h3>
-                <p>{channel.value}</p>
-              </span>
-              <ArrowUpRight
-                size={18}
-                className="flex-shrink-0 text-muted"
-                aria-hidden="true"
-              />
-            </a>
-          </Reveal>
-        ))}
+        {/* Detalle de canales */}
+        <Reveal className="col-lg-6" delay={120}>
+          <div className="card-surface profile-card p-4 h-100">
+            {rows.map((row) => (
+              <ContactRow row={row} key={row.id} />
+            ))}
+          </div>
+        </Reveal>
       </div>
     </Section>
   )

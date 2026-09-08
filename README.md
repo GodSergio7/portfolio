@@ -1,7 +1,7 @@
-# Sergio Vidal Moreno — Portfolio (prototipo)
+# Sergio Vidal Moreno — Portfolio
 
-Primer prototipo del portfolio personal de **Sergio Vidal Moreno**, Desarrollador Web.
-Foco de esta iteración: **diseño, UX, responsive y arquitectura frontend** (sin backend,
+Portfolio personal de **Sergio Vidal Moreno**, Desarrollador Web (Mula, Murcia, España).
+Prototipo frontend: **diseño, UX, responsive y arquitectura de componentes** (sin backend,
 base de datos ni autenticación).
 
 ## Stack
@@ -20,17 +20,17 @@ Identidad visual construida sobre `#B8F7E4` (menta) y `#25272C` (tinta oscura).
 src/
 ├── main.jsx                  # Punto de entrada (importa Bootstrap + estilos)
 ├── App.jsx                   # Ensamblado de secciones
-├── data/                     # ← TODO el contenido editable, separado de la UI
-│   ├── profile.js            #   Nombre, tagline, email, GitHub/LinkedIn
+├── data/                     # ← TODO el contenido, separado de la UI
+│   ├── profile.js            #   Datos personales, contacto, idiomas, habilidades
 │   ├── navigation.js         #   Ítems del navbar y anclas de secciones
-│   ├── technologies.js       #   Tecnologías por categoría
-│   ├── projects.js           #   Proyectos (imagen, tech, repo, demo)
+│   ├── technologies.js       #   Tecnologías y conocimientos por categoría
+│   ├── projects.js           #   Proyectos (placeholder hasta definirlos)
 │   ├── experience.js         #   Experiencia profesional / prácticas
 │   └── education.js          #   Formación
 ├── components/
 │   ├── layout/               # Navbar, Footer, Section
 │   ├── sections/             # Hero, About, Technologies, Projects, Experience, Education, Contact
-│   └── ui/                   # SectionHeading, Reveal, chips, iconos reutilizables
+│   └── ui/                   # SectionHeading, Reveal, iconos y piezas reutilizables
 ├── hooks/
 │   └── useActiveSection.js   # Scrollspy del navbar
 └── styles/
@@ -40,24 +40,29 @@ src/
 Principios aplicados:
 
 - **Componentes reutilizables** (`Section`, `SectionHeading`, `Reveal`, chips…).
-- **Datos separados de la vista**: para añadir un proyecto o una tecnología solo se
-  edita el fichero correspondiente de `src/data/`, sin tocar componentes.
+- **Datos separados de la vista**: editar `src/data/` basta para cambiar contenidos.
 - **Código limpio**: un componente por responsabilidad, nombres descriptivos.
 - **Responsive desde el diseño**: grid de Bootstrap por breakpoints + utilidades CSS.
 
-## Placeholders
+## Contenido y placeholders
 
-No se ha inventado ningún dato personal. Los contenidos pendientes están **marcados
-entre corchetes** y/o con comentarios `TODO` en `src/data/`. Para personalizar:
+El portfolio contiene **solo información real**. Lo que todavía no está disponible se
+muestra con placeholders claramente identificados:
 
-1. `src/data/profile.js` → nombre, frase, email y URLs de GitHub/LinkedIn reales.
-2. `src/data/projects.js` → tus proyectos reales (título, descripción, tech,
-   imagen, repo y demo).
-3. `src/data/experience.js` y `src/data/education.js` → experiencia y formación.
+| Dato | Estado |
+| --- | --- |
+| Nombre, rol, ubicación, email, teléfono | ✅ Real |
+| Formación (4 estudios) y experiencia (Conecta Telecom) | ✅ Real |
+| Tecnologías, idiomas y habilidades | ✅ Real |
+| **GitHub / LinkedIn** | ⏳ Pendiente: `url: null` en `src/data/profile.js` |
+| **Proyectos** | ⏳ Pendiente: placeholders en `src/data/projects.js` |
 
-En la interfaz, lo pendiente se identifica como: texto entre corchetes, huecos de
-«captura próximamente», botones «próximamente» y etiquetas de placeholder en los
-enlaces sociales.
+Para personalizar o completar:
+
+1. `src/data/profile.js` → URLs de GitHub/LinkedIn cuando existan.
+2. `src/data/projects.js` → proyectos reales (imagen, tecnologías, repo y demo).
+
+Email y teléfono son interactivos (`mailto:` y `tel:`); no se inventan enlaces.
 
 ## Comandos
 
@@ -72,5 +77,6 @@ npm run preview   # previsualizar la compilación
 
 - Dos iconos (`GitHub`, `LinkedIn`) son SVG inline: `lucide-react` **v1 eliminó los
   iconos de marca** de su catálogo. El resto de iconos son de Lucide.
+- Sin niveles de dominio ni porcentajes inventados.
 - Animaciones solo de entrada/reveal, sutiles y desactivadas con
   `prefers-reduced-motion`.
