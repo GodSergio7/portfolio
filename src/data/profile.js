@@ -2,8 +2,8 @@
 // Datos personales del portfolio.
 // ------------------------------------------------------------
 // IMPORTANTE: solo se incluye información real proporcionada.
-// Lo pendiente (GitHub/LinkedIn, proyectos) permanece en null o
-// como placeholder para rellenarlo cuando esté disponible.
+// Lo pendiente (los proyectos) permanece como placeholder para
+// rellenarlo cuando esté disponible.
 // ============================================================
 
 export const profile = {
@@ -46,11 +46,14 @@ export const profile = {
     href: 'tel:+34665352032',
   },
 
-  // Redes: URL en null = todavía no proporcionada → se muestra
-  // como «próximamente» en la interfaz (no se inventan enlaces).
+  // Redes sociales reales. Se abren en una pestaña nueva.
   social: [
-    { id: 'github', label: 'GitHub', url: null },
-    { id: 'linkedin', label: 'LinkedIn', url: null },
+    { id: 'github', label: 'GitHub', url: 'https://github.com/GodSergio7' },
+    {
+      id: 'linkedin',
+      label: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/sergio-vidal-moreno-5462b8364/',
+    },
   ],
 }
 

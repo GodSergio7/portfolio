@@ -830,13 +830,6 @@ a:hover {
 }
 
 /* ---------- Varios ---------- */
-.placeholder-hint {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  color: var(--mint-35);
-  text-transform: uppercase;
-}
 .divider-dot {
   width: 5px;
   height: 5px;

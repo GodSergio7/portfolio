@@ -7,8 +7,8 @@ import { profile } from '../../data/profile'
 
 /**
  * Fila de un canal de contacto.
- * Si el canal es enlazable (email, teléfono) se renderiza como
- * <a>; en caso contrario (ubicación, redes sin URL) como <div>.
+ * Si el canal es enlazable (email, teléfono, redes con URL) se
+ * renderiza como <a>; si no (ubicación) como <div>.
  */
 function ContactRow({ row }) {
   const Tag = row.href ? 'a' : 'div'
@@ -48,6 +48,9 @@ function ContactRow({ row }) {
   )
 }
 
+// URL mostrada de forma legible (sin protocolo ni barra final).
+const displayUrl = (url) => url.replace(/^https?:\/\//, '').replace(/\/$/, '')
+
 export default function Contact() {
   const rows = [
     {
@@ -74,14 +77,14 @@ export default function Contact() {
       href: null,
       pending: false,
     },
-    // Redes sin URL real todavía: se muestran como pendientes.
+    // Redes sociales reales (se abren en pestaña nueva).
     ...profile.social.map((link) => ({
       id: link.id,
       Icon: getSocialIcon(link.id),
       label: link.label,
-      value: 'Próximamente',
-      href: null,
-      pending: true,
+      value: link.url ? displayUrl(link.url) : 'Próximamente',
+      href: link.url,
+      pending: !link.url,
     })),
   ]
 
@@ -113,10 +116,6 @@ export default function Contact() {
                 Llamar
               </a>
             </div>
-            <p className="placeholder-hint mt-4 mb-0">
-              GitHub y LinkedIn se activarán cuando añadas tus perfiles en
-              src/data/profile.js
-            </p>
           </div>
         </Reveal>
 

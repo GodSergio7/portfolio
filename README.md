@@ -54,15 +54,16 @@ muestra con placeholders claramente identificados:
 | Nombre, rol, ubicación, email, teléfono | ✅ Real |
 | Formación (4 estudios) y experiencia (Conecta Telecom) | ✅ Real |
 | Tecnologías, idiomas y habilidades | ✅ Real |
-| **GitHub / LinkedIn** | ⏳ Pendiente: `url: null` en `src/data/profile.js` |
+| **GitHub / LinkedIn** | ✅ Real (se abren en pestaña nueva) |
 | **Proyectos** | ⏳ Pendiente: placeholders en `src/data/projects.js` |
 
 Para personalizar o completar:
 
-1. `src/data/profile.js` → URLs de GitHub/LinkedIn cuando existan.
+1. `src/data/profile.js` → datos personales, contacto y URLs de GitHub/LinkedIn.
 2. `src/data/projects.js` → proyectos reales (imagen, tecnologías, repo y demo).
 
-Email y teléfono son interactivos (`mailto:` y `tel:`); no se inventan enlaces.
+Email y teléfono son interactivos (`mailto:` y `tel:`); los enlaces sociales se
+abren en una pestaña nueva (`target="_blank"`). No se inventan enlaces.
 
 ## Comandos
 

@@ -104,13 +104,6 @@ export default function Hero() {
               </span>
               <SocialLinks links={profile.social} size={19} />
             </div>
-
-            <p
-              className="placeholder-hint mt-4 mb-0 fade-up"
-              style={{ animationDelay: '380ms' }}
-            >
-              * GitHub y LinkedIn pendientes de añadir (src/data/profile.js)
-            </p>
           </div>
 
           {/* Composición visual */}
