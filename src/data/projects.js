@@ -48,7 +48,7 @@ export const projects = [
     featured: false,
     title: 'GymManager',
     description:
-      'Proyecto de gestion de gimnasios en desarollo ',
+      'Proyecto de gestion de gimnasios en desarollo usando SDD (Spec-Driven Development)',
     tech: ['React', 'Vite', 'TypeScript', 'Zod', 'Vitest', 'React Testing Library', 'Node.js', 'Prisma'],
     image: null,
     repo: 'https://github.com/GodSergio7/GymManager',
