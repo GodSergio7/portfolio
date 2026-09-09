@@ -46,12 +46,12 @@ export const projects = [
   {
     id: 'proyecto-3',
     featured: false,
-    title: '[Nombre del proyecto 3]',
+    title: 'GymManager',
     description:
-      '[Resume el proyecto en una o dos frases: funcionalidad principal, retos y resultado.]',
-    tech: ['Java', 'Spring', 'MySQL'],
+      'Proyecto de gestion de gimnasios en desarollo ',
+    tech: ['React', 'Vite', 'TypeScript', 'Zod', 'Vitest', 'React Testing Library', 'Node.js', 'Prisma'],
     image: null,
-    repo: null,
+    repo: 'https://github.com/GodSergio7/GymManager',
     demo: null,
   },
   {
