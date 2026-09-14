@@ -26,7 +26,7 @@ export const projects = [
     id: 'proyecto-1',
     featured: false,
     title: 'Portfolio',
-    description:'Portfolio personal creado con React, Vite, Bootstrap y JavaScript.',
+    description: 'Portfolio personal creado con React, Vite, Bootstrap y JavaScript.',
     tech: ['React', 'JavaScript', 'Vite', 'Bootstrap'],
     image: '/proyectos/portfolio.png',
     repo: 'https://github.com/GodSergio7/portfolio',
@@ -54,6 +54,19 @@ export const projects = [
     repo: 'https://github.com/GodSergio7/GymManager',
     demo: null,
   },
+
+  {
+    id: 'proyecto-4',
+    featured: false,
+    title: 'DropMaster',
+    description:
+      'Web simple para explicar el modelo de negocio de DropShipping',
+    tech: ['Html', 'CSS', 'JavaScript'],
+    image: '/proyectos/dropmaster.png',
+    repo: 'https://github.com/GodSergio7/DropMaster',
+    demo: 'https://drop-master-lac.vercel.app/',
+  },
+
   {
     id: 'proyecto-4',
     featured: false,
@@ -66,3 +79,4 @@ export const projects = [
     demo: null,
   },
 ]
+
