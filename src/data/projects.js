@@ -62,7 +62,7 @@ export const projects = [
     description:
       'Web simple para explicar el modelo de negocio de DropShipping',
     tech: ['Html', 'CSS', 'JavaScript'],
-    image: '/proyectos/dropmaster.png',
+    image: '/proyectos/DropMaster.png',
     repo: 'https://github.com/GodSergio7/DropMaster',
     demo: 'https://drop-master-lac.vercel.app/',
   },
