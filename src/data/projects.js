@@ -67,16 +67,16 @@ export const projects = [
     demo: 'https://drop-master-lac.vercel.app/',
   },
 
-  {
-    id: 'proyecto-4',
-    featured: false,
-    title: '[Nombre del proyecto 4]',
-    description:
-      '[Resume el proyecto en una o dos frases: funcionalidad principal, retos y resultado.]',
-    tech: ['Python', 'Node.js', 'Firebase'],
-    image: null,
-    repo: null,
-    demo: null,
-  },
+  // {
+  //   id: 'proyecto-4',
+  //   featured: false,
+  //   title: '[Nombre del proyecto 4]',
+  //   description:
+  //     '[Resume el proyecto en una o dos frases: funcionalidad principal, retos y resultado.]',
+  //   tech: ['Python', 'Node.js', 'Firebase'],
+  //   image: null,
+  //   repo: null,
+  //   demo: null,
+  // },
 ]
 
