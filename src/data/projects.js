@@ -30,14 +30,14 @@ export const projects = [
     tech: ['React', 'JavaScript', 'Vite', 'Bootstrap'],
     image: '/proyectos/portfolio.png',
     repo: 'https://github.com/GodSergio7/portfolio',
-    demo: 'https://portfolio-olive-rho-29.vercel.app/#inicio',
+    demo: 'https://portfolio-olive-rho-29.vercel.app/',
   },
   {
     id: 'proyecto-2',
     featured: true,
     title: 'To-do List',
     description:
-      'Lista de tareas con calendario perfecto para apuntar las tareas pendientes y no olvidarme de ninguna. Todavia en desarrollo.',
+      'Lista de tareas con calendario perfecto para apuntar las tareas pendientes y no olvidarme de ninguna. Todavía en desarrollo.',
     tech: ['HTML', 'CSS', 'JavaScript'],
     image: '/proyectos/todoapp.png',
     repo: 'https://github.com/GodSergio7/todo-app',
@@ -48,7 +48,7 @@ export const projects = [
     featured: false,
     title: 'GymManager',
     description:
-      'Proyecto de gestion de gimnasios en desarollo usando SDD (Spec-Driven Development)',
+      'Proyecto de gestión de gimnasios en desarrollo usando SDD (Spec-Driven Development).',
     tech: ['React', 'Vite', 'TypeScript', 'Zod', 'Vitest', 'React Testing Library', 'Node.js', 'Prisma'],
     image: null,
     repo: 'https://github.com/GodSergio7/GymManager',
@@ -60,8 +60,8 @@ export const projects = [
     featured: false,
     title: 'DropMaster',
     description:
-      'Web simple para explicar el modelo de negocio de DropShipping',
-    tech: ['Html', 'CSS', 'JavaScript'],
+      'Web simple para explicar el modelo de negocio del dropshipping.',
+    tech: ['HTML', 'CSS', 'JavaScript'],
     image: '/proyectos/DropMaster.png',
     repo: 'https://github.com/GodSergio7/DropMaster',
     demo: 'https://drop-master-lac.vercel.app/',
