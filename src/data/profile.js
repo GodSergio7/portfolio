@@ -34,12 +34,20 @@ export const profile = {
   // Idiomas (solo los proporcionados)
   languages: [{ language: 'Español', level: 'Nativo' }],
 
-  // Habilidades transversales
+  // Habilidades transversales, cada una con un ejemplo real
   softSkills: [
-    'Trabajo en equipo y colaboración',
-    'Aprendizaje rápido y adaptación a nuevas tecnologías',
-    'Organización y gestión del tiempo',
-    'Comunicación efectiva con usuarios y compañeros',
+    {
+      title: 'Atención a usuarios',
+      text: 'atendí y resolví incidencias de usuarios durante mis prácticas en Conecta Telecom.',
+    },
+    {
+      title: 'Trabajo en equipo',
+      text: 'colaboré con el equipo técnico de Conecta Telecom en proyectos internos.',
+    },
+    {
+      title: 'Aprendizaje autónomo',
+      text: 'estoy desarrollando GymManager con tecnologías que no he visto en clase (TypeScript, Prisma, Zod).',
+    },
   ],
 
   // ---------------- Contacto (datos reales) ----------------

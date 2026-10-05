@@ -5,7 +5,9 @@
 // NO se muestran niveles de dominio ni porcentajes.
 //
 // kind: 'list'    → se muestra como chips de tecnologías.
-//       'bullets' → se muestra como lista de conocimientos.
+//       'bullets' → se muestra como lista de conocimientos. Cada
+//                   ítem puede ser texto o { title, text }.
+// tools (opcional): chips que se muestran encima de la lista.
 //
 // Para añadir o quitar tecnología solo se edita este fichero.
 // ============================================================
@@ -51,15 +53,26 @@ export const techCategories = [
   {
     id: 'ia-desarrollo',
     title: 'IA aplicada al desarrollo',
-    caption: 'IA generativa como apoyo al desarrollo',
+    caption: 'Cómo la uso al programar',
     kind: 'bullets',
+    tools: ['Claude (Claude Code)', 'ChatGPT'],
     items: [
-      'Uso de IA generativa como asistencia en programación',
-      'Resolución de problemas mediante IA',
-      'Generación y optimización de código',
-      'Apoyo al aprendizaje técnico',
-      'Mejora de productividad',
-      'Integración de herramientas de IA en flujos de trabajo',
+      {
+        title: 'Entender errores',
+        text: 'cuando algo falla, le pido que me explique la causa antes de aplicar ningún arreglo.',
+      },
+      {
+        title: 'Aprender tecnologías nuevas',
+        text: 'la uso para entender conceptos y librerías mientras las pruebo en mis proyectos.',
+      },
+      {
+        title: 'Generar código y tests',
+        text: 'componentes, funciones y tests que después reviso y ajusto, como los tests con Vitest de GymManager.',
+      },
+      {
+        title: 'Planificar con especificaciones',
+        text: 'escribo la especificación antes de programar (Spec-Driven Development), como en GymManager.',
+      },
     ],
   },
   {

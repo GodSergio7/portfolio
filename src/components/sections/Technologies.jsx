@@ -27,14 +27,34 @@ const categoryWidths = {
 function CategoryContent({ category }) {
   if (category.kind === 'bullets') {
     return (
-      <ul className="tech-bullets mb-0">
-        {category.items.map((item) => (
-          <li key={item}>
-            <Check size={15} aria-hidden="true" />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
+      <>
+        {category.tools?.length ? (
+          <div className="tech-list mb-3">
+            {category.tools.map((tool) => (
+              <span className="chip chip--mint" key={tool}>
+                {tool}
+              </span>
+            ))}
+          </div>
+        ) : null}
+        <ul className="tech-bullets mb-0">
+          {category.items.map((item) => {
+            const key = typeof item === 'string' ? item : item.title
+            return (
+              <li key={key}>
+                <Check size={15} aria-hidden="true" />
+                {typeof item === 'string' ? (
+                  <span>{item}</span>
+                ) : (
+                  <span>
+                    <strong>{item.title}:</strong> {item.text}
+                  </span>
+                )}
+              </li>
+            )
+          })}
+        </ul>
+      </>
     )
   }
   return (

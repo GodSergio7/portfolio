@@ -44,9 +44,11 @@ function SoftSkillsBlock() {
       </div>
       <ul className="tech-bullets mb-0">
         {profile.softSkills.map((skill) => (
-          <li key={skill}>
+          <li key={skill.title}>
             <Check size={15} aria-hidden="true" />
-            <span>{skill}</span>
+            <span>
+              <strong>{skill.title}:</strong> {skill.text}
+            </span>
           </li>
         ))}
       </ul>
