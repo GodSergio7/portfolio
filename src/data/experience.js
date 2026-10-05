@@ -13,7 +13,7 @@ export const experience = [
     id: 'conecta-telecom-practicas',
     role: 'Prácticas del Grado Medio en Sistemas Microinformáticos y Redes',
     company: 'Conecta Telecom S.L.',
-    location: '',
+    location: 'Mula, Murcia, España',
     period: '2022 · 300 horas',
     current: false,
     bullets: [
@@ -28,7 +28,7 @@ export const experience = [
     id: 'conecta-telecom-auxiliar',
     role: 'Auxiliar técnico',
     company: 'Conecta Telecom S.L.',
-    location: '',
+    location: 'Mula, Murcia, España',
     period: 'Abril 2023 · 9 días',
     current: false,
     bullets: [

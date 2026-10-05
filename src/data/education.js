@@ -36,6 +36,6 @@ export const education = [
     school: 'IES Ribera de los Molinos',
     period: '2018 — 2020',
     current: false,
-    note: '',
+    note: 'Título obtenido al completar la FP Básica en Comercio.',
   },
 ]
