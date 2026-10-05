@@ -29,7 +29,7 @@ src/
 │   └── education.js          #   Formación
 ├── components/
 │   ├── layout/               # Navbar, Footer, Section
-│   ├── sections/             # Hero, About, Technologies, Projects, Experience, Education, Contact
+│   ├── sections/             # Hero, About, Technologies, Projects, Trajectory, Contact
 │   └── ui/                   # SectionHeading, Reveal, iconos y piezas reutilizables
 ├── hooks/
 │   └── useActiveSection.js   # Scrollspy del navbar

@@ -4,8 +4,7 @@ import Hero from './components/sections/Hero'
 import About from './components/sections/About'
 import Technologies from './components/sections/Technologies'
 import Projects from './components/sections/Projects'
-import Experience from './components/sections/Experience'
-import Education from './components/sections/Education'
+import Trajectory from './components/sections/Trajectory'
 import Contact from './components/sections/Contact'
 
 /**
@@ -21,8 +20,7 @@ export default function App() {
         <About />
         <Technologies />
         <Projects />
-        <Experience />
-        <Education />
+        <Trajectory />
         <Contact />
       </main>
       <Footer />

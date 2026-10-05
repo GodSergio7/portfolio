@@ -975,6 +975,18 @@ a:hover {
   color: var(--text);
 }
 
+/* ---------- Trayectoria: cabecera de columna ---------- */
+.trajectory-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.6rem;
+}
+.trajectory-heading h3 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
 /* ---------- Viñetas de la línea de tiempo (experiencia) ---------- */
 .timeline-bullets {
   list-style: none;

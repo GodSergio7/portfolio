@@ -89,9 +89,9 @@ export default function Contact() {
   ]
 
   return (
-    <Section id="contacto">
+    <Section id="contacto" variant="alt">
       <SectionHeading
-        index="06"
+        index="05"
         label="Contacto"
         title="Hablemos"
         lead="Estoy abierto a oportunidades como desarrollador web y a colaborar en nuevos proyectos. Escríbeme por el canal que prefieras."

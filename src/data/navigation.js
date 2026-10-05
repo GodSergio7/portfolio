@@ -8,8 +8,7 @@ export const navItems = [
   { id: 'sobre-mi', label: 'Sobre mí' },
   { id: 'tecnologias', label: 'Tecnologías' },
   { id: 'proyectos', label: 'Proyectos' },
-  { id: 'experiencia', label: 'Experiencia' },
-  { id: 'formacion', label: 'Formación' },
+  { id: 'trayectoria', label: 'Trayectoria' },
   { id: 'contacto', label: 'Contacto' },
 ]
 
