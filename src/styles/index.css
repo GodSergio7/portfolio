@@ -417,66 +417,33 @@ a:hover {
   position: relative;
 }
 
-/* Tarjeta de código */
-.code-card {
-  background: #1f2126;
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+/* Foto de perfil: recorte sin fondo sobre un marco con degradado menta */
+.hero-photo {
   position: relative;
   z-index: 1;
+  margin: 0 auto;
+  max-width: 400px;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--mint-20);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(85% 65% at 50% 32%, rgba(184, 247, 228, 0.16), transparent 70%),
+    linear-gradient(180deg, var(--surface), #1f2126);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
-.code-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.8rem 1.1rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-bottom: 1px solid var(--border);
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0;
+  display: block;
 }
-.code-card-dots {
-  display: flex;
-  gap: 0.4rem;
-}
-.code-card-dots span {
-  width: 0.68rem;
-  height: 0.68rem;
-  border-radius: 50%;
-  background: #3c4148;
-}
-.code-card-dots span:first-child { background: rgba(184, 247, 228, 0.55); }
-.code-card-filename {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--muted);
-}
-.code-card-body {
-  padding: 1.4rem 1.4rem 1.6rem;
-  font-family: var(--font-mono);
-  font-size: 0.86rem;
-  line-height: 1.9;
-  overflow-x: auto;
-}
-@media (max-width: 575.98px) {
-  .code-card-body {
-    font-size: 0.7rem;
-    padding: 1.1rem 1.15rem;
-    line-height: 1.8;
+@media (max-width: 991.98px) {
+  .hero-photo {
+    max-width: 320px;
   }
 }
-.code-card-body pre {
-  margin: 0;
-  color: var(--text-soft);
-  font-family: inherit;
-  font-size: inherit;
-}
-.code-line { display: block; white-space: pre; }
-.code-token-key { color: var(--mint); }
-.code-token-str { color: #ffd9a0; }
-.code-token-prop { color: #9ecbff; }
-.code-token-punct { color: var(--muted); }
-.code-token-com { color: #6b7280; }
 
 /* ---------- Animación de entrada sutil ---------- */
 .fade-up {

@@ -3,56 +3,21 @@ import { profile } from '../../data/profile'
 import SocialLinks from '../ui/SocialLinks'
 
 /**
- * Tarjeta decorativa «sergio-vidal.js»: composición visual que
- * comunica de inmediato que esto es un portfolio de desarrollo.
- * Contiene solo datos reales del perfil.
+ * Foto de perfil sobre un fondo con el degradado menta de la web.
+ * La imagen no tiene fondo (PNG/WebP transparente), así que se
+ * integra con el marco en lugar de verse como un recorte.
  */
-function CodeCard() {
+function ProfilePhoto() {
   return (
-    <div
-      className="code-card"
-      style={{ animationDelay: '180ms' }}
-      aria-hidden="true"
-    >
-      <div className="code-card-header">
-        <div className="code-card-dots">
-          <span />
-          <span />
-          <span />
-        </div>
-        <span className="code-card-filename">sergio-vidal.js</span>
-      </div>
-      <div className="code-card-body">
-        <pre>
-          <span className="code-line">
-            <span className="code-token-com">// DAW · IES Ribera de los Molinos</span>
-          </span>
-          <span className="code-line">
-            <span className="code-token-key">const</span>{' '}
-            <span className="code-token-prop">sergioVidal</span>{' '}
-            <span className="code-token-punct">= {'{'}</span>
-          </span>
-          <span className="code-line">
-            {'  '}nombre:{' '}
-            <span className="code-token-str">'Sergio Vidal Moreno'</span>,
-          </span>
-          <span className="code-line">
-            {'  '}rol: <span className="code-token-str">'Desarrollador Web'</span>,
-          </span>
-          <span className="code-line">
-            {'  '}estudios: [<span className="code-token-str">'S.M.R.'</span>,{' '}
-            <span className="code-token-str">'D.A.W.'</span>],
-          </span>
-          <span className="code-line">
-            {'  '}ubicacion:{' '}
-            <span className="code-token-str">'Mula, Murcia'</span>,
-          </span>
-          <span className="code-line">
-            <span className="code-token-punct">{'};'}</span>
-          </span>
-        </pre>
-      </div>
-    </div>
+    <figure className="hero-photo">
+      <img
+        src={profile.photo}
+        alt={`Foto de ${profile.name}`}
+        width="800"
+        height="1067"
+        fetchPriority="high"
+      />
+    </figure>
   )
 }
 
@@ -109,7 +74,7 @@ export default function Hero() {
           {/* Composición visual */}
           <div className="col-lg-5">
             <div className="fade-up" style={{ animationDelay: '260ms' }}>
-              <CodeCard />
+              <ProfilePhoto />
             </div>
           </div>
         </div>

@@ -12,6 +12,9 @@ export const profile = {
   role: 'Desarrollador Web',
   location: 'Mula, Murcia, España',
 
+  // Foto de perfil (sin fondo) usada en el Hero
+  photo: '/foto-perfil.webp',
+
   // Formación actual (Grado Superior)
   formation: 'Desarrollo de Aplicaciones Web',
 
