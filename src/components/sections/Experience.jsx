@@ -43,7 +43,7 @@ export default function Experience() {
         index="04"
         label="Experiencia"
         title="Mi recorrido profesional"
-        lead="Prácticas y experiencia profesional en soporte técnico, equipos y redes."
+        lead="Mi experiencia en Conecta Telecom, donde aprendí a resolver incidencias reales, mantener equipos y configurar redes."
       />
 
       <div className="row">

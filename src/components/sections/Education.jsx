@@ -10,7 +10,7 @@ export default function Education() {
         index="05"
         label="Formación"
         title="Estudios y aprendizaje"
-        lead="Mi formación reglada, de la ESO al Grado Superior en Desarrollo de Aplicaciones Web."
+        lead="Toda mi formación en el IES Ribera de los Molinos: un recorrido que me ha llevado de los sistemas y redes al desarrollo web."
       />
 
       <div className="row">

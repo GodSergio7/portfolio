@@ -55,7 +55,7 @@ export default function Technologies() {
         index="02"
         label="Tecnologías"
         title="Mi caja de herramientas"
-        lead="Las tecnologías y áreas con las que trabajo y aprendo, organizadas por categoría. Sin porcentajes ni niveles de dominio inventados."
+        lead="Las tecnologías con las que construyo mis proyectos, del frontend al backend, y las herramientas que uso en mi día a día."
       />
 
       <div className="row g-4">

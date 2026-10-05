@@ -61,7 +61,7 @@ export default function About() {
         index="01"
         label="Sobre mí"
         title="Quién soy"
-        lead="Una presentación breve y honesta: mi formación, mi base técnica y hacia dónde quiero crecer como desarrollador."
+        lead="Desarrollador web en formación con una base sólida en sistemas y redes, enfocado en crear aplicaciones web completas."
       />
 
       <div className="row g-4 g-lg-5 align-items-start">

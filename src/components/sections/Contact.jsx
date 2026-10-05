@@ -94,7 +94,7 @@ export default function Contact() {
         index="06"
         label="Contacto"
         title="Hablemos"
-        lead="¿Un proyecto en mente, una oportunidad profesional o simplemente quieres saludar? Cuéntamelo."
+        lead="Estoy abierto a oportunidades como desarrollador web y a colaborar en nuevos proyectos. Escríbeme por el canal que prefieras."
       />
 
       <div className="row g-4 g-lg-5">

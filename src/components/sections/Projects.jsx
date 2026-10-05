@@ -153,7 +153,7 @@ export default function Projects() {
         index="03"
         label="Proyectos"
         title="Proyectos"
-        lead="Aquí vivirán mis proyectos: cada uno con captura, descripción, tecnologías, código y demo. De momento, los huecos marcan lo que está por venir."
+        lead="Una selección de proyectos que he desarrollado, desde webs sencillas hasta aplicaciones completas, con su código y su demo."
       />
 
       <div className="row g-4">
