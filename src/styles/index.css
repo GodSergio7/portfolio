@@ -1,20 +1,21 @@
 /* ============================================================
    Sergio Vidal Moreno — Portfolio
-   Sistema de diseño: paleta base #B8F7E4 (menta) + #25272C (tinta)
+   Sistema de diseño: fondo tinta oscuro + menta #B8F7E4 como único
+   acento, reservado a botones, enlaces y estados activos.
    ============================================================ */
 
 /* ---------- Design tokens ---------- */
 :root {
   /* Colores de identidad */
   --mint: #b8f7e4;
-  --mint-strong: #a4edD6;
-  --ink: #25272c;
+  --mint-strong: #a4edd6;
+  --ink: #1d1f23;
 
   /* Superficies derivadas */
-  --bg: #25272c;
-  --bg-soft: #2a2d33;
-  --surface: #2d3036;
-  --surface-hover: #33363e;
+  --bg: #1d1f23;
+  --bg-soft: #212328;
+  --surface: #26292e;
+  --surface-hover: #2c2f35;
 
   /* Texto y bordes neutros */
   --text: #eef1f5;
@@ -30,8 +31,7 @@
 
   /* Tipografía */
   --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
 
   /* Radios / transiciones */
   --radius-sm: 0.5rem;
@@ -60,7 +60,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   color: var(--text);
 }
 
@@ -100,18 +100,8 @@ a:hover {
 }
 
 /* ---------- Utilidades de color ---------- */
-.text-mint { color: var(--mint); }
 .text-soft { color: var(--text-soft); }
 .text-muted { color: var(--muted); }
-.font-mono { font-family: var(--font-mono); }
-
-/* Fondo con retícula sutil, reutilizable */
-.grid-bg {
-  background-image:
-    linear-gradient(rgba(184, 247, 228, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(184, 247, 228, 0.045) 1px, transparent 1px);
-  background-size: 46px 46px;
-}
 
 /* ---------- Botones ---------- */
 .btn {
@@ -179,10 +169,8 @@ a:hover {
     background-color var(--transition), transform var(--transition);
 }
 .icon-btn:hover {
-  color: var(--ink);
-  background-color: var(--mint);
-  border-color: var(--mint);
-  transform: translateY(-2px);
+  color: var(--mint);
+  border-color: var(--mint-35);
 }
 
 /* ---------- Secciones ---------- */
@@ -198,28 +186,11 @@ a:hover {
 }
 
 /* ---------- Cabeceras de sección ---------- */
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--mint);
-  margin-bottom: 0.9rem;
-}
-.eyebrow::after {
-  content: '';
-  width: 2.5rem;
-  height: 1px;
-  background: var(--mint-35);
-}
-
 .section-title {
-  font-size: clamp(1.9rem, 3.6vw, 2.75rem);
-  line-height: 1.15;
-  margin-bottom: 0.75rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 0.85rem;
 }
 .section-lead {
   color: var(--muted);
@@ -240,18 +211,13 @@ a:hover {
   color: var(--text-soft);
   background-color: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border);
-  transition: border-color var(--transition), color var(--transition),
-    background-color var(--transition);
   white-space: nowrap;
 }
-.chip:hover {
-  border-color: var(--mint-35);
-  color: var(--mint);
-}
-.chip--mint {
-  border-color: var(--mint-20);
-  color: var(--mint);
-  background-color: var(--mint-10);
+/* Chip destacado: mismo tono neutro, con más contraste */
+.chip--strong {
+  border-color: var(--border-strong);
+  color: var(--text);
+  background-color: rgba(255, 255, 255, 0.07);
 }
 
 /* ---------- Navbar ---------- */
@@ -261,7 +227,7 @@ a:hover {
   left: 0;
   right: 0;
   z-index: 1040;
-  background-color: rgba(37, 39, 44, 0.72);
+  background-color: rgba(29, 31, 35, 0.72);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid transparent;
@@ -269,7 +235,7 @@ a:hover {
     box-shadow var(--transition);
 }
 .navbar-portfolio.scrolled {
-  background-color: rgba(37, 39, 44, 0.92);
+  background-color: rgba(29, 31, 35, 0.92);
   border-bottom-color: var(--border);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
@@ -282,15 +248,16 @@ a:hover {
   font-weight: 600;
   letter-spacing: -0.01em;
 }
+/* Monograma «SV.»: el punto es el único toque de menta de la marca */
 .brand-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.15rem;
-  height: 2.15rem;
-  border-radius: var(--radius-sm);
-  background-color: var(--mint-10);
-  border: 1px solid var(--mint-35);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--text);
+}
+.brand-dot {
   color: var(--mint);
 }
 .navbar-portfolio .navbar-nav {
@@ -341,7 +308,7 @@ a:hover {
 }
 @media (max-width: 991.98px) {
   .navbar-collapse {
-    background-color: rgba(37, 39, 44, 0.97);
+    background-color: rgba(29, 31, 35, 0.97);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 1rem;
@@ -358,50 +325,19 @@ a:hover {
   position: relative;
   overflow: hidden;
 }
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(700px 420px at 85% 18%, rgba(184, 247, 228, 0.07), transparent 65%),
-    radial-gradient(560px 360px at 8% 92%, rgba(184, 247, 228, 0.05), transparent 60%);
-}
-
-.hero-eyebrow {
-  font-family: var(--font-mono);
-  color: var(--mint);
-  font-size: 0.95rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-.hero-eyebrow::before {
-  content: '';
-  width: 2.2rem;
-  height: 1px;
-  background: var(--mint);
-}
 
 .hero-name {
-  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-size: clamp(2.75rem, 7vw, 5rem);
   font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.05;
-  margin: 0.9rem 0 1rem;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  margin: 0 0 1rem;
 }
 .hero-role {
-  font-family: var(--font-mono);
-  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
-  color: var(--mint);
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  font-weight: 500;
+  color: var(--text-soft);
   margin-bottom: 1.4rem;
-}
-.hero-role::before {
-  content: '>';
-  color: var(--mint-35);
 }
 .hero-tagline {
   color: var(--text-soft);
@@ -425,11 +361,9 @@ a:hover {
   max-width: 400px;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  border: 1px solid var(--mint-20);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg);
-  background:
-    radial-gradient(85% 65% at 50% 32%, rgba(184, 247, 228, 0.16), transparent 70%),
-    linear-gradient(180deg, var(--surface), #1f2126);
+  background: linear-gradient(180deg, #30343a, var(--surface));
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
 .hero-photo img {
@@ -483,12 +417,6 @@ a:hover {
   background-color: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  transition: border-color var(--transition), transform var(--transition),
-    background-color var(--transition);
-}
-.card-surface:hover {
-  border-color: var(--mint-35);
-  background-color: var(--surface-hover);
 }
 
 /* ---------- Tarjetas de proyecto ---------- */
@@ -504,8 +432,7 @@ a:hover {
     box-shadow var(--transition);
 }
 .project-card:hover {
-  border-color: var(--mint-35);
-  transform: translateY(-5px);
+  border-color: var(--border-strong);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
 }
 .project-media {
@@ -530,13 +457,7 @@ a:hover {
   justify-content: center;
   gap: 0.6rem;
   color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.04em;
-  background-image:
-    linear-gradient(rgba(184, 247, 228, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(184, 247, 228, 0.05) 1px, transparent 1px);
-  background-size: 28px 28px;
+  font-size: 0.85rem;
 }
 .project-body {
   padding: 1.4rem 1.5rem 1.6rem;
@@ -568,11 +489,9 @@ a:hover {
 
 /* Proyecto destacado */
 .project-card--featured {
-  border-color: var(--mint-20);
-  background: linear-gradient(180deg, rgba(184, 247, 228, 0.05), var(--surface) 38%);
+  border-color: var(--border-strong);
 }
 .project-card--featured:hover {
-  border-color: var(--mint);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
 .featured-media {
@@ -597,18 +516,16 @@ a:hover {
   }
 }
 .featured-badge {
+  align-self: flex-start;
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--ink);
-  background: var(--mint);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-soft);
+  border: 1px solid var(--border-strong);
   border-radius: 999px;
-  padding: 0.35rem 0.9rem;
-  margin-bottom: 1.1rem;
+  padding: 0.3rem 0.85rem;
 }
 
 /* ---------- Lista / timeline (experiencia y formación) ---------- */
@@ -623,7 +540,7 @@ a:hover {
   top: 6px;
   bottom: 6px;
   width: 1px;
-  background: linear-gradient(var(--mint-35), var(--border));
+  background: var(--border-strong);
 }
 .timeline-item {
   position: relative;
@@ -640,18 +557,17 @@ a:hover {
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background: var(--mint);
-  box-shadow: 0 0 0 4px rgba(184, 247, 228, 0.15);
+  background: var(--bg);
+  border: 2px solid var(--muted);
 }
 .timeline-item--current::before {
-  box-shadow: 0 0 0 4px rgba(184, 247, 228, 0.22), 0 0 0 7px rgba(184, 247, 228, 0.08);
+  background: var(--mint);
+  border-color: var(--mint);
 }
 .timeline-date {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--mint);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -672,14 +588,12 @@ a:hover {
   max-width: 70ch;
 }
 .tag-current {
-  font-family: var(--font-mono);
-  font-size: 0.66rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink);
-  background: var(--mint);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-soft);
+  border: 1px solid var(--border-strong);
   border-radius: 999px;
-  padding: 0.14rem 0.6rem;
+  padding: 0.1rem 0.6rem;
   margin-left: 0.5rem;
   vertical-align: middle;
 }
@@ -697,23 +611,18 @@ a:hover {
 .profile-row + .profile-row {
   border-top: 1px solid var(--border);
 }
+/* Icono suelto, sin caja: acompaña al texto sin protagonismo */
 .profile-icon {
   flex-shrink: 0;
-  width: 2.5rem;
-  height: 2.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-sm);
-  background: var(--mint-10);
-  border: 1px solid var(--mint-20);
-  color: var(--mint);
+  padding-top: 0.15rem;
+  color: var(--muted);
 }
 .profile-label {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  font-size: 0.82rem;
+  font-weight: 500;
   color: var(--muted);
   margin-bottom: 0.15rem;
 }
@@ -736,8 +645,7 @@ a:hover {
   transition: border-color var(--transition), transform var(--transition);
 }
 .tech-card:hover {
-  border-color: var(--mint-35);
-  transform: translateY(-4px);
+  border-color: var(--border-strong);
 }
 .tech-card-head {
   display: flex;
@@ -746,23 +654,15 @@ a:hover {
   margin-bottom: 1.2rem;
 }
 .tech-card-icon {
-  width: 2.9rem;
-  height: 2.9rem;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-sm);
-  background: var(--mint-10);
-  border: 1px solid var(--mint-20);
-  color: var(--mint);
+  color: var(--muted);
 }
 .tech-card-title {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   margin: 0;
 }
 .tech-card-count {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   color: var(--muted);
 }
 .tech-list {
@@ -778,7 +678,7 @@ a:hover {
 /* ---------- Footer ---------- */
 .footer {
   border-top: 1px solid var(--border);
-  background-color: #212328;
+  background-color: #191b1e;
   padding: 2.6rem 0 2.2rem;
 }
 .footer-brand {
@@ -801,7 +701,7 @@ a:hover {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--mint-35);
+  background: var(--muted);
   display: inline-block;
   margin: 0 0.6rem;
   vertical-align: middle;
@@ -809,11 +709,9 @@ a:hover {
 
 /* ---------- Contacto: panel CTA ---------- */
 .cta-panel {
-  border: 1px solid var(--mint-20);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg);
-  background:
-    radial-gradient(420px 200px at 90% 0%, rgba(184, 247, 228, 0.09), transparent 70%),
-    linear-gradient(120deg, rgba(184, 247, 228, 0.05), rgba(184, 247, 228, 0.01));
+  background-color: var(--surface);
   padding: clamp(1.6rem, 4vw, 2.6rem);
 }
 .cta-panel h3 {
@@ -845,20 +743,6 @@ a:hover {
   font-style: italic;
 }
 
-/* Cursor terminal en el hero */
-.hero-cursor {
-  display: inline-block;
-  width: 0.55em;
-  height: 1.05em;
-  margin-left: 0.3rem;
-  background: var(--mint);
-  vertical-align: text-bottom;
-  animation: cursorPulse 1.6s steps(1) infinite;
-}
-@keyframes cursorPulse {
-  50% { opacity: 0; }
-}
-
 /* Título dentro del proyecto destacado */
 .featured-title {
   font-size: clamp(1.45rem, 2.6vw, 1.9rem);
@@ -871,7 +755,7 @@ a:hover {
   font-size: 1.06rem;
 }
 .about-intro strong {
-  color: var(--mint);
+  color: var(--text);
   font-weight: 600;
 }
 
@@ -906,7 +790,7 @@ a:hover {
 .tech-bullets svg {
   flex-shrink: 0;
   margin-top: 0.28rem;
-  color: var(--mint);
+  color: var(--muted);
 }
 
 /* ---------- Tarjetas informativas (Idiomas / Habilidades) ---------- */
@@ -916,10 +800,6 @@ a:hover {
   border-radius: var(--radius-lg);
   padding: 1.4rem 1.5rem;
   height: 100%;
-  transition: border-color var(--transition);
-}
-.info-card:hover {
-  border-color: var(--mint-35);
 }
 .info-card-head {
   display: flex;
@@ -950,7 +830,7 @@ a:hover {
 .trajectory-heading {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.6rem;
   margin-bottom: 1.6rem;
 }
 .trajectory-heading h3 {
@@ -982,7 +862,7 @@ a:hover {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--mint-35);
+  background: var(--muted);
 }
 
 /* ---------- Icono social pendiente (sin URL real) ---------- */

@@ -91,8 +91,6 @@ export default function Contact() {
   return (
     <Section id="contacto" variant="alt">
       <SectionHeading
-        index="05"
-        label="Contacto"
         title="Contacto"
         lead="Estoy disponible por email, teléfono o LinkedIn."
       />

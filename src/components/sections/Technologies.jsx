@@ -31,7 +31,7 @@ function CategoryContent({ category }) {
         {category.tools?.length ? (
           <div className="tech-list mb-3">
             {category.tools.map((tool) => (
-              <span className="chip chip--mint" key={tool}>
+              <span className="chip chip--strong" key={tool}>
                 {tool}
               </span>
             ))}
@@ -72,8 +72,6 @@ export default function Technologies() {
   return (
     <Section id="tecnologias">
       <SectionHeading
-        index="02"
-        label="Tecnologías"
         title="Tecnologías y herramientas"
         lead="Tecnologías que he utilizado en mi formación y en mis proyectos, agrupadas por área."
       />

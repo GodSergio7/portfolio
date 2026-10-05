@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Code2, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { navItems, navIds } from '../../data/navigation'
 import { profile } from '../../data/profile'
 import { useActiveSection } from '../../hooks/useActiveSection'
@@ -28,12 +28,16 @@ export default function Navbar() {
       aria-label="Navegación principal"
     >
       <div className="container">
-        <a className="navbar-brand py-2" href="#inicio" onClick={closeMenu}>
-          <span className="brand-mark">
-            <Code2 size={17} strokeWidth={2.4} aria-hidden="true" />
+        <a
+          className="navbar-brand py-2"
+          href="#inicio"
+          onClick={closeMenu}
+          aria-label={`${profile.name}, ir al inicio`}
+        >
+          <span className="brand-mark" aria-hidden="true">
+            SV<span className="brand-dot">.</span>
           </span>
           <span className="d-none d-sm-inline">{profile.shortName}</span>
-          <span className="d-sm-none">SV</span>
         </a>
 
         <button

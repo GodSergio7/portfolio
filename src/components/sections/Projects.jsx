@@ -150,8 +150,6 @@ export default function Projects() {
   return (
     <Section id="proyectos" variant="alt">
       <SectionHeading
-        index="03"
-        label="Proyectos"
         title="Proyectos"
         lead="Proyectos que he desarrollado, con enlace al código y a la demo cuando está disponible."
       />

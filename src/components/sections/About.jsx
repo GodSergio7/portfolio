@@ -21,7 +21,7 @@ function LanguagesBlock() {
         {profile.languages.map((lang) => (
           <span key={lang.language} className="language-pill">
             <span className="language-name">{lang.language}</span>
-            <span className="chip chip--mint">{lang.level}</span>
+            <span className="chip chip--strong">{lang.level}</span>
           </span>
         ))}
       </div>
@@ -60,8 +60,6 @@ export default function About() {
   return (
     <Section id="sobre-mi" variant="alt">
       <SectionHeading
-        index="01"
-        label="Sobre mí"
         title="Perfil profesional"
         lead="Desarrollador web con orientación al frontend y formación previa en sistemas y redes."
       />

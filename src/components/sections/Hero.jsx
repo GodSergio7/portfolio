@@ -23,35 +23,28 @@ function ProfilePhoto() {
 
 export default function Hero() {
   return (
-    <section id="inicio" className="hero grid-bg">
+    <section id="inicio" className="hero">
       <div className="container position-relative">
         <div className="row align-items-center g-5">
           {/* Texto principal */}
           <div className="col-lg-7">
-            <p className="hero-eyebrow fade-up m-0">hola, soy</p>
-            <h1
-              className="hero-name fade-up"
-              style={{ animationDelay: '80ms' }}
-            >
-              Sergio Vidal <span className="text-mint">Moreno</span>
-            </h1>
+            <h1 className="hero-name fade-up">{profile.name}</h1>
             <p
               className="hero-role fade-up"
-              style={{ animationDelay: '150ms' }}
+              style={{ animationDelay: '80ms' }}
             >
-              Desarrollador Web
-              <span className="hero-cursor" aria-hidden="true" />
+              {profile.role}
             </p>
             <p
               className="hero-tagline fade-up"
-              style={{ animationDelay: '220ms' }}
+              style={{ animationDelay: '160ms' }}
             >
               {profile.tagline}
             </p>
 
             <div
               className="d-flex flex-wrap align-items-center gap-3 fade-up"
-              style={{ animationDelay: '300ms' }}
+              style={{ animationDelay: '240ms' }}
             >
               <a href="#proyectos" className="btn btn-mint">
                 Ver proyectos
@@ -73,7 +66,7 @@ export default function Hero() {
 
           {/* Composición visual */}
           <div className="col-lg-5">
-            <div className="fade-up" style={{ animationDelay: '260ms' }}>
+            <div className="fade-up" style={{ animationDelay: '120ms' }}>
               <ProfilePhoto />
             </div>
           </div>
