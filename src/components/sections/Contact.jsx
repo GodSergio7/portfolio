@@ -101,7 +101,7 @@ export default function Contact() {
         {/* Panel principal con acciones */}
         <Reveal className="col-lg-6">
           <div className="cta-panel h-100">
-            <h3>Disponible para empleo junior y prácticas</h3>
+            <h3>Disponible para empleo como desarrollador junior</h3>
             <p className="mb-4">
               Si buscáis un perfil junior de desarrollo web, escríbeme por
               email o llámame.

@@ -26,7 +26,7 @@ export const profile = {
   about: [
     'Curso el Grado Superior en Desarrollo de Aplicaciones Web en el IES Ribera de los Molinos. Antes completé el Grado Medio en Sistemas Microinformáticos y Redes y realicé prácticas en Conecta Telecom, donde instalé equipos, configuré redes locales y atendí incidencias de usuarios.',
     'Me centro en el frontend: desarrollo interfaces con React y JavaScript, y conozco también PHP, Java, Spring Boot y MySQL. Trabajo con Claude y ChatGPT siguiendo un proceso definido: especifico primero lo que voy a construir, reviso el código generado y lo valido con tests.',
-    'Busco un primer empleo como desarrollador web junior o prácticas en empresa.',
+    'Busco un primer empleo como desarrollador web junior.',
   ],
 
   // Valor que aparece en el perfil como «Orientación profesional»
