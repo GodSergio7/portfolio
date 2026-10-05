@@ -74,8 +74,8 @@ export default function Technologies() {
       <SectionHeading
         index="02"
         label="Tecnologías"
-        title="Mi caja de herramientas"
-        lead="Las tecnologías con las que construyo mis proyectos, del frontend al backend, y las herramientas que uso en mi día a día."
+        title="Tecnologías y herramientas"
+        lead="Tecnologías que he utilizado en mi formación y en mis proyectos, agrupadas por área."
       />
 
       <div className="row g-4">

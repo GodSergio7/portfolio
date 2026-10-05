@@ -80,8 +80,8 @@ export default function Trajectory() {
       <SectionHeading
         index="04"
         label="Trayectoria"
-        title="Mi recorrido"
-        lead="Mi experiencia en Conecta Telecom y mi formación en el IES Ribera de los Molinos: un camino que me ha llevado de los sistemas y redes al desarrollo web."
+        title="Experiencia y formación"
+        lead="Prácticas en Conecta Telecom y formación en el IES Ribera de los Molinos, desde Sistemas Microinformáticos y Redes hasta Desarrollo de Aplicaciones Web."
       />
 
       <div className="row g-5">

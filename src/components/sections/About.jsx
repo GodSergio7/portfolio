@@ -62,8 +62,8 @@ export default function About() {
       <SectionHeading
         index="01"
         label="Sobre mí"
-        title="Quién soy"
-        lead="Desarrollador web en formación con una base sólida en sistemas y redes, enfocado en crear aplicaciones web completas."
+        title="Perfil profesional"
+        lead="Desarrollador web con orientación al frontend y formación previa en sistemas y redes."
       />
 
       <div className="row g-4 g-lg-5 align-items-start">

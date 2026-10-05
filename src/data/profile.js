@@ -20,12 +20,13 @@ export const profile = {
 
   // Frase breve profesional (Hero)
   tagline:
-    'Desarrollador web en formación, especializado en el desarrollo de aplicaciones web y con experiencia trabajando con tecnologías frontend, backend y bases de datos.',
+    'Desarrollador web orientado al frontend con React. Formado en Sistemas Microinformáticos y Redes y en Desarrollo de Aplicaciones Web, y con un uso metódico de la IA: especificación, código y tests.',
 
   // Párrafos de la sección «Sobre mí» (presentación resumida, no CV)
   about: [
-    'Soy Sergio Vidal Moreno, Desarrollador Web en formación. Actualmente curso el Grado Superior en Desarrollo de Aplicaciones Web y cuento con formación previa en Sistemas Microinformáticos y Redes, además de experiencia práctica en soporte técnico, instalación de equipos y configuración de redes locales.',
-    'Mi objetivo profesional está orientado al desarrollo web. Me interesan las tecnologías modernas y, de forma especial, el uso de herramientas de IA aplicadas al desarrollo como apoyo al aprendizaje, la resolución de problemas y la productividad.',
+    'Curso el Grado Superior en Desarrollo de Aplicaciones Web en el IES Ribera de los Molinos. Antes completé el Grado Medio en Sistemas Microinformáticos y Redes y realicé prácticas en Conecta Telecom, donde instalé equipos, configuré redes locales y atendí incidencias de usuarios.',
+    'Me centro en el frontend: desarrollo interfaces con React y JavaScript, y conozco también PHP, Java, Spring Boot y MySQL. Trabajo con Claude y ChatGPT siguiendo un proceso definido: especifico primero lo que voy a construir, reviso el código generado y lo valido con tests.',
+    'Busco un primer empleo como desarrollador web junior o prácticas en empresa.',
   ],
 
   // Valor que aparece en el perfil como «Orientación profesional»

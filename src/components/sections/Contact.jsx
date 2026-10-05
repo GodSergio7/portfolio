@@ -93,18 +93,18 @@ export default function Contact() {
       <SectionHeading
         index="05"
         label="Contacto"
-        title="Hablemos"
-        lead="Estoy abierto a oportunidades como desarrollador web y a colaborar en nuevos proyectos. Escríbeme por el canal que prefieras."
+        title="Contacto"
+        lead="Estoy disponible por email, teléfono o LinkedIn."
       />
 
       <div className="row g-4 g-lg-5">
         {/* Panel principal con acciones */}
         <Reveal className="col-lg-6">
           <div className="cta-panel h-100">
-            <h3>¿Tienes un proyecto en mente?</h3>
+            <h3>Disponible para empleo junior y prácticas</h3>
             <p className="mb-4">
-              Si buscas un Desarrollador Web para tu equipo o tu próximo
-              proyecto, escríbeme o llámame y hablamos sin compromiso.
+              Si buscáis un perfil junior de desarrollo web, escríbeme por
+              email o llámame.
             </p>
             <div className="d-flex flex-wrap align-items-center gap-2">
               <a href={`mailto:${profile.email}`} className="btn btn-mint">
