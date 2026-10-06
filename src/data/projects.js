@@ -1,82 +1,60 @@
 // ============================================================
-// Proyectos del portfolio.
+// Proyectos del portfolio, en el orden en que se muestran.
 // ------------------------------------------------------------
 // Formato de cada proyecto:
 //   {
 //     id: string único,
-//     featured: true | false (solo uno, tratamiento visual especial),
 //     title: nombre del proyecto,
-//     description: descripción breve,
-//     tech: [tecnologías usadas],
-//     image: ruta de la imagen / null,
+//     description: descripción breve (1–2 frases),
+//     tech: [tecnologías usadas, 4–5 principales],
+//     image: ruta de la captura / null,
 //     repo: URL de GitHub / null,
 //     demo: URL de la demo / null
 //   }
 //
-// - Con image: null se muestra un hueco «Captura próximamente».
-// - Con repo o demo en null se muestra «próximamente» en ese botón.
-//
-// TODO: los títulos y descripciones actuales son PLACEHOLDERS.
-// Sustitúyelos por tus proyectos reales en este mismo fichero,
-// sin necesidad de tocar ningún componente.
+// - Con image: null se muestra el hueco «Captura próximamente».
+// - Si repo o demo es null, ese botón no se muestra.
 // ============================================================
 
 export const projects = [
   {
-    id: 'proyecto-1',
-    featured: false,
-    title: 'Portfolio',
-    description: 'Portfolio personal creado con React, Vite, Bootstrap y JavaScript.',
-    tech: ['React', 'JavaScript', 'Vite', 'Bootstrap'],
-    image: '/proyectos/portfolio.png',
-    repo: 'https://github.com/GodSergio7/portfolio',
-    demo: 'https://portfolio-olive-rho-29.vercel.app/',
+    id: 'gymmanager',
+    title: 'GymManager',
+    description:
+      'Aplicación de gestión de gimnasios desarrollada con Spec-Driven Development y tests automatizados. En desarrollo.',
+    tech: ['React', 'TypeScript', 'Node.js', 'Prisma', 'Vitest'],
+    image: null,
+    repo: 'https://github.com/GodSergio7/GymManager',
+    demo: null,
   },
   {
-    id: 'proyecto-2',
-    featured: true,
+    id: 'todo-list',
     title: 'To-do List',
     description:
-      'Lista de tareas con calendario perfecto para apuntar las tareas pendientes y no olvidarme de ninguna. Todavía en desarrollo.',
+      'Aplicación de lista de tareas con calendario para organizar las tareas pendientes por fecha. En desarrollo.',
     tech: ['HTML', 'CSS', 'JavaScript'],
     image: '/proyectos/todoapp.png',
     repo: 'https://github.com/GodSergio7/todo-app',
     demo: 'https://todo-app-one-lilac-25.vercel.app/tareas/tareas.html',
   },
   {
-    id: 'proyecto-3',
-    featured: false,
-    title: 'GymManager',
-    description:
-      'Proyecto de gestión de gimnasios en desarrollo usando SDD (Spec-Driven Development).',
-    tech: ['React', 'Vite', 'TypeScript', 'Zod', 'Vitest', 'React Testing Library', 'Node.js', 'Prisma'],
-    image: null,
-    repo: 'https://github.com/GodSergio7/GymManager',
-    demo: null,
-  },
-
-  {
-    id: 'proyecto-4',
-    featured: false,
+    id: 'dropmaster',
     title: 'DropMaster',
     description:
-      'Web simple para explicar el modelo de negocio del dropshipping.',
+      'Web informativa que explica cómo funciona el modelo de negocio del dropshipping.',
     tech: ['HTML', 'CSS', 'JavaScript'],
     image: '/proyectos/DropMaster.png',
     repo: 'https://github.com/GodSergio7/DropMaster',
     demo: 'https://drop-master-lac.vercel.app/',
   },
-
-  // {
-  //   id: 'proyecto-4',
-  //   featured: false,
-  //   title: '[Nombre del proyecto 4]',
-  //   description:
-  //     '[Resume el proyecto en una o dos frases: funcionalidad principal, retos y resultado.]',
-  //   tech: ['Python', 'Node.js', 'Firebase'],
-  //   image: null,
-  //   repo: null,
-  //   demo: null,
-  // },
+  {
+    id: 'portfolio',
+    title: 'Portfolio',
+    description:
+      'Portfolio personal desarrollado con React y Vite. Presenta mi perfil, mis proyectos y mi trayectoria.',
+    tech: ['React', 'JavaScript', 'Vite', 'Bootstrap'],
+    image: '/proyectos/portfolio.png',
+    repo: 'https://github.com/GodSergio7/portfolio',
+    demo: 'https://portfolio-olive-rho-29.vercel.app/',
+  },
 ]
-

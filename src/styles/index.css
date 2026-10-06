@@ -487,47 +487,6 @@ a:hover {
   padding: 0.2rem 0.7rem;
 }
 
-/* Proyecto destacado */
-.project-card--featured {
-  border-color: var(--border-strong);
-}
-.project-card--featured:hover {
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-}
-.featured-media {
-  aspect-ratio: 16 / 9; /* apilado en móvil/tablet */
-  border-bottom: 1px solid var(--border);
-  height: auto;
-  min-height: 0;
-}
-.featured-body {
-  padding: 1.7rem;
-}
-/* En escritorio la imagen y el contenido conviven en columnas */
-@media (min-width: 992px) {
-  .featured-media {
-    aspect-ratio: auto;
-    height: 100%;
-    min-height: 100%;
-    border-bottom: none;
-  }
-  .featured-body {
-    padding: 2.2rem;
-  }
-}
-.featured-badge {
-  align-self: flex-start;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--text-soft);
-  border: 1px solid var(--border-strong);
-  border-radius: 999px;
-  padding: 0.3rem 0.85rem;
-}
-
 /* ---------- Lista / timeline (experiencia y formación) ---------- */
 .timeline {
   position: relative;
@@ -710,31 +669,10 @@ a:hover {
   }
 }
 
-/* Botón de enlace pendiente (placeholder) */
-.project-link-pending {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.35rem 0.9rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  border-radius: 999px;
-  border: 1px dashed var(--border-strong);
-  color: var(--muted);
-  cursor: not-allowed;
-}
-
 /* Nota que identifica contenido placeholder */
 .placeholder-note {
   color: var(--muted);
   font-style: italic;
-}
-
-/* Título dentro del proyecto destacado */
-.featured-title {
-  font-size: clamp(1.45rem, 2.6vw, 1.9rem);
-  margin: 0;
-  line-height: 1.2;
 }
 
 /* Texto introductorio de Sobre mí */

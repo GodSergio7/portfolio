@@ -1,4 +1,4 @@
-import { ExternalLink, Image, Star } from 'lucide-react'
+import { ExternalLink, Image } from 'lucide-react'
 import Section from '../layout/Section'
 import SectionHeading from '../ui/SectionHeading'
 import Reveal from '../ui/Reveal'
@@ -27,18 +27,10 @@ function ProjectMedia({ project }) {
 }
 
 /**
- * Enlace (repo / demo). Si la URL no existe aún, muestra
- * «próximamente» como estado claro de placeholder.
+ * Enlace (repo / demo). Si el proyecto no tiene esa URL, no se muestra.
  */
 function ProjectLink({ url, label, icon, aria }) {
-  if (!url) {
-    return (
-      <span className="project-link-pending" title={`[PLACEHOLDER] ${aria}`}>
-        {icon}
-        {label} próximamente
-      </span>
-    )
-  }
+  if (!url) return null
   return (
     <a
       className="btn btn-ghost btn-sm"
@@ -56,54 +48,6 @@ function ProjectLink({ url, label, icon, aria }) {
 const linkIcons = {
   repo: <GithubIcon size={15} />,
   demo: <ExternalLink size={15} aria-hidden="true" />,
-}
-
-function FeaturedProject({ project }) {
-  return (
-    <Reveal className="col-12">
-      <article className="project-card project-card--featured">
-        <div className="row g-0 flex-grow-1">
-          {/* Imagen / captura */}
-          <div className="col-lg-6 project-media featured-media">
-            <ProjectMedia project={project} />
-          </div>
-
-          {/* Contenido */}
-          <div className="col-lg-6 d-flex flex-column">
-            <div className="featured-body d-flex flex-column gap-3 flex-grow-1">
-              <span className="featured-badge">
-                <Star size={13} aria-hidden="true" />
-                Proyecto destacado
-              </span>
-              <h3 className="featured-title">{project.title}</h3>
-              <p className="project-desc">{project.description}</p>
-              <div className="project-tech">
-                {project.tech.map((tech) => (
-                  <span className="chip" key={tech}>
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <div className="d-flex flex-wrap align-items-center gap-2 mt-auto">
-                <ProjectLink
-                  url={project.repo}
-                  label="Código"
-                  icon={linkIcons.repo}
-                  aria={project.title}
-                />
-                <ProjectLink
-                  url={project.demo}
-                  label="Demo"
-                  icon={linkIcons.demo}
-                  aria={project.title}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-    </Reveal>
-  )
 }
 
 function ProjectCard({ project, index }) {
@@ -144,9 +88,6 @@ function ProjectCard({ project, index }) {
 }
 
 export default function Projects() {
-  const featured = projects.find((project) => project.featured)
-  const rest = projects.filter((project) => !project.featured)
-
   return (
     <Section id="proyectos" variant="alt">
       <SectionHeading
@@ -154,15 +95,10 @@ export default function Projects() {
         lead="Proyectos que he desarrollado, con enlace al código y a la demo cuando está disponible."
       />
 
+      {/* Rejilla 2 × 2: todos los proyectos con el mismo peso visual */}
       <div className="row g-4">
-        {featured ? <FeaturedProject project={featured} /> : null}
-
-        {rest.map((project, index) => (
-          <ProjectCard
-            project={project}
-            index={index}
-            key={project.id}
-          />
+        {projects.map((project, index) => (
+          <ProjectCard project={project} index={index} key={project.id} />
         ))}
       </div>
     </Section>
