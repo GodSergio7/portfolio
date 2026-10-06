@@ -642,28 +642,10 @@ a:hover {
   background-color: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  transition: border-color var(--transition), transform var(--transition);
-}
-.tech-card:hover {
-  border-color: var(--border-strong);
-}
-.tech-card-head {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  margin-bottom: 1.2rem;
-}
-.tech-card-icon {
-  display: inline-flex;
-  color: var(--muted);
 }
 .tech-card-title {
   font-size: 1.1rem;
-  margin: 0;
-}
-.tech-card-count {
-  font-size: 0.82rem;
-  color: var(--muted);
+  margin: 0 0 1.1rem;
 }
 .tech-list {
   display: flex;
@@ -782,18 +764,23 @@ a:hover {
   flex-direction: column;
   gap: 0.55rem;
 }
+/* Viñeta sobria: un punto pequeño en lugar de un icono */
 .tech-bullets li {
-  display: flex;
-  gap: 0.55rem;
-  align-items: flex-start;
+  position: relative;
+  padding-left: 1rem;
   color: var(--text-soft);
   font-size: 0.92rem;
   line-height: 1.55;
 }
-.tech-bullets svg {
-  flex-shrink: 0;
-  margin-top: 0.28rem;
-  color: var(--muted);
+.tech-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--muted);
 }
 
 /* ---------- Tarjetas informativas (Idiomas / Habilidades) ---------- */

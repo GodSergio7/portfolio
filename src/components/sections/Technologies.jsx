@@ -1,28 +1,7 @@
-import { Check, Code2, ListChecks, Network, Sparkles, Wrench } from 'lucide-react'
 import Section from '../layout/Section'
 import SectionHeading from '../ui/SectionHeading'
 import Reveal from '../ui/Reveal'
 import { techCategories } from '../../data/technologies'
-
-// Icono que representa cada categoría (solo en el componente:
-// los datos permanecen como texto plano, fácil de ampliar).
-const categoryIcons = {
-  'desarrollo-web': Code2,
-  herramientas: Wrench,
-  'sistemas-redes': Network,
-  'ia-desarrollo': Sparkles,
-  productividad: ListChecks,
-}
-
-// Anchos por categoría para equilibrar la parrilla responsive:
-// la categoría grande (Desarrollo Web) ocupa más espacio.
-const categoryWidths = {
-  'desarrollo-web': 'col-12 col-lg-7',
-  herramientas: 'col-12 col-md-6 col-lg-5',
-  'sistemas-redes': 'col-12 col-md-6 col-lg-3',
-  'ia-desarrollo': 'col-12 col-md-6 col-lg-6',
-  productividad: 'col-12 col-md-6 col-lg-3',
-}
 
 function CategoryContent({ category }) {
   if (category.kind === 'bullets') {
@@ -39,10 +18,7 @@ function CategoryContent({ category }) {
         ) : null}
         <ul className="tech-bullets mb-0">
           {category.items.map((item) => (
-            <li key={item}>
-              <Check size={15} aria-hidden="true" />
-              <span>{item}</span>
-            </li>
+            <li key={item}>{item}</li>
           ))}
         </ul>
       </>
@@ -64,30 +40,19 @@ export default function Technologies() {
     <Section id="tecnologias">
       <SectionHeading
         title="Tecnologías y herramientas"
-        lead="Tecnologías que he utilizado en mi formación y en mis proyectos, agrupadas por área."
+        lead="Tecnologías que he utilizado en mi formación y en mis proyectos."
       />
 
+      {/* Rejilla 2 × 2: todas las tarjetas del mismo ancho */}
       <div className="row g-4">
-        {techCategories.map((category, index) => {
-          const Icon = categoryIcons[category.id] ?? Code2
-          const width = categoryWidths[category.id] ?? 'col-md-6'
-          return (
-            <Reveal className={width} delay={(index % 3) * 80} key={category.id}>
-              <div className="tech-card">
-                <div className="tech-card-head">
-                  <span className="tech-card-icon" aria-hidden="true">
-                    <Icon size={22} strokeWidth={1.9} />
-                  </span>
-                  <div>
-                    <h3 className="tech-card-title">{category.title}</h3>
-                    <p className="tech-card-count mb-0">{category.caption}</p>
-                  </div>
-                </div>
-                <CategoryContent category={category} />
-              </div>
-            </Reveal>
-          )
-        })}
+        {techCategories.map((category, index) => (
+          <Reveal className="col-md-6" delay={(index % 2) * 80} key={category.id}>
+            <div className="tech-card">
+              <h3 className="tech-card-title">{category.title}</h3>
+              <CategoryContent category={category} />
+            </div>
+          </Reveal>
+        ))}
       </div>
     </Section>
   )

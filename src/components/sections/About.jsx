@@ -1,4 +1,3 @@
-import { Check, Users } from 'lucide-react'
 import Section from '../layout/Section'
 import SectionHeading from '../ui/SectionHeading'
 import Reveal from '../ui/Reveal'
@@ -11,17 +10,11 @@ function SoftSkillsBlock() {
   return (
     <div className="info-card">
       <div className="info-card-head">
-        <span className="profile-icon" aria-hidden="true">
-          <Users size={20} />
-        </span>
         <h3>Habilidades</h3>
       </div>
       <ul className="tech-bullets mb-0">
         {profile.softSkills.map((skill) => (
-          <li key={skill}>
-            <Check size={15} aria-hidden="true" />
-            <span>{skill}</span>
-          </li>
+          <li key={skill}>{skill}</li>
         ))}
       </ul>
     </div>
