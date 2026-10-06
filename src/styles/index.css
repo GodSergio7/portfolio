@@ -15,7 +15,6 @@
   --bg: #1d1f23;
   --bg-soft: #212328;
   --surface: #26292e;
-  --surface-hover: #2c2f35;
 
   /* Texto y bordes neutros */
   --text: #eef1f5;
@@ -26,7 +25,6 @@
 
   /* Menta con transparencia */
   --mint-10: rgba(184, 247, 228, 0.1);
-  --mint-20: rgba(184, 247, 228, 0.2);
   --mint-35: rgba(184, 247, 228, 0.35);
 
   /* Tipografía */
@@ -102,7 +100,6 @@ a:hover {
 }
 
 /* ---------- Utilidades de color ---------- */
-.text-soft { color: var(--text-soft); }
 .text-muted { color: var(--muted); }
 
 /* ---------- Botones ---------- */
@@ -343,14 +340,7 @@ a:hover {
   margin-bottom: 2rem;
 }
 
-.hero-divider {
-  height: 1px;
-  background: var(--border);
-  margin: 1.9rem 0;
-  position: relative;
-}
-
-/* Foto de perfil: recorte sin fondo sobre un marco con degradado menta */
+/* Foto de perfil: recorte sin fondo sobre un marco con degradado gris */
 .hero-photo {
   position: relative;
   z-index: 1;
@@ -685,12 +675,6 @@ a:hover {
   .contact-grid .profile-row:nth-child(n + 3) {
     border-top: 1px solid var(--border);
   }
-}
-
-/* Nota que identifica contenido placeholder */
-.placeholder-note {
-  color: var(--muted);
-  font-style: italic;
 }
 
 /* Texto introductorio de Sobre mí */
