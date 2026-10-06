@@ -42,7 +42,7 @@
 /* ---------- Base ---------- */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem; /* compensa el navbar fijo */
+  scroll-padding-top: 6rem; /* compensa el navbar flotante */
 }
 
 body {
@@ -214,34 +214,8 @@ a:hover {
   white-space: nowrap;
 }
 
-/* ---------- Navbar ---------- */
-.navbar-portfolio {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1040;
-  background-color: rgba(29, 31, 35, 0.72);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid transparent;
-  transition: background-color var(--transition), border-color var(--transition),
-    box-shadow var(--transition);
-}
-.navbar-portfolio.scrolled {
-  background-color: rgba(29, 31, 35, 0.92);
-  border-bottom-color: var(--border);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-}
-.navbar-portfolio .navbar-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  color: var(--text);
-  font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
+/* ---------- Marca ---------- */
+/* (el navbar vive en src/components/ui/CardNav/CardNav.css) */
 /* Monograma «SV.»: el punto es el único toque de menta de la marca */
 .brand-mark {
   font-family: var(--font-display);
@@ -254,62 +228,6 @@ a:hover {
 .brand-dot {
   color: var(--mint);
 }
-.navbar-portfolio .navbar-nav {
-  gap: 0.25rem;
-}
-.nav-link {
-  position: relative;
-  padding: 0.5rem 0.8rem !important;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--text-soft) !important;
-}
-.nav-link::after {
-  content: '';
-  position: absolute;
-  left: 0.8rem;
-  right: 0.8rem;
-  bottom: 0.15rem;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--mint);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--transition);
-}
-.nav-link:hover,
-.nav-link.active {
-  color: var(--mint) !important;
-}
-.nav-link:hover::after,
-.nav-link.active::after {
-  transform: scaleX(1);
-}
-
-.navbar-toggler {
-  border: 1px solid var(--border-strong) !important;
-  border-radius: var(--radius-sm);
-  padding: 0.4rem 0.55rem;
-  color: var(--text);
-  box-shadow: none !important;
-}
-.navbar-toggler:focus {
-  border-color: var(--mint-35);
-}
-
-.navbar-collapse {
-  background: transparent;
-}
-@media (max-width: 991.98px) {
-  .navbar-collapse {
-    background-color: rgba(29, 31, 35, 0.97);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1rem;
-    margin-top: 0.75rem;
-  }
-}
-
 /* ---------- Hero ---------- */
 .hero {
   min-height: 100vh;
@@ -363,6 +281,13 @@ a:hover {
 @media (max-width: 991.98px) {
   .hero-photo {
     max-width: 320px;
+  }
+}
+/* En escritorio la foto se alinea al borde derecho del contenido,
+   el mismo en el que termina el navbar. */
+@media (min-width: 992px) {
+  .hero-photo {
+    margin-right: 0;
   }
 }
 

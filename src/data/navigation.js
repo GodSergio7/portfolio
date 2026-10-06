@@ -13,3 +13,10 @@ export const navItems = [
 ]
 
 export const navIds = navItems.map((item) => item.id)
+
+// Grupos de secciones que se muestran como tarjetas en el menú.
+// La tercera tarjeta (Contacto) se construye con los datos de profile.js.
+export const navGroups = [
+  { label: 'Perfil', ids: ['sobre-mi', 'tecnologias'] },
+  { label: 'Trabajo', ids: ['proyectos', 'trayectoria'] },
+]
