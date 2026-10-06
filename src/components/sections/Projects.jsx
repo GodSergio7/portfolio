@@ -1,7 +1,6 @@
 import { ExternalLink, Image } from 'lucide-react'
 import Section from '../layout/Section'
 import SectionHeading from '../ui/SectionHeading'
-import Reveal from '../ui/Reveal'
 import { GithubIcon } from '../ui/BrandIcons'
 import { projects } from '../../data/projects'
 
@@ -50,9 +49,9 @@ const linkIcons = {
   demo: <ExternalLink size={15} aria-hidden="true" />,
 }
 
-function ProjectCard({ project, index }) {
+function ProjectCard({ project }) {
   return (
-    <Reveal className="col-md-6" delay={(index % 2) * 110}>
+    <div className="col-md-6">
       <article className="project-card">
         <div className="project-media">
           <ProjectMedia project={project} />
@@ -83,7 +82,7 @@ function ProjectCard({ project, index }) {
           </div>
         </div>
       </article>
-    </Reveal>
+    </div>
   )
 }
 
@@ -97,8 +96,8 @@ export default function Projects() {
 
       {/* Rejilla 2 × 2: todos los proyectos con el mismo peso visual */}
       <div className="row g-4">
-        {projects.map((project, index) => (
-          <ProjectCard project={project} index={index} key={project.id} />
+        {projects.map((project) => (
+          <ProjectCard project={project} key={project.id} />
         ))}
       </div>
     </Section>

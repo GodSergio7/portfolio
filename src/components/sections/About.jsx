@@ -1,6 +1,5 @@
 import Section from '../layout/Section'
 import SectionHeading from '../ui/SectionHeading'
-import Reveal from '../ui/Reveal'
 import { profile } from '../../data/profile'
 
 /**
@@ -35,7 +34,7 @@ export default function About() {
 
       <div className="row g-4 g-lg-5 align-items-start">
         {/* Presentación + datos básicos */}
-        <Reveal className="col-lg-6">
+        <div className="col-lg-6">
           <div className="about-intro">
             {profile.about.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
@@ -46,12 +45,12 @@ export default function About() {
             <span className="divider-dot" aria-hidden="true" />
             Idiomas: {languages}
           </p>
-        </Reveal>
+        </div>
 
         {/* Habilidades transversales */}
-        <Reveal className="col-lg-6" delay={120}>
+        <div className="col-lg-6">
           <SoftSkillsBlock />
-        </Reveal>
+        </div>
       </div>
     </Section>
   )

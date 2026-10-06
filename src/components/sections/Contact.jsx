@@ -1,7 +1,6 @@
 import { ArrowUpRight, Mail, Phone } from 'lucide-react'
 import Section from '../layout/Section'
 import SectionHeading from '../ui/SectionHeading'
-import Reveal from '../ui/Reveal'
 import { getSocialIcon } from '../ui/BrandIcons'
 import { profile } from '../../data/profile'
 
@@ -88,13 +87,11 @@ export default function Contact() {
       />
 
       {/* Canales de contacto: rejilla 2 × 2 en escritorio */}
-      <Reveal>
-        <div className="card-surface profile-card contact-grid">
-          {rows.map((row) => (
-            <ContactRow row={row} key={row.id} />
-          ))}
-        </div>
-      </Reveal>
+      <div className="card-surface profile-card contact-grid">
+        {rows.map((row) => (
+          <ContactRow row={row} key={row.id} />
+        ))}
+      </div>
     </Section>
   )
 }

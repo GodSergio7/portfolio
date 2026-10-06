@@ -1,6 +1,5 @@
 import Section from '../layout/Section'
 import SectionHeading from '../ui/SectionHeading'
-import Reveal from '../ui/Reveal'
 import { techCategories } from '../../data/technologies'
 
 /**
@@ -42,8 +41,7 @@ export default function Technologies() {
       />
 
       {/* Filas: categoría a la izquierda, contenido a la derecha */}
-      <Reveal>
-        <dl className="tech-rows">
+      <dl className="tech-rows">
           {techCategories.map((category) => (
             <div className="tech-row" key={category.id}>
               <dt className="tech-row-title">{category.title}</dt>
@@ -52,8 +50,7 @@ export default function Technologies() {
               </dd>
             </div>
           ))}
-        </dl>
-      </Reveal>
+      </dl>
     </Section>
   )
 }

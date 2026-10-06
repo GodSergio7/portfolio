@@ -1,7 +1,6 @@
 import { Briefcase, GraduationCap } from 'lucide-react'
 import Section from '../layout/Section'
 import SectionHeading from '../ui/SectionHeading'
-import Reveal from '../ui/Reveal'
 import { experience } from '../../data/experience'
 import { education } from '../../data/education'
 
@@ -82,8 +81,8 @@ export default function Trajectory() {
         lead="Prácticas en Conecta Telecom y formación en el IES Ribera de los Molinos, desde Sistemas Microinformáticos y Redes hasta Desarrollo de Aplicaciones Web."
       />
 
-      <div className="row g-5">
-        <Reveal className="col-lg-6">
+      <div className="row g-4 g-lg-5">
+        <div className="col-lg-6">
           <ColumnHeading icon={Briefcase} title="Experiencia" />
           {experience.length > 0 ? (
             <div className="timeline">
@@ -97,9 +96,9 @@ export default function Trajectory() {
               prácticas.
             </p>
           )}
-        </Reveal>
+        </div>
 
-        <Reveal className="col-lg-6" delay={120}>
+        <div className="col-lg-6">
           <ColumnHeading icon={GraduationCap} title="Formación" />
           {education.length > 0 ? (
             <div className="timeline">
@@ -112,7 +111,7 @@ export default function Trajectory() {
               Próximamente se mostrará aquí mi formación.
             </p>
           )}
-        </Reveal>
+        </div>
       </div>
     </Section>
   )

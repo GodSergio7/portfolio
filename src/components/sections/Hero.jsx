@@ -25,9 +25,9 @@ export default function Hero() {
   return (
     <section id="inicio" className="hero">
       <div className="container position-relative">
-        <div className="row align-items-center g-5">
+        <div className="row align-items-center g-4 g-lg-5">
           {/* Texto principal */}
-          <div className="col-lg-7">
+          <div className="col-lg-6">
             <h1 className="hero-name fade-up">{profile.name}</h1>
             <p
               className="hero-role fade-up"
@@ -65,7 +65,7 @@ export default function Hero() {
           </div>
 
           {/* Composición visual */}
-          <div className="col-lg-5">
+          <div className="col-lg-6">
             <div className="fade-up" style={{ animationDelay: '120ms' }}>
               <ProfilePhoto />
             </div>
