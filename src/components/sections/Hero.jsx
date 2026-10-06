@@ -1,9 +1,10 @@
 import { ArrowRight, Mail } from 'lucide-react'
 import { profile } from '../../data/profile'
 import SocialLinks from '../ui/SocialLinks'
+import Button from '../ui/Button'
 
 /**
- * Foto de perfil sobre un fondo con el degradado menta de la web.
+ * Foto de perfil sobre un marco con degradado gris.
  * La imagen no tiene fondo (PNG/WebP transparente), así que se
  * integra con el marco en lugar de verse como un recorte.
  */
@@ -46,14 +47,14 @@ export default function Hero() {
               className="d-flex flex-wrap align-items-center gap-3 fade-up"
               style={{ animationDelay: '240ms' }}
             >
-              <a href="#proyectos" className="btn btn-mint">
+              <Button variant="primary" href="#proyectos">
                 Ver proyectos
                 <ArrowRight size={17} className="ms-2" aria-hidden="true" />
-              </a>
-              <a href="#contacto" className="btn btn-outline-mint">
+              </Button>
+              <Button variant="secondary" href="#contacto">
                 <Mail size={16} className="me-2" aria-hidden="true" />
                 Contactar conmigo
-              </a>
+              </Button>
               <span
                 className="d-none d-md-inline-block footer-sep mx-1"
                 aria-hidden="true"

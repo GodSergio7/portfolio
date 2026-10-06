@@ -2,6 +2,7 @@ import { ExternalLink, Image } from 'lucide-react'
 import Section from '../layout/Section'
 import SectionHeading from '../ui/SectionHeading'
 import { GithubIcon } from '../ui/BrandIcons'
+import Button from '../ui/Button'
 import { projects } from '../../data/projects'
 
 /**
@@ -31,16 +32,15 @@ function ProjectMedia({ project }) {
 function ProjectLink({ url, label, icon, aria }) {
   if (!url) return null
   return (
-    <a
-      className="btn btn-ghost btn-sm"
+    <Button
+      variant="ghost"
       href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`${label} de ${aria}`}
+      external
+      aria-label={`${label} de ${aria} (se abre en una pestaña nueva)`}
     >
       {icon}
       {label}
-    </a>
+    </Button>
   )
 }
 

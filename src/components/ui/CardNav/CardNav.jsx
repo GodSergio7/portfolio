@@ -7,13 +7,15 @@
  * (https://github.com/DavidHDev/react-bits/blob/main/LICENSE.md).
  *
  * Cambios respecto al original: logo como nodo React en lugar de imagen,
- * botón de llamada a la acción configurable (enlace), icono de Lucide,
+ * botón de llamada a la acción configurable (enlace con Specular Button),
+ * icono de Lucide,
  * botón real (<button>) para abrir/cerrar, cierre con Escape y al pulsar
  * un enlace, enlace activo marcado y respeto a `prefers-reduced-motion`.
  */
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ArrowUpRight } from 'lucide-react'
+import SpecularButton from '../reactbits/SpecularButton'
 import './CardNav.css'
 
 const prefersReducedMotion = () =>
@@ -222,9 +224,20 @@ const CardNav = ({
             </a>
 
             {cta ? (
-              <a className="card-nav-cta-button" href={cta.href} onClick={closeMenu}>
+              <SpecularButton
+                href={cta.href}
+                onClick={closeMenu}
+                className="card-nav-cta-button"
+                size="sm"
+                radius={8}
+                tintOpacity={0}
+                textColor="#eef1f5"
+                lineColor="#ffffff"
+                baseColor="#eef1f5"
+                proximity={180}
+              >
                 {cta.label}
-              </a>
+              </SpecularButton>
             ) : null}
           </div>
 

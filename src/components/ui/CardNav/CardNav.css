@@ -98,24 +98,12 @@
   color: var(--text);
 }
 
-.card-nav-cta-button {
-  display: inline-flex;
-  align-items: center;
-  background-color: var(--mint);
-  color: var(--ink);
-  border: none;
-  border-radius: calc(var(--radius) - 0.35rem);
-  padding: 0 1.1rem;
+/* El botón es un SpecularButton; aquí solo se ajusta a la altura de la barra */
+.card-nav-cta-button.specular-button {
   height: 100%;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.card-nav-cta-button:hover {
-  background-color: var(--mint-strong);
-  color: var(--ink);
+  padding: 0 1.1rem;
+  font-size: 0.95rem;
+  box-shadow: none;
 }
 
 .card-nav-content {
@@ -208,7 +196,7 @@
     order: 1;
   }
 
-  .card-nav-cta-button {
+  .card-nav-cta-button.specular-button {
     display: none;
   }
 

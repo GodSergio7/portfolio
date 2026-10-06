@@ -1,5 +1,6 @@
 import { ArrowUp } from 'lucide-react'
 import { profile } from '../../data/profile'
+import Button from '../ui/Button'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -13,14 +14,14 @@ export default function Footer() {
           </span>
           © {year} {profile.name}
         </p>
-        <a
+        <Button
+          variant="icon"
           href="#inicio"
-          className="icon-btn"
           aria-label="Volver arriba"
           title="Volver arriba"
         >
           <ArrowUp size={18} aria-hidden="true" />
-        </a>
+        </Button>
       </div>
     </footer>
   )
