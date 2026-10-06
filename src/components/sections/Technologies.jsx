@@ -3,20 +3,26 @@ import SectionHeading from '../ui/SectionHeading'
 import Reveal from '../ui/Reveal'
 import { techCategories } from '../../data/technologies'
 
+/**
+ * Nombres repartidos en columnas regulares que ocupan todo el ancho,
+ * para que el bloque quede equilibrado a izquierda y derecha.
+ */
+function InlineList({ items }) {
+  return (
+    <ul className="tech-grid">
+      {items.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+    </ul>
+  )
+}
+
 function CategoryContent({ category }) {
   if (category.kind === 'bullets') {
     return (
       <>
-        {category.tools?.length ? (
-          <div className="tech-list mb-3">
-            {category.tools.map((tool) => (
-              <span className="chip chip--strong" key={tool}>
-                {tool}
-              </span>
-            ))}
-          </div>
-        ) : null}
-        <ul className="tech-bullets mb-0">
+        {category.tools?.length ? <InlineList items={category.tools} /> : null}
+        <ul className="tech-bullets">
           {category.items.map((item) => (
             <li key={item}>{item}</li>
           ))}
@@ -24,15 +30,7 @@ function CategoryContent({ category }) {
       </>
     )
   }
-  return (
-    <div className="tech-list">
-      {category.items.map((item) => (
-        <span className="chip" key={item}>
-          {item}
-        </span>
-      ))}
-    </div>
-  )
+  return <InlineList items={category.items} />
 }
 
 export default function Technologies() {
@@ -43,17 +41,19 @@ export default function Technologies() {
         lead="Tecnologías que he utilizado en mi formación y en mis proyectos."
       />
 
-      {/* Rejilla 2 × 2: todas las tarjetas del mismo ancho */}
-      <div className="row g-4">
-        {techCategories.map((category, index) => (
-          <Reveal className="col-md-6" delay={(index % 2) * 80} key={category.id}>
-            <div className="tech-card">
-              <h3 className="tech-card-title">{category.title}</h3>
-              <CategoryContent category={category} />
+      {/* Filas: categoría a la izquierda, contenido a la derecha */}
+      <Reveal>
+        <dl className="tech-rows">
+          {techCategories.map((category) => (
+            <div className="tech-row" key={category.id}>
+              <dt className="tech-row-title">{category.title}</dt>
+              <dd className="tech-row-content">
+                <CategoryContent category={category} />
+              </dd>
             </div>
-          </Reveal>
-        ))}
-      </div>
+          ))}
+        </dl>
+      </Reveal>
     </Section>
   )
 }
