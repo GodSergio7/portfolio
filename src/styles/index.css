@@ -30,8 +30,9 @@
   --mint-35: rgba(184, 247, 228, 0.35);
 
   /* Tipografía */
-  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+  /* Una sola familia (Manrope, servida desde la propia web) */
+  --font-body: 'Manrope Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: var(--font-body);
 
   /* Radios / transiciones */
   --radius-sm: 0.5rem;
@@ -59,9 +60,10 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--text);
+  text-wrap: balance; /* reparte las líneas de forma equilibrada */
 }
 
 a {
@@ -187,8 +189,9 @@ a:hover {
 
 /* ---------- Cabeceras de sección ---------- */
 .section-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
   line-height: 1.1;
   margin-bottom: 0.85rem;
 }
@@ -246,7 +249,7 @@ a:hover {
 .brand-mark {
   font-family: var(--font-display);
   font-size: 1.35rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1;
   color: var(--text);
@@ -321,10 +324,10 @@ a:hover {
 }
 
 .hero-name {
-  font-size: clamp(2.75rem, 7vw, 5rem);
-  font-weight: 700;
-  letter-spacing: -0.035em;
-  line-height: 1;
+  font-size: clamp(2.75rem, 5.5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
   margin: 0 0 1rem;
 }
 .hero-role {
