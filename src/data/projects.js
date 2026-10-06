@@ -55,6 +55,6 @@ export const projects = [
     tech: ['React', 'JavaScript', 'Vite', 'Bootstrap'],
     image: '/proyectos/portfolio.png',
     repo: 'https://github.com/GodSergio7/portfolio',
-    demo: 'https://portfolio-olive-rho-29.vercel.app/',
+    demo: 'https://www.sergiovidal.es/',
   },
 ]
