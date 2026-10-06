@@ -1,4 +1,4 @@
-import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react'
+import { ArrowUpRight, Mail, Phone } from 'lucide-react'
 import Section from '../layout/Section'
 import SectionHeading from '../ui/SectionHeading'
 import Reveal from '../ui/Reveal'
@@ -69,14 +69,6 @@ export default function Contact() {
       href: profile.phone.href,
       pending: false,
     },
-    {
-      id: 'location',
-      Icon: MapPin,
-      label: 'Ubicación',
-      value: profile.location,
-      href: null,
-      pending: false,
-    },
     // Redes sociales reales (se abren en pestaña nueva).
     ...profile.social.map((link) => ({
       id: link.id,
@@ -92,40 +84,17 @@ export default function Contact() {
     <Section id="contacto" variant="alt">
       <SectionHeading
         title="Contacto"
-        lead="Estoy disponible por email, teléfono o LinkedIn."
+        lead="Si buscáis un desarrollador web junior, estos son mis datos de contacto."
       />
 
-      <div className="row g-4 g-lg-5">
-        {/* Panel principal con acciones */}
-        <Reveal className="col-lg-6">
-          <div className="cta-panel h-100">
-            <h3>Disponible para empleo como desarrollador junior</h3>
-            <p className="mb-4">
-              Si buscáis un perfil junior de desarrollo web, escríbeme por
-              email o llámame.
-            </p>
-            <div className="d-flex flex-wrap align-items-center gap-2">
-              <a href={`mailto:${profile.email}`} className="btn btn-mint">
-                <Mail size={17} className="me-2" aria-hidden="true" />
-                Enviar email
-              </a>
-              <a href={profile.phone.href} className="btn btn-outline-mint">
-                <Phone size={16} className="me-2" aria-hidden="true" />
-                Llamar
-              </a>
-            </div>
-          </div>
-        </Reveal>
-
-        {/* Detalle de canales */}
-        <Reveal className="col-lg-6" delay={120}>
-          <div className="card-surface profile-card p-4 h-100">
-            {rows.map((row) => (
-              <ContactRow row={row} key={row.id} />
-            ))}
-          </div>
-        </Reveal>
-      </div>
+      {/* Canales de contacto: rejilla 2 × 2 en escritorio */}
+      <Reveal>
+        <div className="card-surface profile-card contact-grid">
+          {rows.map((row) => (
+            <ContactRow row={row} key={row.id} />
+          ))}
+        </div>
+      </Reveal>
     </Section>
   )
 }

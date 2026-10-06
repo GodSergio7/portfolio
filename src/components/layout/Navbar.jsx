@@ -3,7 +3,6 @@ import { Menu, X } from 'lucide-react'
 import { navItems, navIds } from '../../data/navigation'
 import { profile } from '../../data/profile'
 import { useActiveSection } from '../../hooks/useActiveSection'
-import SocialLinks from '../ui/SocialLinks'
 
 export default function Navbar() {
   const [expanded, setExpanded] = useState(false)
@@ -75,19 +74,6 @@ export default function Navbar() {
                 </li>
               )
             })}
-            <li className="nav-item ms-lg-3 mt-3 mt-lg-0">
-              <a className="btn btn-mint btn-sm w-100 w-lg-auto" href="#contacto" onClick={closeMenu}>
-                Hablemos
-              </a>
-            </li>
-            {/*
-              Redes sociales en el navbar: solo se muestran en
-              pantallas anchas (≥1200 px), donde hay espacio real
-              sin romper la estructura del menú.
-            */}
-            <li className="nav-item d-none d-xl-flex align-items-center ms-xl-3 mt-3 mt-xl-0">
-              <SocialLinks links={profile.social} size={17} />
-            </li>
           </ul>
         </div>
       </div>

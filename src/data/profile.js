@@ -15,9 +15,6 @@ export const profile = {
   // Foto de perfil (sin fondo) usada en el Hero
   photo: '/foto-perfil.webp',
 
-  // Formación actual (Grado Superior)
-  formation: 'Desarrollo de Aplicaciones Web',
-
   // Frase breve profesional (Hero)
   tagline:
     'Desarrollador web orientado al frontend con React. Formado en Sistemas Microinformáticos y Redes y en Desarrollo de Aplicaciones Web, y con un uso metódico de la IA: especificación, código y tests.',
@@ -28,9 +25,6 @@ export const profile = {
     'Me centro en el frontend: desarrollo interfaces con React y JavaScript, y conozco también PHP, Java, Spring Boot y MySQL. Trabajo con Claude y ChatGPT siguiendo un proceso definido: especifico primero lo que voy a construir, reviso el código generado y lo valido con tests.',
     'Busco un primer empleo como desarrollador web junior.',
   ],
-
-  // Valor que aparece en el perfil como «Orientación profesional»
-  orientation: 'Desarrollo web',
 
   // Idiomas (solo los proporcionados)
   languages: [{ language: 'Español', level: 'Nativo' }],
@@ -68,29 +62,3 @@ export const profile = {
     },
   ],
 }
-
-// Datos resumidos que aparecen en la tarjeta de «Sobre mí».
-// Solo hechos reales: formación, experiencia y orientación.
-export const aboutFacts = [
-  {
-    id: 'formacion',
-    icon: 'graduation',
-    label: 'Formación',
-    value: profile.formation,
-    sub: 'Grado Superior · IES Ribera de los Molinos',
-  },
-  {
-    id: 'experiencia',
-    icon: 'briefcase',
-    label: 'Experiencia',
-    value: 'Prácticas y auxiliar técnico',
-    sub: 'Soporte técnico, equipos y redes — Conecta Telecom S.L.',
-  },
-  {
-    id: 'orientacion',
-    icon: 'compass',
-    label: 'Orientación profesional',
-    value: profile.orientation,
-    sub: 'Frontend, backend y bases de datos',
-  },
-]
