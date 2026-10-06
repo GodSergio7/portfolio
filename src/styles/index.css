@@ -235,6 +235,17 @@ a:hover {
   line-height: 1.02;
   margin: 0 0 1rem;
 }
+/* Variante con Stroke Text: cada línea es un SVG */
+.hero-name--stroke {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+/* Cada SVG reserva hueco para ascendentes y descendentes («g»): se
+   solapan un poco para que las dos líneas queden juntas. */
+.hero-name--stroke .stroke-text + .stroke-text {
+  margin-top: -0.22em;
+}
 .hero-role {
   font-size: clamp(1.15rem, 2.2vw, 1.4rem);
   font-weight: 500;
