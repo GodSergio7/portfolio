@@ -18,11 +18,9 @@ function SoftSkillsBlock() {
       </div>
       <ul className="tech-bullets mb-0">
         {profile.softSkills.map((skill) => (
-          <li key={skill.title}>
+          <li key={skill}>
             <Check size={15} aria-hidden="true" />
-            <span>
-              <strong>{skill.title}:</strong> {skill.text}
-            </span>
+            <span>{skill}</span>
           </li>
         ))}
       </ul>
@@ -39,7 +37,7 @@ export default function About() {
     <Section id="sobre-mi" variant="alt">
       <SectionHeading
         title="Perfil profesional"
-        lead="Desarrollador web con orientación al frontend y formación previa en sistemas y redes."
+        lead="Formación, enfoque y forma de trabajar."
       />
 
       <div className="row g-4 g-lg-5 align-items-start">

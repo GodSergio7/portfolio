@@ -790,10 +790,6 @@ a:hover {
   font-size: 0.92rem;
   line-height: 1.55;
 }
-.tech-bullets strong {
-  color: var(--text);
-  font-weight: 600;
-}
 .tech-bullets svg {
   flex-shrink: 0;
   margin-top: 0.28rem;

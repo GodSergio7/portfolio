@@ -17,12 +17,12 @@ export const profile = {
 
   // Frase breve profesional (Hero)
   tagline:
-    'Desarrollador web orientado al frontend con React. Formado en Sistemas Microinformáticos y Redes y en Desarrollo de Aplicaciones Web, y con un uso metódico de la IA: especificación, código y tests.',
+    'Desarrollo interfaces web con React y JavaScript, con una base técnica en sistemas y redes.',
 
   // Párrafos de la sección «Sobre mí» (presentación resumida, no CV)
   about: [
     'Curso el Grado Superior en Desarrollo de Aplicaciones Web en el IES Ribera de los Molinos. Antes completé el Grado Medio en Sistemas Microinformáticos y Redes y realicé prácticas en Conecta Telecom, donde instalé equipos, configuré redes locales y atendí incidencias de usuarios.',
-    'Me centro en el frontend: desarrollo interfaces con React y JavaScript, y conozco también PHP, Java, Spring Boot y MySQL. Trabajo con Claude y ChatGPT siguiendo un proceso definido: especifico primero lo que voy a construir, reviso el código generado y lo valido con tests.',
+    'Me centro en el frontend: desarrollo interfaces con React y JavaScript, y conozco también PHP, Java, Spring Boot y MySQL. Utilizo la IA como apoyo, revisando y probando siempre el código que genera.',
     'Busco un primer empleo como desarrollador web junior.',
   ],
 
@@ -31,18 +31,9 @@ export const profile = {
 
   // Habilidades transversales, cada una con un ejemplo real
   softSkills: [
-    {
-      title: 'Atención a usuarios',
-      text: 'atendí y resolví incidencias de usuarios durante mis prácticas en Conecta Telecom.',
-    },
-    {
-      title: 'Trabajo en equipo',
-      text: 'colaboré con el equipo técnico de Conecta Telecom en proyectos internos.',
-    },
-    {
-      title: 'Aprendizaje autónomo',
-      text: 'estoy desarrollando GymManager con tecnologías que no he visto en clase (TypeScript, Prisma, Zod).',
-    },
+    'Atención a usuarios durante mis prácticas en Conecta Telecom, donde resolví sus incidencias.',
+    'Trabajo en equipo con el equipo técnico de Conecta Telecom en proyectos internos.',
+    'Aprendizaje autónomo de TypeScript, Prisma y Zod, que uso en GymManager sin haberlos visto en clase.',
   ],
 
   // ---------------- Contacto (datos reales) ----------------

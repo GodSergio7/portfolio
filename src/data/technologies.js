@@ -5,8 +5,7 @@
 // NO se muestran niveles de dominio ni porcentajes.
 //
 // kind: 'list'    → se muestra como chips de tecnologías.
-//       'bullets' → se muestra como lista de conocimientos. Cada
-//                   ítem puede ser texto o { title, text }.
+//       'bullets' → se muestra como lista de conocimientos.
 // tools (opcional): chips que se muestran encima de la lista.
 //
 // Para añadir o quitar tecnología solo se edita este fichero.
@@ -57,22 +56,10 @@ export const techCategories = [
     kind: 'bullets',
     tools: ['Claude (Claude Code)', 'ChatGPT'],
     items: [
-      {
-        title: 'Entender errores',
-        text: 'cuando algo falla, le pido que me explique la causa antes de aplicar ningún arreglo.',
-      },
-      {
-        title: 'Aprender tecnologías nuevas',
-        text: 'la uso para entender conceptos y librerías mientras las pruebo en mis proyectos.',
-      },
-      {
-        title: 'Generar código y tests',
-        text: 'componentes, funciones y tests que después reviso y ajusto, como los tests con Vitest de GymManager.',
-      },
-      {
-        title: 'Planificar con especificaciones',
-        text: 'escribo la especificación antes de programar (Spec-Driven Development), como en GymManager.',
-      },
+      'Le pido que me explique la causa de un error antes de aplicar ningún arreglo.',
+      'La uso para entender conceptos y librerías mientras las pruebo en mis proyectos.',
+      'Genero componentes, funciones y tests que después reviso y ajusto, como los tests con Vitest de GymManager.',
+      'Escribo la especificación antes de programar (Spec-Driven Development), como en GymManager.',
     ],
   },
   {
