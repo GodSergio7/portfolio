@@ -6,8 +6,10 @@
  * (https://github.com/DavidHDev/react-bits/blob/main/LICENSE.md).
  *
  * Cambios: puede renderizarse como enlace (`href`) además de botón,
- * acepta props extra (aria-label…) y con `prefers-reduced-motion` dibuja
- * el reflejo una sola vez, sin animación continua.
+ * acepta props extra (aria-label…), con `prefers-reduced-motion` dibuja
+ * el reflejo una sola vez, sin animación continua, y el bucle de dibujo
+ * solo corre mientras el brillo es visible (se para en reposo, con la
+ * pestaña oculta o si el botón no se muestra).
  */
 import { useRef, useEffect } from 'react'
 import { Renderer, Program, Mesh, Triangle, Color } from 'ogl'
@@ -150,6 +152,7 @@ const SpecularButton = ({
     let angle = 2.4
     let idleAngle = 2.4
     let bright = reduceMotion && autoAnimate ? 1 : 0
+    let raf = 0 // id del frame en curso; 0 = bucle parado
 
     const draw = () => {
       const p = propsRef.current
@@ -175,7 +178,9 @@ const SpecularButton = ({
       renderer.setSize(w + PAD * 2, h + PAD * 2)
       program.uniforms.uCenter.value = [(PAD + w / 2) * dpr, (PAD + h / 2) * dpr]
       program.uniforms.uHalfSize.value = [(w / 2) * dpr, (h / 2) * dpr]
-      if (reduceMotion) draw()
+      // Cambiar el tamaño borra el canvas: si el bucle está parado, se
+      // vuelve a dibujar el estado actual (al menos el borde base).
+      if (!raf) draw()
     }
     const ro = new ResizeObserver(resize)
     ro.observe(btn)
@@ -208,14 +213,25 @@ const SpecularButton = ({
       }
       const t = Math.max(0, 1 - dist / Math.max(propsRef.current.proximity, 1))
       proximityT = t * t * (3 - 2 * t)
+      if (proximityT > 0) start()
+    }
+    // Si el puntero sale de la ventana, el brillo se apaga y el bucle se para
+    const onPointerOut = (e) => {
+      if (!e.relatedTarget) proximityT = 0
     }
     window.addEventListener('pointermove', onPointerMove)
+    document.addEventListener('pointerout', onPointerOut)
 
     let last = performance.now()
-    let raf = 0
+
+    // El bucle solo corre mientras hay algo que animar: con el puntero cerca,
+    // mientras el brillo se apaga o con autoAnimate. Se detiene en reposo, con
+    // la pestaña oculta y si el botón no se ve (p. ej. display: none en móvil).
+    const isShown = () => btn.getClientRects().length > 0
+    const shouldRun = () =>
+      !document.hidden && isShown() && (propsRef.current.autoAnimate || proximityT > 0 || bright > 0.002)
 
     const update = (now) => {
-      raf = requestAnimationFrame(update)
       const dt = Math.min((now - last) / 1000, 0.05)
       last = now
       const p = propsRef.current
@@ -229,11 +245,38 @@ const SpecularButton = ({
       const brightTarget = p.autoAnimate ? 1 : proximityT
       bright += (brightTarget - bright) * (1 - Math.exp(-dt * 8))
 
-      draw()
+      if (shouldRun()) {
+        draw()
+        raf = requestAnimationFrame(update)
+      } else {
+        if (!p.autoAnimate && proximityT === 0) bright = 0
+        draw() // último dibujo: brillo apagado, queda solo el borde base
+        raf = 0
+      }
     }
-    raf = requestAnimationFrame(update)
+
+    function start() {
+      if (raf || !shouldRun()) return
+      last = performance.now()
+      raf = requestAnimationFrame(update)
+    }
+
+    const onVisibilityChange = () => {
+      if (document.hidden) {
+        cancelAnimationFrame(raf)
+        raf = 0
+      } else {
+        start()
+      }
+    }
+    document.addEventListener('visibilitychange', onVisibilityChange)
+
+    draw() // estado inicial (borde base sin brillo)
+    start()
 
     return () => {
+      document.removeEventListener('visibilitychange', onVisibilityChange)
+      document.removeEventListener('pointerout', onPointerOut)
       cancelAnimationFrame(raf)
       ro.disconnect()
       window.removeEventListener('pointermove', onPointerMove)
