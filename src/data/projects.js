@@ -18,6 +18,36 @@
 
 export const projects = [
   {
+    id: 'todo-list',
+    title: 'To-do List',
+    description:
+      'Aplicación de lista de tareas con calendario para organizar las tareas pendientes por fecha. En desarrollo.',
+    tech: ['HTML', 'CSS', 'JavaScript'],
+    image: '/proyectos/todo-list.webp',
+    repo: 'https://github.com/GodSergio7/todo-app',
+    demo: 'https://todo-app-one-lilac-25.vercel.app/tareas/tareas.html',
+  },
+  {
+    id: 'portfolio',
+    title: 'Portfolio',
+    description:
+      'Portfolio personal desarrollado con React y Vite. Presenta mi perfil, mis proyectos y mi trayectoria.',
+    tech: ['React', 'JavaScript', 'Vite', 'Bootstrap'],
+    image: '/proyectos/portfolio.webp',
+    repo: 'https://github.com/GodSergio7/portfolio',
+    demo: 'https://www.sergiovidal.es/',
+  },
+  {
+    id: 'dropmaster',
+    title: 'DropMaster',
+    description:
+      'Web informativa que explica cómo funciona el modelo de negocio del dropshipping.',
+    tech: ['HTML', 'CSS', 'JavaScript'],
+    image: '/proyectos/dropmaster.webp',
+    repo: 'https://github.com/GodSergio7/DropMaster',
+    demo: 'https://drop-master-lac.vercel.app/',
+  },
+  {
     id: 'gymmanager',
     title: 'GymManager',
     description:
@@ -26,35 +56,5 @@ export const projects = [
     image: null,
     repo: 'https://github.com/GodSergio7/GymManager',
     demo: null,
-  },
-  {
-    id: 'todo-list',
-    title: 'To-do List',
-    description:
-      'Aplicación de lista de tareas con calendario para organizar las tareas pendientes por fecha. En desarrollo.',
-    tech: ['HTML', 'CSS', 'JavaScript'],
-    image: '/proyectos/todoapp.png',
-    repo: 'https://github.com/GodSergio7/todo-app',
-    demo: 'https://todo-app-one-lilac-25.vercel.app/tareas/tareas.html',
-  },
-  {
-    id: 'dropmaster',
-    title: 'DropMaster',
-    description:
-      'Web informativa que explica cómo funciona el modelo de negocio del dropshipping.',
-    tech: ['HTML', 'CSS', 'JavaScript'],
-    image: '/proyectos/DropMaster.png',
-    repo: 'https://github.com/GodSergio7/DropMaster',
-    demo: 'https://drop-master-lac.vercel.app/',
-  },
-  {
-    id: 'portfolio',
-    title: 'Portfolio',
-    description:
-      'Portfolio personal desarrollado con React y Vite. Presenta mi perfil, mis proyectos y mi trayectoria.',
-    tech: ['React', 'JavaScript', 'Vite', 'Bootstrap'],
-    image: '/proyectos/portfolio.png',
-    repo: 'https://github.com/GodSergio7/portfolio',
-    demo: 'https://www.sergiovidal.es/',
   },
 ]
