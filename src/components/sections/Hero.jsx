@@ -85,8 +85,10 @@ export default function Hero() {
               {profile.tagline}
             </p>
 
+            {/* En móvil, rejilla de 2 columnas (ver .hero-actions en index.css):
+                fila 1 → Ver proyectos | Contactar conmigo; fila 2 → Ver CV | redes */}
             <div
-              className="d-flex flex-wrap align-items-center gap-3 fade-up"
+              className="hero-actions d-flex flex-wrap align-items-center gap-3 fade-up"
               style={{ animationDelay: '240ms' }}
             >
               <Button variant="primary" href="#proyectos">
@@ -94,7 +96,7 @@ export default function Hero() {
                 <ArrowRight size={17} className="ms-2" aria-hidden="true" />
               </Button>
               <Button variant="secondary" href="#contacto">
-                <Mail size={16} className="me-2" aria-hidden="true" />
+                <Mail size={16} className="me-2 hero-icon-desktop" aria-hidden="true" />
                 Contactar conmigo
               </Button>
               <Button

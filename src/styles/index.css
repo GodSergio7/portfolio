@@ -259,6 +259,32 @@ a:hover {
   margin-bottom: 2rem;
 }
 
+/* Botones del Hero en móvil: rejilla simétrica de 2 columnas.
+   Fila 1 → Ver proyectos | Contactar conmigo; fila 2 → Ver CV | redes.
+   (!important porque los contenedores usan utilidades de Bootstrap) */
+@media (max-width: 575.98px) {
+  .hero-actions {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem !important;
+  }
+  .hero-actions > a {
+    display: flex;
+    width: 100%;
+  }
+  .hero-actions .inner-content,
+  .hero-actions .ui-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.65rem 0.75rem;
+    font-size: 0.875rem;
+  }
+  /* El icono del sobre no cabe a 360 px; la flecha de «Ver proyectos» sí */
+  .hero-actions .hero-icon-desktop {
+    display: none;
+  }
+}
+
 /* Foto de perfil: recorte sin fondo sobre un marco con degradado gris */
 .hero-photo {
   position: relative;
