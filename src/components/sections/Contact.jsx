@@ -1,4 +1,4 @@
-import { ArrowUpRight, Check, Copy, Mail, Phone } from 'lucide-react'
+import { ArrowUpRight, Check, Copy, Mail, MessageCircle } from 'lucide-react'
 import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
 import Section from '../layout/Section'
 import SectionHeading from '../ui/SectionHeading'
@@ -7,20 +7,16 @@ import { profile } from '../../data/profile'
 
 /**
  * Fila de un canal de contacto.
- * Si el canal es enlazable (email, teléfono, redes con URL) se
- * renderiza como <a>; si no (ubicación) como <div>.
+ * Los canales enlazables (WhatsApp y redes) se abren en una pestaña nueva.
  */
 function ContactRow({ row }) {
   const Tag = row.href ? 'a' : 'div'
   const anchorProps = row.href
     ? {
         href: row.href,
-        target: row.id === 'email' || row.id === 'phone' ? undefined : '_blank',
-        rel:
-          row.id === 'email' || row.id === 'phone'
-            ? undefined
-            : 'noopener noreferrer',
-        'aria-label': `${row.label}: ${row.value}`,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+        'aria-label': `${row.label}: ${row.value} (se abre en una pestaña nueva)`,
       }
     : {}
 
@@ -96,11 +92,11 @@ export default function Contact() {
       pending: false,
     },
     {
-      id: 'phone',
-      Icon: Phone,
-      label: 'Teléfono',
-      value: profile.phone.display,
-      href: profile.phone.href,
+      id: 'whatsapp',
+      Icon: MessageCircle,
+      label: 'WhatsApp',
+      value: profile.whatsapp.display,
+      href: profile.whatsapp.href,
       pending: false,
     },
     // Redes sociales reales (se abren en pestaña nueva).

@@ -38,9 +38,10 @@ export const profile = {
 
   // ---------------- Contacto (datos reales) ----------------
   email: 'sergiovidalmoreno7@gmail.com',
-  phone: {
-    display: '+34 665 35 20 32',
-    href: 'tel:+34665352032',
+  // WhatsApp en lugar del teléfono: así el número no aparece escrito en la web
+  whatsapp: {
+    display: 'Escríbeme por chat',
+    href: 'https://wa.me/34665352032',
   },
 
   // Redes sociales reales. Se abren en una pestaña nueva.
