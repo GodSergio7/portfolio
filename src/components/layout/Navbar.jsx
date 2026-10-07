@@ -14,7 +14,8 @@ const menuItems = [
   {
     label: 'Contacto',
     links: [
-      { label: 'Email', href: `mailto:${profile.email}`, ariaLabel: `Enviar un email a ${profile.email}` },
+      // Copia la dirección: `mailto:` no hace nada sin una app de correo configurada
+      { label: 'Email', copy: profile.email, copiedLabel: 'Email copiado', ariaLabel: `Copiar el email ${profile.email}` },
       ...profile.social.map((link) => ({
         label: link.label,
         href: link.url,

@@ -1,4 +1,5 @@
-import { ArrowUpRight, Mail, Phone } from 'lucide-react'
+import { ArrowUpRight, Check, Copy, Mail, Phone } from 'lucide-react'
+import { useCopyToClipboard } from '../../hooks/useCopyToClipboard'
 import Section from '../layout/Section'
 import SectionHeading from '../ui/SectionHeading'
 import { getSocialIcon } from '../ui/BrandIcons'
@@ -47,6 +48,40 @@ function ContactRow({ row }) {
   )
 }
 
+/**
+ * Fila del email: al pulsarla copia la dirección al portapapeles, porque
+ * un enlace `mailto:` no hace nada si el dispositivo no tiene una app de
+ * correo configurada. La confirmación se anuncia también a lectores de
+ * pantalla.
+ */
+function EmailRow({ row }) {
+  const [copied, copy] = useCopyToClipboard()
+
+  return (
+    <button
+      type="button"
+      className="profile-row contact-row contact-row--copy"
+      onClick={() => copy(row.value)}
+      aria-label={`Copiar el email ${row.value}`}
+    >
+      <span className="profile-icon" aria-hidden="true">
+        <row.Icon size={20} />
+      </span>
+      <span className="flex-grow-1">
+        <span className="profile-label d-block">{row.label}</span>
+        <span className="profile-value">{row.value}</span>
+      </span>
+      <span className={`contact-row-copy ${copied ? 'is-copied' : ''}`} aria-hidden="true">
+        {copied ? <Check size={18} /> : <Copy size={18} />}
+        <span className="contact-row-copy-text">{copied ? 'Copiado' : 'Copiar'}</span>
+      </span>
+      <span className="visually-hidden" aria-live="polite">
+        {copied ? 'Email copiado al portapapeles' : ''}
+      </span>
+    </button>
+  )
+}
+
 // URL mostrada de forma legible (sin protocolo ni barra final).
 const displayUrl = (url) => url.replace(/^https?:\/\//, '').replace(/\/$/, '')
 
@@ -57,7 +92,7 @@ export default function Contact() {
       Icon: Mail,
       label: 'Email',
       value: profile.email,
-      href: `mailto:${profile.email}`,
+      copy: true,
       pending: false,
     },
     {
@@ -88,9 +123,9 @@ export default function Contact() {
 
       {/* Canales de contacto: rejilla 2 × 2 en escritorio */}
       <div className="card-surface profile-card contact-grid">
-        {rows.map((row) => (
-          <ContactRow row={row} key={row.id} />
-        ))}
+        {rows.map((row) =>
+          row.copy ? <EmailRow row={row} key={row.id} /> : <ContactRow row={row} key={row.id} />,
+        )}
       </div>
     </Section>
   )

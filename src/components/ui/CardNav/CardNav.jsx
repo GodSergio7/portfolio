@@ -8,14 +8,15 @@
  *
  * Cambios respecto al original: logo como nodo React en lugar de imagen,
  * botón de llamada a la acción configurable (enlace con Specular Button),
- * icono de Lucide,
+ * icono de Lucide, enlaces que copian un texto (`copy`, para el email),
  * botón real (<button>) para abrir/cerrar, cierre con Escape y al pulsar
  * un enlace, enlace activo marcado y respeto a `prefers-reduced-motion`.
  */
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, Check, Copy } from 'lucide-react'
 import SpecularButton from '../reactbits/SpecularButton'
+import { useCopyToClipboard } from '../../../hooks/useCopyToClipboard'
 import './CardNav.css'
 
 const prefersReducedMotion = () =>
@@ -37,6 +38,15 @@ const CardNav = ({
   const navRef = useRef(null)
   const cardsRef = useRef([])
   const tlRef = useRef(null)
+
+  // Enlaces de tipo «copiar» (email): qué texto se acaba de copiar
+  const [copied, copy] = useCopyToClipboard()
+  const [lastCopied, setLastCopied] = useState(null)
+  const copiedText = copied ? lastCopied : null
+  const copyText = (text) => {
+    setLastCopied(text)
+    copy(text)
+  }
 
   const calculateHeight = () => {
     const navEl = navRef.current
@@ -255,6 +265,31 @@ const CardNav = ({
                 <div className="nav-card-label">{item.label}</div>
                 <div className="nav-card-links">
                   {item.links?.map((lnk, i) => {
+                    // Enlace que copia un texto (p. ej. el email) en vez de navegar.
+                    // No cierra el menú, para que se vea la confirmación.
+                    if (lnk.copy) {
+                      const isCopied = copiedText === lnk.copy
+                      return (
+                        <button
+                          key={`${lnk.label}-${i}`}
+                          type="button"
+                          className={`nav-card-link nav-card-link--button ${isCopied ? 'is-active' : ''}`}
+                          aria-label={lnk.ariaLabel}
+                          onClick={() => copyText(lnk.copy)}
+                        >
+                          {isCopied ? (
+                            <Check className="nav-card-link-icon" size={16} aria-hidden="true" />
+                          ) : (
+                            <Copy className="nav-card-link-icon" size={16} aria-hidden="true" />
+                          )}
+                          {isCopied ? lnk.copiedLabel || 'Copiado' : lnk.label}
+                          <span className="visually-hidden" aria-live="polite">
+                            {isCopied ? `${lnk.copiedLabel || 'Copiado'} al portapapeles` : ''}
+                          </span>
+                        </button>
+                      )
+                    }
+
                     const isActive = activeHref && lnk.href === activeHref
                     return (
                       <a

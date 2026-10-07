@@ -762,3 +762,29 @@ a.contact-row:hover .contact-row-arrow {
 a.contact-row:hover .profile-value {
   color: var(--mint);
 }
+
+/* Fila del email como botón de copiar (se ve igual que las demás filas) */
+.contact-row--copy {
+  width: 100%;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.contact-row-copy {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color var(--transition);
+}
+.contact-row--copy:hover .contact-row-copy,
+.contact-row--copy:hover .profile-value,
+.contact-row-copy.is-copied {
+  color: var(--mint);
+}

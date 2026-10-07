@@ -171,6 +171,15 @@
   color: var(--text);
 }
 
+/* Enlace que copia (email): botón con el mismo aspecto que los enlaces */
+.nav-card-link--button {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  text-align: left;
+}
+
 /* Sección en pantalla: único toque de menta del menú */
 .nav-card-link.is-active {
   color: var(--mint);
