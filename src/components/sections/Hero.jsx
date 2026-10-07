@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ArrowRight, Mail } from 'lucide-react'
+import { ArrowRight, FileText, Mail } from 'lucide-react'
 import StrokeText from '../ui/reactbits/StrokeText'
 import { profile } from '../../data/profile'
 import SocialLinks from '../ui/SocialLinks'
@@ -96,6 +96,15 @@ export default function Hero() {
               <Button variant="secondary" href="#contacto">
                 <Mail size={16} className="me-2" aria-hidden="true" />
                 Contactar conmigo
+              </Button>
+              <Button
+                variant="secondary"
+                href={profile.cv}
+                external
+                aria-label="Ver mi CV en PDF (se abre en una pestaña nueva)"
+              >
+                <FileText size={16} className="me-2" aria-hidden="true" />
+                Ver CV
               </Button>
               <span
                 className="d-none d-md-inline-block footer-sep mx-1"

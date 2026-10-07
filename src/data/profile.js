@@ -15,6 +15,9 @@ export const profile = {
   // Foto de perfil (sin fondo) usada en el Hero
   photo: '/foto-perfil.webp',
 
+  // CV en PDF (botón «Ver CV» del Hero)
+  cv: '/CV-Sergio-Vidal-Moreno.pdf',
+
   // Frase breve profesional (Hero)
   tagline:
     'Desarrollo interfaces web con React y JavaScript, con una base técnica en sistemas y redes.',
