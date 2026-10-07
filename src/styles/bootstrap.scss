@@ -1,0 +1,47 @@
+// ============================================================
+// Bootstrap a medida: solo lo que usa el portfolio.
+// ------------------------------------------------------------
+// La web no usa componentes de Bootstrap (botones, navbar, tarjetas…),
+// solo su base (reboot), la rejilla y unas pocas utilidades. Si un
+// componente empieza a usar otra utilidad de Bootstrap, hay que añadir
+// su clave a la lista de `$utilities` de abajo.
+// ============================================================
+
+// Configuración
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/utilities';
+
+// Solo las utilidades que aparecen en los componentes
+$utilities: map-get-multiple(
+  $utilities,
+  (
+    'display',          // d-flex, d-block, d-none, d-md-inline-block
+    'position',         // position-relative
+    'flex-grow',        // flex-grow-1
+    'flex-wrap',        // flex-wrap
+    'justify-content',  // justify-content-between
+    'align-items',      // align-items-center, align-items-start
+    'gap',              // gap-2, gap-3
+    'margin-x',         // mx-1
+    'margin-top',       // mt-1
+    'margin-end',       // me-2
+    'margin-bottom',    // mb-0, mb-5
+    'margin-start'      // ms-2
+  )
+);
+
+// Base
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/reboot';
+
+// Rejilla
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
+
+// Ayudas (visually-hidden) y utilidades
+@import 'bootstrap/scss/helpers';
+@import 'bootstrap/scss/utilities/api';

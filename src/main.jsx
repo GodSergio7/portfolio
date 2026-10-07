@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import '@fontsource-variable/manrope'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import './styles/bootstrap.scss'
 import './styles/index.css'
 import App from './App.jsx'
 
