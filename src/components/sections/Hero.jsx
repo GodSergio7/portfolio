@@ -106,12 +106,6 @@ export default function Hero() {
                 <FileText size={16} className="me-2" aria-hidden="true" />
                 Ver CV
               </Button>
-              <span
-                className="d-none d-md-inline-block footer-sep mx-1"
-                aria-hidden="true"
-              >
-                |
-              </span>
               <SocialLinks links={profile.social} size={19} />
             </div>
           </div>

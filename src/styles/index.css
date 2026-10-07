@@ -597,10 +597,6 @@ a:hover {
   color: var(--muted);
   font-size: 0.88rem;
 }
-.footer-sep {
-  color: #3f444d;
-  margin: 0 0.55rem;
-}
 
 /* ---------- Varios ---------- */
 .divider-dot {
