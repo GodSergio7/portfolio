@@ -3,6 +3,7 @@ import Section from '../layout/Section'
 import SectionHeading from '../ui/SectionHeading'
 import { GithubIcon } from '../ui/BrandIcons'
 import Button from '../ui/Button'
+import TechIcon from '../ui/TechIcon'
 import { projects } from '../../data/projects'
 
 /**
@@ -62,6 +63,7 @@ function ProjectCard({ project }) {
           <div className="project-tech">
             {project.tech.map((tech) => (
               <span className="chip" key={tech}>
+                <TechIcon name={tech} size={13} />
                 {tech}
               </span>
             ))}

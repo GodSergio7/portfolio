@@ -386,6 +386,19 @@ a:hover {
 .project-tech .chip {
   font-size: 0.75rem;
   padding: 0.2rem 0.7rem;
+  gap: 0.35rem;
+}
+/* Logo de la tecnología: gris en reposo, color de marca al pasar el ratón
+   por la tarjeta del proyecto (o al recibir el foco con el teclado). */
+.tech-icon {
+  flex-shrink: 0;
+  opacity: 0.85;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+.project-card:hover .tech-icon,
+.project-card:focus-within .tech-icon {
+  color: var(--brand);
+  opacity: 1;
 }
 
 /* ---------- Lista / timeline (experiencia y formación) ---------- */
