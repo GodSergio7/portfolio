@@ -4,6 +4,15 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  build: {
+    rollupOptions: {
+      // Dos páginas: la web y la página 404 que sirve Vercel
+      input: {
+        main: 'index.html',
+        notFound: '404.html',
+      },
+    },
+  },
   // Build de servidor (prerenderizado): se empaquetan también las
   // dependencias para no depender de cómo exporta cada una a Node
   ssr: {

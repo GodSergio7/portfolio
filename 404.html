@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1d1f23" />
+    <!-- Página de error: que los buscadores no la indexen -->
+    <meta name="robots" content="noindex" />
+    <title>Página no encontrada — Sergio Vidal Moreno</title>
+    <!-- Página 404 que sirve Vercel para cualquier URL que no existe.
+         Sin React: solo HTML y su hoja de estilos (Vite la procesa). -->
+    <link rel="stylesheet" href="/src/styles/not-found.css" />
+  </head>
+  <body>
+    <main class="nf">
+      <a class="nf-brand" href="/" aria-label="Sergio Vidal Moreno, ir al inicio">
+        SV<span class="nf-dot">.</span>
+      </a>
+
+      <p class="nf-code" aria-hidden="true">404</p>
+      <h1 class="nf-title">Página no encontrada</h1>
+      <p class="nf-text">
+        Es posible que la dirección esté mal escrita o que la página ya no exista.
+      </p>
+
+      <a class="nf-button" href="/">Volver al inicio</a>
+    </main>
+  </body>
+</html>
