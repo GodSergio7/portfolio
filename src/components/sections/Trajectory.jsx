@@ -25,7 +25,10 @@ function ExperienceItem({ item }) {
     >
       <p className="timeline-date">
         {item.period}
-        {item.current ? <span className="tag-current">Actual</span> : null}
+        {/* Sin etiqueta si el periodo ya dice «Actualidad» */}
+        {item.current && !item.period.toLowerCase().includes('actualidad') ? (
+          <span className="tag-current">Actual</span>
+        ) : null}
       </p>
       <h4 className="timeline-title">{item.role}</h4>
       <p className="timeline-org">
@@ -80,7 +83,7 @@ export default function Trajectory() {
         // Espacio no separable entre «Experiencia» y «y»: en móvil se parte
         // como «Experiencia y / formación», igual que «Tecnologías y / herramientas»
         title={'Experiencia y formación'}
-        lead="Prácticas en Conecta Telecom y formación en el IES Ribera de los Molinos, desde Sistemas Microinformáticos y Redes hasta Desarrollo de Aplicaciones Web."
+        lead="Experiencia en desarrollo web en Valfiguer y en soporte técnico en Conecta Telecom, y formación en el IES Ribera de los Molinos."
       />
 
       <div className="row g-4 g-lg-5">

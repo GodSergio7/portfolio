@@ -10,6 +10,22 @@
 
 export const experience = [
   {
+    id: 'valfiguer-practicas',
+    role: 'Desarrollador en prácticas',
+    company: 'Valfiguer LLC',
+    location: 'En remoto',
+    period: 'Septiembre 2026 — Actualidad',
+    current: true,
+    description: 'Prácticas del Grado Superior en Desarrollo de Aplicaciones Web.',
+    bullets: [
+      'Desarrollo de interfaces web con React y Vite, incluyendo componentes animados (React Bits).',
+      'Diseño responsive y accesibilidad en escritorio y móvil.',
+      'Trabajo por tareas en Projekt, con revisión de cada cambio antes de publicarlo.',
+      'Despliegue en Vercel y configuración de dominio propio.',
+      'Desarrollo asistido por IA (Claude Code), revisando y validando el código generado.',
+    ],
+  },
+  {
     id: 'conecta-telecom-practicas',
     role: 'Prácticas del Grado Medio en Sistemas Microinformáticos y Redes',
     company: 'Conecta Telecom S.L.',

@@ -24,7 +24,7 @@ export const profile = {
 
   // Párrafos de la sección «Sobre mí» (presentación resumida, no CV)
   about: [
-    'Curso el Grado Superior en Desarrollo de Aplicaciones Web en el IES Ribera de los Molinos. Antes completé el Grado Medio en Sistemas Microinformáticos y Redes y realicé prácticas en Conecta Telecom, donde instalé equipos, configuré redes locales y atendí incidencias de usuarios.',
+    'Curso el Grado Superior en Desarrollo de Aplicaciones Web en el IES Ribera de los Molinos. Antes completé el Grado Medio en Sistemas Microinformáticos y Redes y realicé prácticas en Conecta Telecom, donde instalé equipos, configuré redes locales y atendí incidencias de usuarios. Actualmente desarrollo aplicaciones web con React en Valfiguer LLC, en remoto.',
     'Me centro en el frontend: desarrollo interfaces con React y JavaScript, y conozco también PHP, Java, Spring Boot y MySQL. Utilizo la IA como apoyo, revisando y probando siempre el código que genera.',
     'Busco un primer empleo como desarrollador web junior.',
   ],
