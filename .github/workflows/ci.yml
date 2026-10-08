@@ -1,0 +1,43 @@
+# Comprobación automática: en cada push y pull request a main se
+# instalan las dependencias, se buscan vulnerabilidades y se hace el
+# build completo (incluido el prerenderizado).
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+# Si llega otro push mientras se comprueba el anterior, se cancela el viejo
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v7
+
+      - name: Preparar Node (LTS)
+        uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Buscar vulnerabilidades
+        run: npm audit --audit-level=high
+
+      - name: Build y prerenderizado
+        run: npm run build

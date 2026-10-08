@@ -1,5 +1,7 @@
 # Sergio Vidal Moreno — Portfolio
 
+[![CI](https://github.com/GodSergio7/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/GodSergio7/portfolio/actions/workflows/ci.yml)
+
 Portfolio personal de **Sergio Vidal Moreno**, Desarrollador Web (Mula, Murcia, España).
 Prototipo frontend: **diseño, UX, responsive y arquitectura de componentes** (sin backend,
 base de datos ni autenticación).
