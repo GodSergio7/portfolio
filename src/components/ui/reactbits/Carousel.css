@@ -58,7 +58,7 @@
   height: 8px;
   width: 8px;
   border-radius: 50%;
-  transition: background-color 150ms;
+  transition: background-color 150ms, transform 150ms;
 }
 .carousel-indicator:focus-visible {
   outline: 2px solid var(--mint);
@@ -66,7 +66,14 @@
 }
 .carousel-indicator.active::before {
   background-color: var(--mint);
+  transform: scale(1.25);
 }
 .carousel-indicator.inactive::before {
   background-color: var(--border-strong);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-indicator::before {
+    transition: none;
+  }
 }

@@ -183,15 +183,15 @@ export default function Carousel({ items, renderItem, getKey, getLabel, ariaLabe
 
       <div className="carousel-indicators" role="group" aria-label="Elegir proyecto">
         {items.map((item, index) => (
-          <motion.button
+          // El punto activo se agranda por CSS (solo el punto visible, no la
+          // zona pulsable, para que no tape la de sus vecinos)
+          <button
             type="button"
             key={getKey ? getKey(item) : index}
             className={`carousel-indicator ${activeIndex === index ? 'active' : 'inactive'}`}
             aria-label={`Ir al proyecto ${index + 1}${getLabel ? `: ${getLabel(item)}` : ''}`}
             aria-current={activeIndex === index ? 'true' : undefined}
-            animate={{ scale: activeIndex === index ? 1.25 : 1 }}
             onClick={() => goTo(canLoop ? index + 1 : index)}
-            transition={{ duration: reduce ? 0 : 0.15 }}
           />
         ))}
       </div>
