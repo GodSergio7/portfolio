@@ -78,9 +78,6 @@ function EmailRow({ row }) {
   )
 }
 
-// URL mostrada de forma legible (sin protocolo ni barra final).
-const displayUrl = (url) => url.replace(/^https?:\/\//, '').replace(/\/$/, '')
-
 export default function Contact() {
   const rows = [
     {
@@ -104,7 +101,7 @@ export default function Contact() {
       id: link.id,
       Icon: getSocialIcon(link.id),
       label: link.label,
-      value: link.url ? displayUrl(link.url) : 'Próximamente',
+      value: link.url ? `Mi ${link.label}` : 'Próximamente',
       href: link.url,
       pending: !link.url,
     })),
