@@ -4,7 +4,9 @@ import SectionHeading from '../ui/SectionHeading'
 import { GithubIcon } from '../ui/BrandIcons'
 import Button from '../ui/Button'
 import TechIcon from '../ui/TechIcon'
+import Carousel from '../ui/reactbits/Carousel'
 import { projects } from '../../data/projects'
+import { useMediaQuery } from '../../hooks/useMediaQuery'
 
 /**
  * Zona visual del proyecto: imagen real o hueco «captura próximamente».
@@ -16,6 +18,7 @@ function ProjectMedia({ project }) {
         src={project.image}
         alt={`Captura del proyecto ${project.title}`}
         loading="lazy"
+        draggable={false} // para que arrastrar en el carrusel no arrastre la imagen
       />
     )
   }
@@ -52,43 +55,44 @@ const linkIcons = {
 
 function ProjectCard({ project }) {
   return (
-    <div className="col-md-6">
-      <article className="project-card">
-        <div className="project-media">
-          <ProjectMedia project={project} />
+    <article className="project-card">
+      <div className="project-media">
+        <ProjectMedia project={project} />
+      </div>
+      <div className="project-body">
+        <h3 className="project-title">{project.title}</h3>
+        <p className="project-desc">{project.description}</p>
+        <div className="project-tech">
+          {project.tech.map((tech) => (
+            <span className="chip" key={tech}>
+              <TechIcon name={tech} size={13} />
+              {tech}
+            </span>
+          ))}
         </div>
-        <div className="project-body">
-          <h3 className="project-title">{project.title}</h3>
-          <p className="project-desc">{project.description}</p>
-          <div className="project-tech">
-            {project.tech.map((tech) => (
-              <span className="chip" key={tech}>
-                <TechIcon name={tech} size={13} />
-                {tech}
-              </span>
-            ))}
-          </div>
-          <div className="d-flex flex-wrap align-items-center gap-2 mt-1">
-            <ProjectLink
-              url={project.repo}
-              label="Código"
-              icon={linkIcons.repo}
-              aria={project.title}
-            />
-            <ProjectLink
-              url={project.demo}
-              label="Demo"
-              icon={linkIcons.demo}
-              aria={project.title}
-            />
-          </div>
+        <div className="d-flex flex-wrap align-items-center gap-2 mt-1">
+          <ProjectLink
+            url={project.repo}
+            label="Código"
+            icon={linkIcons.repo}
+            aria={project.title}
+          />
+          <ProjectLink
+            url={project.demo}
+            label="Demo"
+            icon={linkIcons.demo}
+            aria={project.title}
+          />
         </div>
-      </article>
-    </div>
+      </div>
+    </article>
   )
 }
 
 export default function Projects() {
+  // Móvil: carrusel lateral; tablet y escritorio: rejilla 2 × 2
+  const isMobile = useMediaQuery('(max-width: 767.98px)')
+
   return (
     <Section id="proyectos" variant="alt">
       <SectionHeading
@@ -96,12 +100,23 @@ export default function Projects() {
         lead="Proyectos que he desarrollado, con enlace al código y a la demo cuando está disponible."
       />
 
-      {/* Rejilla 2 × 2: todos los proyectos con el mismo peso visual */}
-      <div className="row g-4">
-        {projects.map((project) => (
-          <ProjectCard project={project} key={project.id} />
-        ))}
-      </div>
+      {isMobile ? (
+        <Carousel
+          items={projects}
+          getKey={(project) => project.id}
+          getLabel={(project) => project.title}
+          ariaLabel="Proyectos"
+          renderItem={(project) => <ProjectCard project={project} />}
+        />
+      ) : (
+        <div className="row g-4">
+          {projects.map((project) => (
+            <div className="col-md-6" key={project.id}>
+              <ProjectCard project={project} />
+            </div>
+          ))}
+        </div>
+      )}
     </Section>
   )
 }
