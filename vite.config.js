@@ -4,6 +4,11 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  // Build de servidor (prerenderizado): se empaquetan también las
+  // dependencias para no depender de cómo exporta cada una a Node
+  ssr: {
+    noExternal: true,
+  },
   css: {
     preprocessorOptions: {
       scss: {

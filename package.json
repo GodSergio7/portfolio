@@ -6,7 +6,7 @@
   "description": "Portfolio prototipo de Sergio Vidal Moreno — Desarrollador Web (React + Vite + Bootstrap)",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

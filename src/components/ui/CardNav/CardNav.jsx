@@ -219,6 +219,13 @@ const CardNav = ({
     if (el) cardsRef.current[i] = el
   }
 
+  // Botón de llamada a la acción sin efecto (mientras carga Specular Button)
+  const ctaFallback = cta ? (
+    <a className="card-nav-cta-button card-nav-cta-fallback" href={cta.href} onClick={closeMenu}>
+      {cta.label}
+    </a>
+  ) : null
+
   return (
     <div className={`card-nav-container ${className}`}>
       {/* Mismo ancho que el contenido de la página (container de Bootstrap) */}
@@ -254,18 +261,11 @@ const CardNav = ({
             {/* El botón solo se ve en escritorio (en móvil está oculto por CSS):
                 el efecto Specular y su librería WebGL (ogl) solo se descargan ahí.
                 Mientras carga se muestra un botón igual sin efecto. */}
+            {/* El botón sin efecto también va en el HTML prerenderizado,
+                para que en escritorio no aparezca de golpe al cargar */}
+            {cta && !isDesktop ? ctaFallback : null}
             {cta && isDesktop ? (
-              <Suspense
-                fallback={
-                  <a
-                    className="card-nav-cta-button card-nav-cta-fallback"
-                    href={cta.href}
-                    onClick={closeMenu}
-                  >
-                    {cta.label}
-                  </a>
-                }
-              >
+              <Suspense fallback={ctaFallback}>
                 <SpecularButton
                   href={cta.href}
                   onClick={closeMenu}

@@ -5,8 +5,17 @@ import './styles/bootstrap.scss'
 import './styles/index.css'
 import App from './App.jsx'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const container = document.getElementById('root')
+const app = (
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
 )
+
+// En producción el HTML ya viene prerenderizado (scripts/prerender.mjs) y
+// React se engancha a él; en desarrollo el contenedor llega vacío.
+if (container.hasChildNodes()) {
+  ReactDOM.hydrateRoot(container, app)
+} else {
+  ReactDOM.createRoot(container).render(app)
+}

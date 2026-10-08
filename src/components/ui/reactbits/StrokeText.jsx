@@ -204,11 +204,15 @@ const StrokeText = ({
       style={style}
       {...a11y}
     >
+      {/* Hasta medir el texto (p. ej. en el HTML prerenderizado) el SVG
+          está oculto y reserva su alto final en em: 1,366 em de la caja de
+          Manrope + 0,05 em de margen por cada lado. Así no hay saltos. */}
       <svg
         className="stroke-text__svg"
         viewBox={viewBox}
         width={box ? box.width : 600}
         height={box ? box.height : fontSize * 1.3}
+        style={box ? undefined : { visibility: 'hidden', height: '1.466em', width: 'auto' }}
         aria-hidden="true"
       >
         {fillMode === 'wipe' && box && (

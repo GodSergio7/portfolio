@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useState } from 'react'
+import { Suspense, lazy, useLayoutEffect, useState } from 'react'
 import { ArrowRight, FileText, Mail, RotateCw } from 'lucide-react'
 import StrokeText from '../ui/reactbits/StrokeText'
 import { profile } from '../../data/profile'
@@ -112,12 +112,13 @@ const nameLines = ['Sergio Vidal', 'Moreno']
 // Mismo tamaño que .hero-name: clamp(44px, 5.5vw, 72px)
 const nameSizeFor = (width) => Math.round(Math.min(72, Math.max(44, width * 0.055)))
 
+// Empieza en 72 (igual que el HTML prerenderizado) y se ajusta a la
+// ventana antes de pintar
 function useNameSize() {
-  const [size, setSize] = useState(() =>
-    typeof window === 'undefined' ? 72 : nameSizeFor(window.innerWidth),
-  )
-  useEffect(() => {
+  const [size, setSize] = useState(72)
+  useLayoutEffect(() => {
     const onResize = () => setSize(nameSizeFor(window.innerWidth))
+    onResize()
     window.addEventListener('resize', onResize, { passive: true })
     return () => window.removeEventListener('resize', onResize)
   }, [])

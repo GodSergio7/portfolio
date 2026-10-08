@@ -223,7 +223,8 @@
     order: 1;
   }
 
-  .card-nav-cta-button.specular-button {
+  .card-nav-cta-button.specular-button,
+  .card-nav-cta-fallback {
     display: none;
   }
 
