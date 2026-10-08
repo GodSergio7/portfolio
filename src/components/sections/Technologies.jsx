@@ -1,5 +1,6 @@
 import Section from '../layout/Section'
 import SectionHeading from '../ui/SectionHeading'
+import TechIcon from '../ui/TechIcon'
 import { techCategories } from '../../data/technologies'
 
 /**
@@ -11,7 +12,10 @@ function InlineList({ items, flow = false }) {
   return (
     <ul className={`tech-grid ${flow ? 'tech-grid--flow' : ''}`.trim()}>
       {items.map((item) => (
-        <li key={item}>{item}</li>
+        <li key={item}>
+          <TechIcon name={item} size={16} colored />
+          {item}
+        </li>
       ))}
     </ul>
   )

@@ -530,6 +530,11 @@ main:focus {
   color: var(--brand);
   opacity: 1;
 }
+/* Sección Tecnologías: siempre con el color de marca */
+.tech-icon--brand {
+  color: var(--brand);
+  opacity: 1;
+}
 
 /* ---------- Lista / timeline (experiencia y formación) ---------- */
 .timeline {
@@ -675,6 +680,12 @@ main:focus {
   gap: 0.5rem 1.5rem;
   color: var(--text);
   font-size: 1rem;
+}
+/* Logo delante del nombre */
+.tech-grid li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 @media (min-width: 992px) {
   .tech-grid {
