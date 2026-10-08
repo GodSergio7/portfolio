@@ -28,7 +28,7 @@ export default function About() {
   return (
     <Section id="sobre-mi" variant="alt">
       <SectionHeading
-        title="Perfil profesional"
+        title="Sobre mí"
         lead="Formación, enfoque y forma de trabajar."
       />
 

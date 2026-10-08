@@ -41,7 +41,7 @@ export default function Technologies() {
   return (
     <Section id="tecnologias">
       <SectionHeading
-        title="Tecnologías y herramientas"
+        title="Tecnologías"
         lead="Tecnologías que he utilizado en mi formación y en mis proyectos."
       />
 

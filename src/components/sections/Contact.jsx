@@ -116,7 +116,7 @@ export default function Contact() {
     <Section id="contacto" variant="alt">
       <SectionHeading
         title="Contacto"
-        lead="Si buscáis un desarrollador web junior, estos son mis datos de contacto."
+        lead="Si buscas un desarrollador web junior, estos son mis datos de contacto."
       />
 
       {/* Canales de contacto: rejilla 2 × 2 en escritorio */}

@@ -80,9 +80,7 @@ export default function Trajectory() {
   return (
     <Section id="trayectoria">
       <SectionHeading
-        // Espacio no separable entre «Experiencia» y «y»: en móvil se parte
-        // como «Experiencia y / formación», igual que «Tecnologías y / herramientas»
-        title={'Experiencia y formación'}
+        title="Trayectoria"
         lead="Experiencia en desarrollo web en Valfiguer y en soporte técnico en Conecta Telecom, y formación en el IES Ribera de los Molinos."
       />
 
