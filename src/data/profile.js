@@ -21,8 +21,9 @@ export const profile = {
   birthDateLabel: '5 de noviembre de 2002',
   motto: 'La vida es bella',
 
-  // CV en PDF (botón «Ver CV» del Hero)
-  cv: '/CV-Sergio-Vidal-Moreno.pdf',
+  // CV en PDF (botón «Ver CV» del Hero). El parámetro ?v= evita que el
+  // navegador muestre una copia antigua: cámbialo al actualizar el PDF.
+  cv: '/CV-Sergio-Vidal-Moreno.pdf?v=2026-10-07',
 
   // Frase breve profesional (Hero)
   tagline:
