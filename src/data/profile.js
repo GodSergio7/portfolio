@@ -23,7 +23,7 @@ export const profile = {
 
   // CV en PDF (botón «Ver CV» del Hero). El parámetro ?v= evita que el
   // navegador muestre una copia antigua: cámbialo al actualizar el PDF.
-  cv: '/CV-Sergio-Vidal-Moreno.pdf?v=2026-10-08',
+  cv: '/CV-Sergio-Vidal-Moreno.pdf?v=2026-10-08-2',
 
   // Frase breve profesional (Hero)
   tagline:
@@ -44,6 +44,7 @@ export const profile = {
 
   // Habilidades transversales, cada una con un ejemplo real
   softSkills: [
+    'Trabajo en remoto y por tareas en Valfiguer, con revisión de cada cambio antes de publicarlo.',
     'Atención a usuarios durante mis prácticas en Conecta Telecom, donde resolví sus incidencias.',
     'Trabajo en equipo con el equipo técnico de Conecta Telecom en proyectos internos.',
     'Aprendizaje autónomo de TypeScript, Prisma y Zod, que uso en GymManager sin haberlos visto en clase.',
