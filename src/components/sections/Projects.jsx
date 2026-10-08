@@ -106,6 +106,7 @@ export default function Projects() {
           getKey={(project) => project.id}
           getLabel={(project) => project.title}
           ariaLabel="Proyectos"
+          loop
           renderItem={(project) => <ProjectCard project={project} />}
         />
       ) : (
