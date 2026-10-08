@@ -11,7 +11,7 @@
 //   Ver `trackProps`.
 // ============================================================
 
-export const GA_ID = 'G-GEW73FJDS6'
+export const GA_ID = 'G-5FZPJRRKDL'
 const STORAGE_KEY = 'cookie-consent' // 'granted' | 'denied'
 
 let loaded = false
