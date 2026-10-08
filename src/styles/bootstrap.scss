@@ -7,6 +7,9 @@
 // su clave a la lista de `$utilities` de abajo.
 // ============================================================
 
+// Sin modo claro/oscuro de Bootstrap (la web tiene sus propios colores)
+$enable-dark-mode: false;
+
 // Configuración
 @import 'bootstrap/scss/functions';
 @import 'bootstrap/scss/variables';
@@ -38,9 +41,43 @@ $utilities: map-get-multiple(
 @import 'bootstrap/scss/root';
 @import 'bootstrap/scss/reboot';
 
-// Rejilla
+// Rejilla: contenedores y solo las clases que se usan (row, g-4, g-lg-5,
+// col-md-6, col-lg-6). La rejilla completa genera cientos de clases que
+// la web no necesita. Si se usa otra, hay que añadirla aquí.
 @import 'bootstrap/scss/containers';
-@import 'bootstrap/scss/grid';
+
+@mixin gutter($size) {
+  --#{$prefix}gutter-x: #{map-get($gutters, $size)};
+  --#{$prefix}gutter-y: #{map-get($gutters, $size)};
+}
+
+.row {
+  @include make-row();
+
+  > * {
+    @include make-col-ready();
+  }
+}
+
+.g-4 {
+  @include gutter(4);
+}
+
+@include media-breakpoint-up(md) {
+  .col-md-6 {
+    @include make-col(6);
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .col-lg-6 {
+    @include make-col(6);
+  }
+
+  .g-lg-5 {
+    @include gutter(5);
+  }
+}
 
 // Ayudas (visually-hidden) y utilidades
 @import 'bootstrap/scss/helpers';

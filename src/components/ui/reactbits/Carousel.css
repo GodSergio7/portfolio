@@ -36,27 +36,37 @@
 .carousel-indicators {
   display: flex;
   justify-content: center;
-  gap: 0.85rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
+/* Zona pulsable de 24 × 24 px (mínimo táctil de WCAG); el punto visible
+   sigue midiendo 8 px y se dibuja con ::before */
 .carousel-indicator {
-  height: 8px;
-  width: 8px;
+  display: grid;
+  place-items: center;
+  height: 24px;
+  width: 24px;
   border: none;
   padding: 0;
   appearance: none;
+  background: transparent;
   border-radius: 50%;
   cursor: pointer;
+}
+.carousel-indicator::before {
+  content: '';
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
   transition: background-color 150ms;
 }
 .carousel-indicator:focus-visible {
   outline: 2px solid var(--mint);
-  outline-offset: 3px;
+  outline-offset: -4px;
 }
-.carousel-indicator.active {
+.carousel-indicator.active::before {
   background-color: var(--mint);
 }
-.carousel-indicator.inactive {
+.carousel-indicator.inactive::before {
   background-color: var(--border-strong);
 }

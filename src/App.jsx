@@ -14,8 +14,12 @@ import Contact from './components/sections/Contact'
 export default function App() {
   return (
     <>
+      {/* Solo aparece al navegar con teclado (Tab): salta el menú */}
+      <a className="skip-link" href="#contenido">
+        Saltar al contenido
+      </a>
       <Navbar />
-      <main>
+      <main id="contenido" tabIndex={-1}>
         <Hero />
         <About />
         <Technologies />

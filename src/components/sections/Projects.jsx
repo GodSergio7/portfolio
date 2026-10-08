@@ -17,8 +17,12 @@ const Carousel = lazy(() => import('../ui/reactbits/Carousel'))
 function ProjectMedia({ project }) {
   if (project.image) {
     return (
+      // Imagen adaptable: versión de 720 px para móvil y la original para
+      // pantallas grandes o de alta densidad
       <img
         src={project.image}
+        srcSet={`${project.image.replace('.webp', '-720.webp')} 720w, ${project.image} 1280w`}
+        sizes="(min-width: 768px) 50vw, 100vw"
         alt={`Captura del proyecto ${project.title}`}
         loading="lazy"
         draggable={false} // para que arrastrar en el carrusel no arrastre la imagen

@@ -84,6 +84,30 @@ a:hover {
   border-radius: 2px;
 }
 
+/* Enlace «Saltar al contenido»: oculto hasta que recibe el foco con Tab */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 50%;
+  z-index: 2000;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  background: var(--mint);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transform: translate(-50%, -200%);
+  transition: transform var(--transition);
+}
+.skip-link:focus-visible {
+  transform: translate(-50%, 0);
+  color: var(--ink);
+  border-radius: 999px;
+}
+main:focus {
+  outline: none; /* destino del salto; no necesita marco */
+}
+
 /* Scrollbar sutil */
 ::-webkit-scrollbar {
   width: 10px;

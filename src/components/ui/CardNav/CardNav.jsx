@@ -40,6 +40,7 @@ const CardNav = ({
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
   const navRef = useRef(null)
+  const hamburgerRef = useRef(null)
   const cardsRef = useRef([])
   const tlRef = useRef(null)
 
@@ -192,11 +193,22 @@ const CardNav = ({
 
   const toggleMenu = () => (isExpanded ? closeMenu() : openMenu())
 
-  // Escape cierra el menú
+  // Al abrir, el foco pasa al primer enlace del menú (teclado y lectores
+  // de pantalla empiezan por las opciones en lugar de quedarse en el botón)
+  useEffect(() => {
+    if (!isExpanded) return
+    navRef.current
+      ?.querySelector('.nav-card-link')
+      ?.focus({ preventScroll: true })
+  }, [isExpanded])
+
+  // Escape cierra el menú y devuelve el foco al botón que lo abrió
   useEffect(() => {
     if (!isExpanded) return undefined
     const onKeyDown = (event) => {
-      if (event.key === 'Escape') closeMenu()
+      if (event.key !== 'Escape') return
+      closeMenu()
+      hamburgerRef.current?.focus()
     }
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
@@ -218,6 +230,7 @@ const CardNav = ({
         >
           <div className="card-nav-top">
             <button
+              ref={hamburgerRef}
               type="button"
               className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''}`}
               onClick={toggleMenu}

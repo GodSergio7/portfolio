@@ -9,6 +9,17 @@ import Button from '../ui/Button'
 // muestra la foto normal (mismo tamaño, sin saltos)
 const FlipCard = lazy(() => import('../ui/reactbits/FlipCard'))
 
+// Foto adaptable: cada dispositivo descarga solo el tamaño que necesita
+// (la tarjeta mide 400 px en escritorio y 320 px en móvil)
+const photoProps = {
+  src: profile.photo,
+  srcSet: `${profile.photo.replace('.webp', '-600.webp')} 600w, ${profile.photo} 800w`,
+  sizes: '(min-width: 992px) 400px, 320px',
+  width: '800',
+  height: '1067',
+  fetchPriority: 'high',
+}
+
 /**
  * Foto de perfil sobre un marco con degradado gris.
  * La imagen no tiene fondo (PNG/WebP transparente), así que se
@@ -17,13 +28,7 @@ const FlipCard = lazy(() => import('../ui/reactbits/FlipCard'))
 function ProfilePhoto() {
   return (
     <figure className="hero-photo">
-      <img
-        src={profile.photo}
-        alt={`Foto de ${profile.name}`}
-        width="800"
-        height="1067"
-        fetchPriority="high"
-      />
+      <img {...photoProps} alt={`Foto de ${profile.name}`} />
     </figure>
   )
 }
@@ -51,11 +56,8 @@ function ProfileFlip() {
     <>
       <img
         className="hero-flip-img"
-        src={profile.photo}
+        {...photoProps}
         alt={`Foto de ${profile.name}`}
-        width="800"
-        height="1067"
-        fetchPriority="high"
         draggable={false}
       />
       <span className="hero-flip-hint" aria-hidden="true">
@@ -146,9 +148,10 @@ export default function Hero() {
                   strokeColor="#000000"
                   fillColor="#eef1f5"
                   strokeWidth={1.2}
-                  drawDuration={1.4}
-                  stagger={0.05}
-                  delay={index * 0.35}
+                  drawDuration={0.7}
+                  fillDelay={0.1}
+                  stagger={0.03}
+                  delay={index * 0.15}
                 />
               ))}
             </h1>
