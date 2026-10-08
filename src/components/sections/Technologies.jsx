@@ -21,7 +21,7 @@ function CategoryContent({ category }) {
   if (category.kind === 'bullets') {
     return (
       <>
-        {category.tools?.length ? <InlineList items={category.tools} /> : null}
+        {category.tools?.length ? <InlineList items={category.tools} flow /> : null}
         <ul className="tech-bullets">
           {category.items.map((item) => (
             <li key={item}>{item}</li>

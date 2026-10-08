@@ -586,6 +586,7 @@ a:hover {
     gap: 0.5rem;
   }
   .tech-grid--flow li {
+    white-space: nowrap; /* p. ej. «Claude (Claude Code)» en una sola línea */
     padding: 0.3rem 0.8rem;
     font-size: 0.9rem;
     line-height: 1.4;
