@@ -23,7 +23,7 @@ export const profile = {
 
   // CV en PDF (botón «Ver CV» del Hero). El parámetro ?v= evita que el
   // navegador muestre una copia antigua: cámbialo al actualizar el PDF.
-  cv: '/CV-Sergio-Vidal-Moreno.pdf?v=2026-10-07',
+  cv: '/CV-Sergio-Vidal-Moreno.pdf?v=2026-10-08',
 
   // Frase breve profesional (Hero)
   tagline:
@@ -37,7 +37,10 @@ export const profile = {
   ],
 
   // Idiomas (solo los proporcionados)
-  languages: [{ language: 'Español', level: 'Nativo' }],
+  languages: [
+    { language: 'Español', level: 'nativo' },
+    { language: 'Inglés', level: 'A1, lectura técnica' },
+  ],
 
   // Habilidades transversales, cada una con un ejemplo real
   softSkills: [

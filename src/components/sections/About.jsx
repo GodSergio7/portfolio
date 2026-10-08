@@ -22,7 +22,7 @@ function SoftSkillsBlock() {
 
 export default function About() {
   const languages = profile.languages
-    .map((lang) => `${lang.language} (${lang.level.toLowerCase()})`)
+    .map((lang) => `${lang.language} (${lang.level})`)
     .join(', ')
 
   return (
