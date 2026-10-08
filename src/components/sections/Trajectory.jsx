@@ -77,7 +77,9 @@ export default function Trajectory() {
   return (
     <Section id="trayectoria">
       <SectionHeading
-        title="Experiencia y formación"
+        // Espacio no separable entre «Experiencia» y «y»: en móvil se parte
+        // como «Experiencia y / formación», igual que «Tecnologías y / herramientas»
+        title={'Experiencia y formación'}
         lead="Prácticas en Conecta Telecom y formación en el IES Ribera de los Molinos, desde Sistemas Microinformáticos y Redes hasta Desarrollo de Aplicaciones Web."
       />
 
