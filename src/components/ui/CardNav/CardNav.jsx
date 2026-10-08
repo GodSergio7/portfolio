@@ -7,16 +7,20 @@
  * (https://github.com/DavidHDev/react-bits/blob/main/LICENSE.md).
  *
  * Cambios respecto al original: logo como nodo React en lugar de imagen,
- * botón de llamada a la acción configurable (enlace con Specular Button),
+ * botón de llamada a la acción configurable (enlace con Specular Button,
+ * cargado solo en escritorio),
  * icono de Lucide, enlaces que copian un texto (`copy`, para el email),
  * botón real (<button>) para abrir/cerrar, cierre con Escape y al pulsar
  * un enlace, enlace activo marcado y respeto a `prefers-reduced-motion`.
  */
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { Suspense, lazy, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ArrowUpRight, Check, Copy } from 'lucide-react'
-import SpecularButton from '../reactbits/SpecularButton'
 import { useCopyToClipboard } from '../../../hooks/useCopyToClipboard'
+import { useMediaQuery } from '../../../hooks/useMediaQuery'
+
+// Carga diferida: solo se descarga en escritorio (ver más abajo)
+const SpecularButton = lazy(() => import('../reactbits/SpecularButton'))
 import './CardNav.css'
 
 const prefersReducedMotion = () =>
@@ -40,6 +44,7 @@ const CardNav = ({
   const tlRef = useRef(null)
 
   // Enlaces de tipo «copiar» (email): qué texto se acaba de copiar
+  const isDesktop = useMediaQuery('(min-width: 768px)')
   const [copied, copy] = useCopyToClipboard()
   const [lastCopied, setLastCopied] = useState(null)
   const copiedText = copied ? lastCopied : null
@@ -233,21 +238,36 @@ const CardNav = ({
               {logo}
             </a>
 
-            {cta ? (
-              <SpecularButton
-                href={cta.href}
-                onClick={closeMenu}
-                className="card-nav-cta-button"
-                size="sm"
-                radius={8}
-                tintOpacity={0}
-                textColor="#eef1f5"
-                lineColor="#ffffff"
-                baseColor="#eef1f5"
-                proximity={180}
+            {/* El botón solo se ve en escritorio (en móvil está oculto por CSS):
+                el efecto Specular y su librería WebGL (ogl) solo se descargan ahí.
+                Mientras carga se muestra un botón igual sin efecto. */}
+            {cta && isDesktop ? (
+              <Suspense
+                fallback={
+                  <a
+                    className="card-nav-cta-button card-nav-cta-fallback"
+                    href={cta.href}
+                    onClick={closeMenu}
+                  >
+                    {cta.label}
+                  </a>
+                }
               >
-                {cta.label}
-              </SpecularButton>
+                <SpecularButton
+                  href={cta.href}
+                  onClick={closeMenu}
+                  className="card-nav-cta-button"
+                  size="sm"
+                  radius={8}
+                  tintOpacity={0}
+                  textColor="#eef1f5"
+                  lineColor="#ffffff"
+                  baseColor="#eef1f5"
+                  proximity={180}
+                >
+                  {cta.label}
+                </SpecularButton>
+              </Suspense>
             ) : null}
           </div>
 

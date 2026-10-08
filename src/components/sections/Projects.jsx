@@ -1,12 +1,15 @@
+import { Suspense, lazy } from 'react'
 import { ExternalLink, Image } from 'lucide-react'
 import Section from '../layout/Section'
 import SectionHeading from '../ui/SectionHeading'
 import { GithubIcon } from '../ui/BrandIcons'
 import Button from '../ui/Button'
 import TechIcon from '../ui/TechIcon'
-import Carousel from '../ui/reactbits/Carousel'
 import { projects } from '../../data/projects'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
+
+// Carga diferida: el carrusel (y su librería, motion) solo se descarga en móvil
+const Carousel = lazy(() => import('../ui/reactbits/Carousel'))
 
 /**
  * Zona visual del proyecto: imagen real o hueco «captura próximamente».
@@ -101,14 +104,17 @@ export default function Projects() {
       />
 
       {isMobile ? (
-        <Carousel
-          items={projects}
-          getKey={(project) => project.id}
-          getLabel={(project) => project.title}
-          ariaLabel="Proyectos"
-          loop
-          renderItem={(project) => <ProjectCard project={project} />}
-        />
+        // Mientras carga el carrusel se ve la primera tarjeta, sin saltos
+        <Suspense fallback={<ProjectCard project={projects[0]} />}>
+          <Carousel
+            items={projects}
+            getKey={(project) => project.id}
+            getLabel={(project) => project.title}
+            ariaLabel="Proyectos"
+            loop
+            renderItem={(project) => <ProjectCard project={project} />}
+          />
+        </Suspense>
       ) : (
         <div className="row g-4">
           {projects.map((project) => (

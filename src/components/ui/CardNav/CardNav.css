@@ -98,6 +98,24 @@
   color: var(--text);
 }
 
+/* Botón equivalente sin efecto, mientras se descarga el SpecularButton */
+.card-nav-cta-fallback {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 1.1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #eef1f5;
+  text-decoration: none;
+  border: 1px solid rgba(238, 241, 245, 0.45);
+  border-radius: 8px;
+}
+.card-nav-cta-fallback:hover {
+  color: #eef1f5;
+}
+
 /* El botón es un SpecularButton; aquí solo se ajusta a la altura de la barra */
 .card-nav-cta-button.specular-button {
   height: 100%;
