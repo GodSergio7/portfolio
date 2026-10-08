@@ -15,6 +15,12 @@ export const profile = {
   // Foto de perfil (sin fondo) usada en el Hero
   photo: '/foto-perfil.webp',
 
+  // Datos personales de la parte trasera de la foto (Flip Card del Hero).
+  // La edad se calcula a partir de la fecha de nacimiento.
+  birthDate: '2002-11-05',
+  birthDateLabel: '5 de noviembre de 2002',
+  motto: 'La vida es bella',
+
   // CV en PDF (botón «Ver CV» del Hero)
   cv: '/CV-Sergio-Vidal-Moreno.pdf',
 

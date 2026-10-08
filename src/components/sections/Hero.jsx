@@ -1,9 +1,13 @@
-import { useEffect, useState } from 'react'
-import { ArrowRight, FileText, Mail } from 'lucide-react'
+import { Suspense, lazy, useEffect, useState } from 'react'
+import { ArrowRight, FileText, Mail, RotateCw } from 'lucide-react'
 import StrokeText from '../ui/reactbits/StrokeText'
 import { profile } from '../../data/profile'
 import SocialLinks from '../ui/SocialLinks'
 import Button from '../ui/Button'
+
+// Carga diferida: la tarjeta giratoria usa motion; mientras llega se
+// muestra la foto normal (mismo tamaño, sin saltos)
+const FlipCard = lazy(() => import('../ui/reactbits/FlipCard'))
 
 /**
  * Foto de perfil sobre un marco con degradado gris.
@@ -21,6 +25,82 @@ function ProfilePhoto() {
         fetchPriority="high"
       />
     </figure>
+  )
+}
+
+// Edad a partir de la fecha de nacimiento (se actualiza sola cada año)
+function ageFrom(isoDate) {
+  const birth = new Date(`${isoDate}T00:00:00`)
+  const today = new Date()
+  let age = today.getFullYear() - birth.getFullYear()
+  const beforeBirthday =
+    today.getMonth() < birth.getMonth() ||
+    (today.getMonth() === birth.getMonth() && today.getDate() < birth.getDate())
+  if (beforeBirthday) age -= 1
+  return age
+}
+
+/**
+ * Foto que gira al pulsarla (Flip Card de React Bits): por delante la
+ * foto y por detrás información personal.
+ */
+function ProfileFlip() {
+  const age = ageFrom(profile.birthDate)
+
+  const front = (
+    <>
+      <img
+        className="hero-flip-img"
+        src={profile.photo}
+        alt={`Foto de ${profile.name}`}
+        width="800"
+        height="1067"
+        fetchPriority="high"
+        draggable={false}
+      />
+      <span className="hero-flip-hint" aria-hidden="true">
+        <RotateCw size={13} />
+        Pulsa para girar
+      </span>
+    </>
+  )
+
+  const back = (
+    <div className="hero-flip-back">
+      <dl className="hero-flip-facts">
+        <div>
+          <dt>Nombre</dt>
+          <dd>{profile.name}</dd>
+        </div>
+        <div>
+          <dt>Edad</dt>
+          <dd>{age} años</dd>
+        </div>
+        <div>
+          <dt>Fecha de nacimiento</dt>
+          <dd>{profile.birthDateLabel}</dd>
+        </div>
+        <div>
+          <dt>De</dt>
+          <dd>{profile.location}</dd>
+        </div>
+      </dl>
+      <p className="hero-flip-motto">«{profile.motto}»</p>
+    </div>
+  )
+
+  return (
+    <Suspense fallback={<ProfilePhoto />}>
+      <FlipCard
+        className="hero-flip"
+        front={front}
+        back={back}
+        radius={20}
+        tiltMax={8}
+        glare={false}
+        ariaLabel={`Foto de ${profile.name}. Pulsa para ver información personal`}
+      />
+    </Suspense>
   )
 }
 
@@ -115,7 +195,7 @@ export default function Hero() {
           {/* Composición visual */}
           <div className="col-lg-6">
             <div className="fade-up" style={{ animationDelay: '120ms' }}>
-              <ProfilePhoto />
+              <ProfileFlip />
             </div>
           </div>
         </div>
