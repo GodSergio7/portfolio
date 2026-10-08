@@ -18,6 +18,7 @@ import { gsap } from 'gsap'
 import { ArrowUpRight, Check, Copy } from 'lucide-react'
 import { useCopyToClipboard } from '../../../hooks/useCopyToClipboard'
 import { useMediaQuery } from '../../../hooks/useMediaQuery'
+import { trackProps } from '../../../lib/analytics'
 
 // Carga diferida: solo se descarga en escritorio (ver más abajo)
 const SpecularButton = lazy(() => import('../reactbits/SpecularButton'))
@@ -308,6 +309,7 @@ const CardNav = ({
                           type="button"
                           className={`nav-card-link nav-card-link--button ${isCopied ? 'is-active' : ''}`}
                           aria-label={lnk.ariaLabel}
+                          {...trackProps(lnk.track)}
                           onClick={() => copyText(lnk.copy)}
                         >
                           {isCopied ? (
@@ -333,6 +335,7 @@ const CardNav = ({
                         aria-current={isActive ? 'true' : undefined}
                         target={lnk.external ? '_blank' : undefined}
                         rel={lnk.external ? 'noopener noreferrer' : undefined}
+                        {...trackProps(lnk.track)}
                         onClick={closeMenu}
                       >
                         <ArrowUpRight

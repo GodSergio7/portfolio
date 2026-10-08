@@ -1,5 +1,6 @@
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
+import CookieConsent from './components/layout/CookieConsent'
 import Hero from './components/sections/Hero'
 import About from './components/sections/About'
 import Technologies from './components/sections/Technologies'
@@ -28,6 +29,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <CookieConsent />
     </>
   )
 }

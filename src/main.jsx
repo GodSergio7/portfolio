@@ -4,6 +4,10 @@ import '@fontsource-variable/manrope'
 import './styles/bootstrap.scss'
 import './styles/index.css'
 import App from './App.jsx'
+import { initAnalytics } from './lib/analytics'
+
+// Google Analytics solo si el visitante ha aceptado las cookies
+initAnalytics()
 
 const container = document.getElementById('root')
 const app = (

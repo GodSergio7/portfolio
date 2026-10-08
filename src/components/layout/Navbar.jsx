@@ -15,12 +15,19 @@ const menuItems = [
     label: 'Contacto',
     links: [
       // Copia la dirección: `mailto:` no hace nada sin una app de correo configurada
-      { label: 'Email', copy: profile.email, copiedLabel: 'Email copiado', ariaLabel: `Copiar el email ${profile.email}` },
+      {
+        label: 'Email',
+        copy: profile.email,
+        copiedLabel: 'Email copiado',
+        ariaLabel: `Copiar el email ${profile.email}`,
+        track: { evento: 'copiar_email', ubicacion: 'menu' },
+      },
       ...profile.social.map((link) => ({
         label: link.label,
         href: link.url,
         ariaLabel: `${link.label} (se abre en una pestaña nueva)`,
         external: true,
+        track: { evento: 'abrir_red_social', red: link.id, ubicacion: 'menu' },
       })),
     ],
   },

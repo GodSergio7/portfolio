@@ -1,6 +1,7 @@
 import { ArrowUp } from 'lucide-react'
 import { profile } from '../../data/profile'
 import Button from '../ui/Button'
+import { openCookiePolicy } from './CookieConsent'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -13,6 +14,10 @@ export default function Footer() {
             SV<span className="brand-dot">.</span>
           </span>
           © {year} {profile.name}
+          <span className="footer-sep" aria-hidden="true">·</span>
+          <button type="button" className="footer-link" onClick={openCookiePolicy}>
+            Cookies
+          </button>
         </p>
         <Button
           variant="icon"

@@ -7,6 +7,7 @@ import Button from '../ui/Button'
 import TechIcon from '../ui/TechIcon'
 import { projects } from '../../data/projects'
 import { useMediaQuery } from '../../hooks/useMediaQuery'
+import { trackProps } from '../../lib/analytics'
 
 // Carga diferida: el carrusel (y su librería, motion) solo se descarga en móvil
 const Carousel = lazy(() => import('../ui/reactbits/Carousel'))
@@ -40,7 +41,7 @@ function ProjectMedia({ project }) {
 /**
  * Enlace (repo / demo). Si el proyecto no tiene esa URL, no se muestra.
  */
-function ProjectLink({ url, label, icon, aria }) {
+function ProjectLink({ url, label, icon, aria, type }) {
   if (!url) return null
   return (
     <Button
@@ -48,6 +49,7 @@ function ProjectLink({ url, label, icon, aria }) {
       href={url}
       external
       aria-label={`${label} de ${aria} (se abre en una pestaña nueva)`}
+      {...trackProps({ evento: 'abrir_proyecto', proyecto: aria, tipo: type })}
     >
       {icon}
       {label}
@@ -83,12 +85,14 @@ function ProjectCard({ project }) {
             label="Código"
             icon={linkIcons.repo}
             aria={project.title}
+            type="codigo"
           />
           <ProjectLink
             url={project.demo}
             label="Demo"
             icon={linkIcons.demo}
             aria={project.title}
+            type="demo"
           />
         </div>
       </div>

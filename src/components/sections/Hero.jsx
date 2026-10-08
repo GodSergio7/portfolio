@@ -4,6 +4,7 @@ import StrokeText from '../ui/reactbits/StrokeText'
 import { profile } from '../../data/profile'
 import SocialLinks from '../ui/SocialLinks'
 import Button from '../ui/Button'
+import { trackProps } from '../../lib/analytics'
 
 // Carga diferida: la tarjeta giratoria usa motion; mientras llega se
 // muestra la foto normal (mismo tamaño, sin saltos)
@@ -188,11 +189,12 @@ export default function Hero() {
                 href={profile.cv}
                 external
                 aria-label="Ver mi CV en PDF (se abre en una pestaña nueva)"
+                {...trackProps({ evento: 'ver_cv', ubicacion: 'hero' })}
               >
                 <FileText size={16} className="me-2" aria-hidden="true" />
                 Ver CV
               </Button>
-              <SocialLinks links={profile.social} size={19} />
+              <SocialLinks links={profile.social} size={19} place="hero" />
             </div>
           </div>
 

@@ -4,6 +4,7 @@ import Section from '../layout/Section'
 import SectionHeading from '../ui/SectionHeading'
 import { getSocialIcon } from '../ui/BrandIcons'
 import { profile } from '../../data/profile'
+import { trackProps } from '../../lib/analytics'
 
 /**
  * Fila de un canal de contacto.
@@ -17,6 +18,7 @@ function ContactRow({ row }) {
         target: '_blank',
         rel: 'noopener noreferrer',
         'aria-label': `${row.label}: ${row.value} (se abre en una pestaña nueva)`,
+        ...trackProps(row.track),
       }
     : {}
 
@@ -59,6 +61,7 @@ function EmailRow({ row }) {
       className="profile-row contact-row contact-row--copy"
       onClick={() => copy(row.value)}
       aria-label={`Copiar el email ${row.value}`}
+      {...trackProps({ evento: 'copiar_email', ubicacion: 'contacto' })}
     >
       <span className="profile-icon" aria-hidden="true">
         <row.Icon size={20} />
@@ -95,6 +98,7 @@ export default function Contact() {
       value: profile.whatsapp.display,
       href: profile.whatsapp.href,
       pending: false,
+      track: { evento: 'abrir_whatsapp', ubicacion: 'contacto' },
     },
     // Redes sociales reales (se abren en pestaña nueva).
     ...profile.social.map((link) => ({
@@ -104,6 +108,7 @@ export default function Contact() {
       value: link.url ? `Mi ${link.label}` : 'Próximamente',
       href: link.url,
       pending: !link.url,
+      track: { evento: 'abrir_red_social', red: link.id, ubicacion: 'contacto' },
     })),
   ]
 
