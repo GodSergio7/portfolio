@@ -197,14 +197,25 @@ main:focus {
   border-bottom: 1px solid var(--border);
 }
 
-/* ---------- Fondo animado (SiteBackground.jsx) ---------- */
-/* Fijo detrás de todo el contenido; el color de body queda debajo como
-   respaldo mientras carga y si WebGL no está disponible */
+/* ---------- Fondo de la web (SiteBackground.jsx) ---------- */
+/* Fijo detrás de todo el contenido. Base estática en CSS (degradados menta
+   muy suaves que imitan el ambiente de las fibras): es lo que se ve sin GPU,
+   mientras carga y en el HTML prerenderizado. */
 .site-bg {
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
+  background:
+    radial-gradient(60% 50% at 50% 42%, rgba(42, 110, 96, 0.14), transparent 72%),
+    radial-gradient(45% 40% at 78% 72%, rgba(18, 53, 47, 0.4), transparent 70%),
+    radial-gradient(40% 35% at 18% 20%, rgba(18, 53, 47, 0.3), transparent 70%),
+    var(--bg);
+}
+/* Ghost Fibers encima, con un fundido al estar listo */
+.site-bg-fibers {
+  position: absolute;
+  inset: 0;
   animation: site-bg-in 1.6s ease-out both;
 }
 @keyframes site-bg-in {
@@ -213,7 +224,7 @@ main:focus {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .site-bg {
+  .site-bg-fibers {
     animation: none;
   }
 }
