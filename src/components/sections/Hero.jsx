@@ -5,6 +5,7 @@ import { profile } from '../../data/profile'
 import SocialLinks from '../ui/SocialLinks'
 import Button from '../ui/Button'
 import { trackProps } from '../../lib/analytics'
+import { useHydrated } from '../../hooks/useHydrated'
 
 // Carga diferida: la tarjeta giratoria usa motion; mientras llega se
 // muestra la foto normal (mismo tamaño, sin saltos)
@@ -51,6 +52,11 @@ function ageFrom(isoDate) {
  * foto y por detrás información personal.
  */
 function ProfileFlip() {
+  // En el HTML prerenderizado y al engancharse React solo va la foto: la
+  // Flip Card (carga diferida) se monta justo después, ya en el navegador
+  const hydrated = useHydrated()
+  if (!hydrated) return <ProfilePhoto />
+
   const age = ageFrom(profile.birthDate)
 
   const front = (
