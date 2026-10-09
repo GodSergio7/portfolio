@@ -7,42 +7,28 @@ import { profile } from '../../data/profile'
 import { trackProps } from '../../lib/analytics'
 
 /**
- * Fila de un canal de contacto.
- * Los canales enlazables (WhatsApp y redes) se abren en una pestaña nueva.
+ * Fila de un canal de contacto enlazable (WhatsApp y redes).
+ * Se abre en una pestaña nueva.
  */
 function ContactRow({ row }) {
-  const Tag = row.href ? 'a' : 'div'
-  const anchorProps = row.href
-    ? {
-        href: row.href,
-        target: '_blank',
-        rel: 'noopener noreferrer',
-        'aria-label': `${row.label}: ${row.value} (se abre en una pestaña nueva)`,
-        ...trackProps(row.track),
-      }
-    : {}
-
   return (
-    <Tag className="profile-row contact-row" {...anchorProps}>
+    <a
+      className="profile-row contact-row"
+      href={row.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${row.label}: ${row.value} (se abre en una pestaña nueva)`}
+      {...trackProps(row.track)}
+    >
       <span className="profile-icon" aria-hidden="true">
-        {row.Icon ? <row.Icon size={20} /> : null}
+        <row.Icon size={20} />
       </span>
       <span className="flex-grow-1">
         <span className="profile-label d-block">{row.label}</span>
-        <span
-          className={`profile-value ${row.pending ? 'text-muted' : ''}`}
-        >
-          {row.value}
-        </span>
+        <span className="profile-value">{row.value}</span>
       </span>
-      {row.href ? (
-        <ArrowUpRight
-          size={18}
-          className="contact-row-arrow"
-          aria-hidden="true"
-        />
-      ) : null}
-    </Tag>
+      <ArrowUpRight size={18} className="contact-row-arrow" aria-hidden="true" />
+    </a>
   )
 }
 
@@ -89,7 +75,6 @@ export default function Contact() {
       label: 'Email',
       value: profile.email,
       copy: true,
-      pending: false,
     },
     {
       id: 'whatsapp',
@@ -97,17 +82,14 @@ export default function Contact() {
       label: 'WhatsApp',
       value: profile.whatsapp.display,
       href: profile.whatsapp.href,
-      pending: false,
       track: { evento: 'abrir_whatsapp', ubicacion: 'contacto' },
     },
-    // Redes sociales reales (se abren en pestaña nueva).
     ...profile.social.map((link) => ({
       id: link.id,
       Icon: getSocialIcon(link.id),
       label: link.label,
-      value: link.url ? `Mi ${link.label}` : 'Próximamente',
+      value: `Mi ${link.label}`,
       href: link.url,
-      pending: !link.url,
       track: { evento: 'abrir_red_social', red: link.id, ubicacion: 'contacto' },
     })),
   ]

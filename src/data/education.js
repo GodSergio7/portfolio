@@ -1,5 +1,5 @@
 // ============================================================
-// Formación (información real).
+// Formación (sección Trayectoria), de la más reciente a la más antigua.
 // ------------------------------------------------------------
 // Cada entrada:
 //   { id, degree, school, period, current?, note? }

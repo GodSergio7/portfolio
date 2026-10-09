@@ -141,7 +141,7 @@ export default function Hero() {
         <div className="row align-items-center g-4 g-lg-5">
           {/* Texto principal */}
           <div className="col-lg-6">
-            {/* Nombre dibujado con Stroke Text (prueba). El texto real queda
+            {/* Nombre dibujado con Stroke Text. El texto real queda
                 oculto visualmente para lectores de pantalla y buscadores. */}
             <h1 className="hero-name hero-name--stroke">
               <span className="visually-hidden">{profile.name}</span>

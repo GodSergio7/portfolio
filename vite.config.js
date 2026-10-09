@@ -4,6 +4,11 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  // Año del build: el mismo en el HTML prerenderizado y en el navegador
+  // mientras React se engancha (ver Footer.jsx)
+  define: {
+    __BUILD_YEAR__: JSON.stringify(new Date().getFullYear()),
+  },
   build: {
     rollupOptions: {
       // Dos páginas: la web y la página 404 que sirve Vercel

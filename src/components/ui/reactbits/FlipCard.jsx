@@ -8,7 +8,7 @@
  * fijos, para que la tarjeta sea fluida (proporción 4:5); textos accesibles
  * en español; colores con los tokens del portfolio.
  */
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import {
   animate,
   motion,
@@ -62,8 +62,12 @@ export default function FlipCard({
   const [inner, setInner] = useState(defaultFlipped)
   const [dragging, setDragging] = useState(false)
   const shown = controlled ? flipped : inner
+  // Copia del lado visible para los manejadores de eventos; se actualiza
+  // tras cada render (no durante el render, como pide React)
   const shownRef = useRef(shown)
-  shownRef.current = shown
+  useLayoutEffect(() => {
+    shownRef.current = shown
+  })
   const rootRef = useRef(null)
   const grip = useRef(null)
   const spin = useRef(null)

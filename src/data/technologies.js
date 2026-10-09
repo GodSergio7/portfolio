@@ -1,8 +1,10 @@
 // ============================================================
-// Tecnologías y conocimientos, organizados por categoría.
-// Se muestran en una rejilla de 2 × 2.
+// Tecnologías y conocimientos, organizados por categoría
+// (sección Tecnologías: una fila por categoría).
+// Cada nombre necesita su logo en el mapa `icons` de
+// src/components/ui/TechIcon.jsx; si no, se muestra sin logo.
 //
-// kind: 'list'    → se muestra como chips de tecnologías.
+// kind: 'list'    → se muestra como lista de tecnologías.
 //       'bullets' → se muestra como lista de frases.
 // tools (opcional): chips que se muestran encima de la lista.
 // ============================================================

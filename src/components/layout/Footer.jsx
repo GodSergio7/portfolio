@@ -2,9 +2,14 @@ import { ArrowUp } from 'lucide-react'
 import { profile } from '../../data/profile'
 import Button from '../ui/Button'
 import { openCookiePolicy } from './CookieConsent'
+import { useHydrated } from '../../hooks/useHydrated'
 
 export default function Footer() {
-  const year = new Date().getFullYear()
+  // El HTML prerenderizado lleva el año del build (__BUILD_YEAR__, ver
+  // vite.config.js); en el navegador se pasa al año actual, por si no ha
+  // habido ningún despliegue desde el 1 de enero
+  const hydrated = useHydrated()
+  const year = hydrated ? new Date().getFullYear() : __BUILD_YEAR__
 
   return (
     <footer className="footer">

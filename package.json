@@ -3,11 +3,12 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Portfolio prototipo de Sergio Vidal Moreno — Desarrollador Web (React + Vite + Bootstrap)",
+  "description": "Portfolio de Sergio Vidal Moreno, desarrollador web frontend (React + Vite). https://www.sergiovidal.es",
   "scripts": {
     "dev": "vite",
     "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@fontsource-variable/manrope": "^5.3.0",
@@ -21,7 +22,12 @@
     "simple-icons": "^16.34.0"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@vitejs/plugin-react": "^6.1.1",
+    "eslint": "^10.12.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "globals": "^17.13.0",
     "sass": "^1.105.1",
     "vite": "^8.2.2"
   }

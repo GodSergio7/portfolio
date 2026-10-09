@@ -11,7 +11,7 @@
  * solo corre mientras el brillo es visible (se para en reposo, con la
  * pestaña oculta o si el botón no se muestra).
  */
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useLayoutEffect } from 'react'
 import { Renderer, Program, Mesh, Triangle, Color } from 'ogl'
 import './SpecularButton.css'
 
@@ -104,7 +104,11 @@ const SpecularButton = ({
   const fxRef = useRef(null)
   const propsRef = useRef({})
 
-  propsRef.current = { radius, lineColor, baseColor, intensity, shineSize, shineFade, thickness, speed, followMouse, proximity, autoAnimate }
+  // Props actuales para el bucle de dibujo; se actualizan tras cada render
+  // (no durante el render, como pide React)
+  useLayoutEffect(() => {
+    propsRef.current = { radius, lineColor, baseColor, intensity, shineSize, shineFade, thickness, speed, followMouse, proximity, autoAnimate }
+  })
 
   useEffect(() => {
     const btn = btnRef.current

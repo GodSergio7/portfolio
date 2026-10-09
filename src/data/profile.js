@@ -1,9 +1,6 @@
 // ============================================================
-// Datos personales del portfolio.
-// ------------------------------------------------------------
-// IMPORTANTE: solo se incluye información real proporcionada.
-// Lo pendiente (los proyectos) permanece como placeholder para
-// rellenarlo cuando esté disponible.
+// Datos personales del portfolio: Hero, Sobre mí, Contacto,
+// footer y CV. Editar aquí basta para cambiar estos textos.
 // ============================================================
 
 export const profile = {

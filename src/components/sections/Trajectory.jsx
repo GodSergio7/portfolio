@@ -87,33 +87,20 @@ export default function Trajectory() {
       <div className="row g-4 g-lg-5">
         <div className="col-lg-6">
           <ColumnHeading icon={Briefcase} title="Experiencia" />
-          {experience.length > 0 ? (
-            <div className="timeline">
-              {experience.map((item) => (
-                <ExperienceItem item={item} key={item.id} />
-              ))}
-            </div>
-          ) : (
-            <p className="text-muted mb-0">
-              Próximamente se mostrará aquí mi experiencia profesional y mis
-              prácticas.
-            </p>
-          )}
+          <div className="timeline">
+            {experience.map((item) => (
+              <ExperienceItem item={item} key={item.id} />
+            ))}
+          </div>
         </div>
 
         <div className="col-lg-6">
           <ColumnHeading icon={GraduationCap} title="Formación" />
-          {education.length > 0 ? (
-            <div className="timeline">
-              {education.map((item) => (
-                <EducationItem item={item} key={item.id} />
-              ))}
-            </div>
-          ) : (
-            <p className="text-muted mb-0">
-              Próximamente se mostrará aquí mi formación.
-            </p>
-          )}
+          <div className="timeline">
+            {education.map((item) => (
+              <EducationItem item={item} key={item.id} />
+            ))}
+          </div>
         </div>
       </div>
     </Section>

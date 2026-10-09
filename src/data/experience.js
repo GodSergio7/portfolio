@@ -1,5 +1,6 @@
 // ============================================================
-// Experiencia profesional y prácticas (información real).
+// Experiencia profesional y prácticas (sección Trayectoria),
+// de la más reciente a la más antigua.
 // ------------------------------------------------------------
 // Cada entrada:
 //   {

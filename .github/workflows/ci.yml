@@ -1,6 +1,6 @@
 # Comprobación automática: en cada push y pull request a main se
-# instalan las dependencias, se buscan vulnerabilidades y se hace el
-# build completo (incluido el prerenderizado).
+# instalan las dependencias, se buscan vulnerabilidades, se revisa el
+# código con ESLint y se hace el build completo (con el prerenderizado).
 name: CI
 
 on:
@@ -38,6 +38,9 @@ jobs:
 
       - name: Buscar vulnerabilidades
         run: npm audit --audit-level=high
+
+      - name: Revisar el código (ESLint)
+        run: npm run lint
 
       - name: Build y prerenderizado
         run: npm run build
