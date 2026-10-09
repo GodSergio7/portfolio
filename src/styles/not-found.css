@@ -2,7 +2,7 @@
    Página 404 (404.html). Independiente de la web principal:
    solo Manrope y los colores de la identidad visual.
    ============================================================ */
-@import '@fontsource-variable/manrope';
+@import './fonts.css';
 
 :root {
   --mint: #b8f7e4;
