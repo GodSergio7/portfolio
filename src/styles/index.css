@@ -189,10 +189,33 @@ main:focus {
   position: relative;
   scroll-margin-top: 5.5rem;
 }
+/* Semitransparente: deja ver el fondo animado (SiteBackground) un poco
+   más atenuado que en las secciones normales, para mantener el ritmo */
 .section-alt {
-  background-color: var(--bg-soft);
+  background-color: rgba(33, 35, 40, 0.62); /* --bg-soft */
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+}
+
+/* ---------- Fondo animado (SiteBackground.jsx) ---------- */
+/* Fijo detrás de todo el contenido; el color de body queda debajo como
+   respaldo mientras carga y si WebGL no está disponible */
+.site-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  animation: site-bg-in 1.6s ease-out both;
+}
+@keyframes site-bg-in {
+  from {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-bg {
+    animation: none;
+  }
 }
 
 /* ---------- Cabeceras de sección ---------- */
@@ -726,7 +749,7 @@ main:focus {
 /* ---------- Footer ---------- */
 .footer {
   border-top: 1px solid var(--border);
-  background-color: #191b1e;
+  background-color: rgba(25, 27, 30, 0.85);
   padding: 1.6rem 0;
 }
 .footer .brand-mark {

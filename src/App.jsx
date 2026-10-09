@@ -1,6 +1,7 @@
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import CookieConsent from './components/layout/CookieConsent'
+import SiteBackground from './components/layout/SiteBackground'
 import Hero from './components/sections/Hero'
 import About from './components/sections/About'
 import Technologies from './components/sections/Technologies'
@@ -15,6 +16,7 @@ import Contact from './components/sections/Contact'
 export default function App() {
   return (
     <>
+      <SiteBackground />
       {/* Solo aparece al navegar con teclado (Tab): salta el menú */}
       <a className="skip-link" href="#contenido">
         Saltar al contenido
