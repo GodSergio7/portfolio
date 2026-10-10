@@ -1,129 +1,217 @@
-# Sergio Vidal Moreno — Portfolio
+<div align="center">
+
+# Sergio Vidal Moreno · Portfolio
+
+**Portfolio personal de desarrollador web frontend, con React y Vite.**
 
 [![CI](https://github.com/GodSergio7/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/GodSergio7/portfolio/actions/workflows/ci.yml)
+![React](https://img.shields.io/badge/React-19-149ECA?logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
+![Vercel](https://img.shields.io/badge/Desplegado%20en-Vercel-000000?logo=vercel&logoColor=white)
 
-Portfolio personal de **Sergio Vidal Moreno**, desarrollador web frontend.
+[**Ver la web →**](https://www.sergiovidal.es)
 
-**Web:** https://www.sergiovidal.es
+<img src="public/proyectos/portfolio.webp" alt="Captura del portfolio: portada con el nombre, el rol y la foto de perfil" width="820" />
 
-Una sola página con las secciones Inicio, Sobre mí, Tecnologías, Proyectos,
-Trayectoria y Contacto. El HTML se **prerenderiza** en el build, para que
-buscadores y redes vean el contenido sin ejecutar JavaScript.
+</div>
 
-## Stack
+---
 
-- **React 19** + **Vite**, en JavaScript (JSX)
-- **Bootstrap 5** compilado a medida desde Sass: solo la base, la rejilla y unas pocas utilidades
-- **Manrope** (variable), servida desde la propia web
-- Componentes de **[React Bits](https://reactbits.dev)**, adaptados: Card Nav, Star Border, Glare Hover, Specular Button, Stroke Text, Carousel y Flip Card.
-  Licencia MIT + Commons Clause; el aviso se conserva en cada archivo.
-- **GSAP** (menú y nombre del Hero), **motion** (carrusel y Flip Card) y **ogl** (Specular Button)
-- Iconos: **Lucide**, **Simple Icons** (CC0), **Devicon** (MIT) y **Lobe Icons** (MIT)
-- **Google Analytics 4**, solo con consentimiento
-- Despliegue en **Vercel**; comprobación automática con **GitHub Actions**
+## Índice
 
-## Comandos
+- [Sobre el proyecto](#sobre-el-proyecto)
+- [Características](#características)
+- [Resultados](#resultados)
+- [Tecnologías](#tecnologías)
+- [Empezar](#empezar)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Cómo actualizar el contenido](#cómo-actualizar-el-contenido)
+- [Decisiones técnicas](#decisiones-técnicas)
+- [Despliegue y CI](#despliegue-y-ci)
+- [Créditos y licencias de terceros](#créditos-y-licencias-de-terceros)
+- [Contacto](#contacto)
+
+## Sobre el proyecto
+
+Web de una sola página que presenta mi perfil, las tecnologías que utilizo, mis proyectos, mi experiencia y formación, y mis datos de contacto.
+
+El objetivo es que la web sea a la vez una carta de presentación y una muestra de trabajo. Por eso cuida el diseño y la accesibilidad, el rendimiento, el SEO y la calidad del código.
+
+## Características
+
+- **Diseño propio:**
+  - identidad oscura con un único acento menta;
+  - tipografía Manrope;
+  - composición minimalista y simétrica;
+  - adaptado a móvil, tablet y escritorio.
+- **Componentes animados de [React Bits](https://reactbits.dev):**
+  - menú Card Nav;
+  - botones Star Border, Glare Hover y Specular;
+  - nombre con Stroke Text;
+  - foto con Flip Card;
+  - carrusel de proyectos en móvil;
+  - fondo Ghost Fibers.
+- **HTML prerenderizado** en el build: buscadores y redes ven todo el contenido sin ejecutar JavaScript.
+- **Accesible:**
+  - enlace "Saltar al contenido";
+  - foco visible;
+  - menú usable con teclado;
+  - zonas táctiles de 24 px;
+  - textos alternativos;
+  - respeto a `prefers-reduced-motion`.
+- **SEO:**
+  - URL canónica;
+  - `sitemap.xml` y `robots.txt`;
+  - datos estructurados Schema.org (`ProfilePage` + `Person`);
+  - vista previa para redes (Open Graph);
+  - alta en Google Search Console.
+- **Analítica respetuosa:**
+  - Google Analytics 4 solo con consentimiento;
+  - banner de cookies con "Aceptar" y "Rechazar" al mismo nivel;
+  - política de cookies;
+  - eventos de interés: ver el CV, copiar el email, abrir WhatsApp, GitHub o LinkedIn, abrir proyectos.
+- **Carga por dispositivo:**
+  - cada efecto se descarga solo donde se usa;
+  - el fondo animado solo arranca si hay GPU y cuando la página ya ha cargado.
+- **Detalles:**
+  - CV en PDF;
+  - copia del email al portapapeles;
+  - imágenes adaptables (`srcset`);
+  - página 404 propia.
+
+## Resultados
+
+Medidos con [PageSpeed Insights](https://pagespeed.web.dev) en https://www.sergiovidal.es:
+
+| | Rendimiento | Accesibilidad | Buenas prácticas | SEO |
+|---|:---:|:---:|:---:|:---:|
+| **Ordenador** | 100 | 100 | 100 | 100 |
+| **Móvil** | 94 | 100 | 100 | 100 |
+
+## Tecnologías
+
+| Área | Tecnologías |
+|---|---|
+| Base | React 19, Vite 8, JavaScript (JSX) |
+| Estilos | CSS propio con *design tokens*, Bootstrap 5 compilado a medida desde Sass, Manrope (variable) |
+| Animación y gráficos | GSAP, motion, ogl (WebGL) |
+| Iconos | Lucide, Simple Icons, Devicon, Lobe Icons |
+| Calidad | ESLint, GitHub Actions |
+| Analítica y SEO | Google Analytics 4, Google Search Console, Schema.org |
+| Despliegue | Vercel, dominio propio |
+
+## Empezar
+
+**Requisitos:** Node.js 20.19 o superior (lo pide Vite 8) y npm.
 
 ```bash
-npm install       # instalar dependencias
-npm run dev       # servidor de desarrollo (sin prerenderizado)
-npm run build     # build de cliente + build de servidor + prerenderizado
-npm run preview   # ver el build de producción en local
-npm run lint      # revisar el código con ESLint
+git clone https://github.com/GodSergio7/portfolio.git
+cd portfolio
+npm install
+npm run dev
 ```
 
-## Estructura
+| Comando | Qué hace |
+|---|---|
+| `npm run dev` | Servidor de desarrollo con recarga en caliente. No prerenderiza. |
+| `npm run build` | Build de producción: cliente, servidor y prerenderizado en `dist/`. |
+| `npm run preview` | Sirve el build de producción en local. |
+| `npm run lint` | Revisa el código con ESLint. |
+
+## Estructura del proyecto
 
 ```
 index.html                 # Página principal: SEO, Open Graph y datos estructurados
 404.html                   # Página de error que sirve Vercel (sin React)
-scripts/prerender.mjs      # Escribe el HTML prerenderizado en dist/index.html
+scripts/prerender.mjs      # Inserta el HTML prerenderizado en dist/index.html
 public/                    # CV, imágenes, robots.txt, sitemap.xml, favicon
 src/
-├── main.jsx               # Arranque: hydrateRoot (producción) / createRoot (desarrollo)
+├── main.jsx               # Arranque: hydrateRoot en producción, createRoot en desarrollo
 ├── entry-server.jsx       # Render en servidor para el prerenderizado
 ├── App.jsx                # Ensamblado de secciones
 ├── data/                  # Todo el contenido, separado de la vista
-│   ├── profile.js         #   Datos personales, contacto, idiomas, habilidades, CV
-│   ├── navigation.js      #   Secciones del menú
-│   ├── technologies.js    #   Tecnologías por categoría
-│   ├── projects.js        #   Proyectos
-│   ├── experience.js      #   Experiencia
-│   └── education.js       #   Formación
 ├── components/
-│   ├── layout/            # Navbar, Footer, Section, CookieConsent
+│   ├── layout/            # Navbar, Footer, Section, SiteBackground, CookieConsent
 │   ├── sections/          # Hero, About, Technologies, Projects, Trajectory, Contact
 │   └── ui/                # Button, TechIcon, SocialLinks, CardNav y reactbits/
 ├── hooks/                 # useMediaQuery, useHydrated, useActiveSection, useCopyToClipboard
 ├── lib/analytics.js       # Google Analytics, consentimiento y eventos
-└── styles/                # index.css (tokens y estilos), bootstrap.scss, fonts.css
+└── styles/                # index.css, bootstrap.scss, fonts.css
 ```
 
 ## Cómo actualizar el contenido
 
-Casi todo se cambia editando `src/data/`.
+Casi todo se cambia editando `src/data/`, sin tocar los componentes.
 
-- **Añadir un proyecto:** añadir una entrada en `src/data/projects.js` y dos capturas en `public/proyectos/`:
-  - `nombre.webp`, a 1280 × 720;
-  - `nombre-720.webp`, la misma captura a 720 px de ancho, para móvil.
+| Quiero… | Qué hacer |
+|---|---|
+| Cambiar textos personales, contacto o habilidades | Editar `src/data/profile.js` |
+| Añadir un proyecto | Añadir una entrada en `src/data/projects.js` y dos capturas en `public/proyectos/`: `nombre.webp` (1280 × 720) y `nombre-720.webp` (720 px de ancho, para móvil) |
+| Añadir una tecnología | Añadir el nombre en `src/data/technologies.js` y su logo en el mapa `icons` de `src/components/ui/TechIcon.jsx` |
+| Actualizar el CV | Sustituir `public/CV-Sergio-Vidal-Moreno.pdf` y cambiar el `?v=` de `profile.cv`, para que nadie vea la copia antigua guardada en caché |
+| Cambiar la foto | Sustituir `public/foto-perfil.webp` (800 × 1067) y `public/foto-perfil-600.webp` |
+| Añadir experiencia o formación | Editar `src/data/experience.js` o `src/data/education.js` |
 
-  Las dos se sirven con `srcset`. Sin imagen (`image: null`) se muestra el hueco "Captura próximamente".
-- **Añadir una tecnología:** añadir el nombre en `src/data/technologies.js` y su logo en el mapa `icons` de `src/components/ui/TechIcon.jsx`. Sin logo, se muestra solo el nombre.
-- **Actualizar el CV:** sustituir `public/CV-Sergio-Vidal-Moreno.pdf`, con el mismo nombre, y cambiar el `?v=` de `profile.cv` en `src/data/profile.js`. Así ningún navegador muestra la copia antigua desde la caché.
-- **Cambiar la foto del Hero:** sustituir `public/foto-perfil.webp` (800 × 1067) y `public/foto-perfil-600.webp`, a 600 px de ancho.
+## Decisiones técnicas
 
-## Notas técnicas
+### Prerenderizado sin framework
 
-### Prerenderizado
+`npm run build` genera el HTML de la página con `renderToString` (`src/entry-server.jsx`). Después, `scripts/prerender.mjs` hace tres cosas:
 
-`npm run build` genera el HTML de toda la página con `renderToString` (`src/entry-server.jsx`). Después, `scripts/prerender.mjs` hace tres cosas:
-
-- lo escribe en `dist/index.html`;
+- lo inserta en `dist/index.html`;
 - añade la precarga de la foto y de la fuente;
-- pone la fecha del build en el `sitemap.xml` y en el `dateModified` de los datos estructurados.
+- escribe la fecha del build en el sitemap y en los datos estructurados.
 
-En el navegador, React se engancha a ese HTML con `hydrateRoot`. Para que el HTML generado y el del navegador coincidan:
+En el navegador, React se engancha con `hydrateRoot`. Para que el HTML generado y el del navegador coincidan, se siguen tres reglas:
 
-- **No leas `window` ni `document` durante el render**, solo en efectos.
-- `useMediaQuery` vale `false` en el HTML generado y después toma el valor real.
-- Lo que solo puede existir en el navegador, como los componentes con carga diferida que se ven al cargar, se monta con `useHydrated()`. Ejemplo: la Flip Card del Hero.
+- **No se lee `window` ni `document` durante el render**, solo en efectos.
+- `useMediaQuery` (`useSyncExternalStore`) vale `false` en el HTML generado y después toma el valor real.
+- Lo que solo existe en el navegador se monta con `useHydrated()`. Ejemplos: la Flip Card, con carga diferida, y el año actual del footer.
 
-### Carga por dispositivo
+### Rendimiento
 
-- **Specular Button (ogl):** solo en escritorio.
-- **Carrusel:** solo en móvil.
-- **Flip Card:** después de cargar la página.
+- **Carga diferida por dispositivo** con `React.lazy`:
+  - el Specular Button (WebGL) solo en escritorio;
+  - el carrusel solo en móvil;
+  - la Flip Card después de la hidratación.
+- **Fondo Ghost Fibers:**
+  - solo arranca si el navegador tiene **WebGL2 por GPU** (`failIfMajorPerformanceCaveat`);
+  - espera a que la página haya cargado y el navegador esté libre;
+  - va a 30 fps;
+  - en los demás casos queda un fondo estático en CSS.
+- **Bootstrap a medida** (`src/styles/bootstrap.scss`): solo la base, la rejilla y las utilidades que se usan.
+- **Fuentes:** solo los subconjuntos latinos de Manrope, con precarga.
+- **Imágenes:** en WebP, con versiones reducidas servidas mediante `srcset`.
 
-Todos se cargan con `React.lazy`.
+### Analítica y privacidad
 
-### Analytics y cookies
+Google Analytics no se carga hasta que el visitante acepta las cookies. La elección se guarda en `localStorage` y se puede cambiar desde el enlace "Cookies" del footer; al rechazar, se borran las cookies de Analytics.
 
-- Google Analytics (`G-5FZPJRRKDL`) **no se carga hasta que el visitante acepta** el banner. La elección se guarda en `localStorage` (`cookie-consent`).
-- Para medir un clic, añade los atributos `data-*` con `trackProps({ evento: 'nombre', ... })` de `src/lib/analytics.js`.
-- La política de cookies se abre desde el footer.
+Para medir un clic basta con añadir los atributos `data-*` mediante `trackProps({ evento: 'nombre', ... })` (`src/lib/analytics.js`).
 
-### Bootstrap a medida
+## Despliegue y CI
 
-`src/styles/bootstrap.scss` solo genera las clases de rejilla y utilidades que se usan. Si un componente necesita otra, hay que añadirla ahí.
+- **Vercel** despliega automáticamente cada push a `main` en https://www.sergiovidal.es.
+- **GitHub Actions** (`.github/workflows/ci.yml`) comprueba cada push y pull request con:
+  - `npm ci`;
+  - `npm audit --audit-level=high`;
+  - `npm run lint`;
+  - `npm run build`.
 
-### Accesibilidad
+## Créditos y licencias de terceros
 
-Incluye:
+- **[React Bits](https://reactbits.dev)**, de David Haz: componentes Card Nav, Star Border, Glare Hover, Specular Button, Stroke Text, Carousel, Flip Card y Ghost Fibers. Licencia MIT + Commons Clause. Cada archivo adaptado conserva su aviso de licencia.
+- **[Simple Icons](https://simpleicons.org)**: logos de tecnologías. CC0.
+- **[Devicon](https://devicon.dev)**: logos de Java y Visual Studio Code. MIT.
+- **[Lobe Icons](https://lobehub.com/icons)**: logos de Antigravity y ChatGPT. MIT.
+- **[Lucide](https://lucide.dev)**: iconos de interfaz. ISC.
+- **[Manrope](https://fonts.google.com/specimen/Manrope)**, servida con Fontsource. SIL Open Font License.
 
-- enlace "Saltar al contenido";
-- foco visible;
-- menú usable con teclado (Escape para cerrar);
-- zonas táctiles de 24 px;
-- textos alternativos;
-- respeto a `prefers-reduced-motion`.
+## Contacto
 
-Lighthouse da 100 en Accesibilidad.
+**Sergio Vidal Moreno**, desarrollador web frontend.
 
-### CI
-
-`.github/workflows/ci.yml` se ejecuta en cada push y pull request a `main` y lanza:
-
-- `npm ci`;
-- `npm audit --audit-level=high`;
-- `npm run lint`;
-- `npm run build`.
+- Web: [sergiovidal.es](https://www.sergiovidal.es)
+- LinkedIn: [Sergio Vidal Moreno](https://www.linkedin.com/in/sergio-vidal-moreno-5462b8364/)
+- GitHub: [@GodSergio7](https://github.com/GodSergio7)
+- Email: sergiovidalmoreno7@gmail.com
