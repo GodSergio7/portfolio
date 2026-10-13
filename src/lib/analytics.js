@@ -13,10 +13,10 @@
 
 // Propiedad de GA4 a la que se envían los datos ("Portfolio Sergio")
 export const GA_ID = 'G-5FZPJRRKDL'
-// Etiqueta de Google que la contiene. El script se carga con este ID:
-// G-5FZPJRRKDL no tiene etiqueta propia (Google la añadió como segundo
-// destino de una etiqueta existente) y pedirlo directamente da 404.
-const TAG_ID = 'GT-KV6XCJLT'
+// Etiqueta de Google propia de esa propiedad ("Portfolio Sergio"). El
+// script se carga con este ID: pedirlo con G-5FZPJRRKDL da 404, porque
+// la medición está asociada a la etiqueta, no al revés.
+const TAG_ID = 'GT-MK98GWT2'
 const STORAGE_KEY = 'cookie-consent' // 'granted' | 'denied'
 
 let loaded = false
@@ -56,8 +56,6 @@ function loadAnalytics() {
     window.dataLayer.push(arguments)
   }
   window.gtag('js', new Date())
-  // Solo se configura la propiedad del portfolio: la etiqueta tiene otro
-  // destino (una propiedad antigua) al que no se envía nada
   window.gtag('config', GA_ID)
 
   const script = document.createElement('script')
