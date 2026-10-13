@@ -347,6 +347,14 @@ button.ui-btn {
     padding: 0.65rem 0.75rem;
     font-size: 0.875rem;
   }
+  /* GitHub y LinkedIn se reparten su hueco a partes iguales, como dos
+     píldoras junto a «Ver CV» */
+  .hero-actions .ui-btn--icon {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    height: auto;
+  }
   /* El icono del sobre no cabe a 360 px; la flecha de «Ver proyectos» sí */
   .hero-actions .hero-icon-desktop {
     display: none;
