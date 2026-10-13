@@ -131,8 +131,8 @@ src/
 ├── App.jsx                # Ensamblado de secciones
 ├── data/                  # Todo el contenido, separado de la vista
 ├── components/
-│   ├── layout/            # Navbar, Footer, Section, SiteBackground, CookieConsent
-│   ├── sections/          # Hero, About, Technologies, Projects, Trajectory, Contact
+│   ├── layout/            # Navbar, Footer (también la sección Contacto), Section, SiteBackground, CookieConsent
+│   ├── sections/          # Hero, About, Technologies, Projects, Trajectory
 │   └── ui/                # Button, TechIcon, SocialLinks, CardNav y reactbits/
 ├── hooks/                 # useMediaQuery, useHydrated, useActiveSection, useCopyToClipboard
 ├── lib/analytics.js       # Google Analytics, consentimiento y eventos

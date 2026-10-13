@@ -7,11 +7,11 @@ import About from './components/sections/About'
 import Technologies from './components/sections/Technologies'
 import Projects from './components/sections/Projects'
 import Trajectory from './components/sections/Trajectory'
-import Contact from './components/sections/Contact'
 
 /**
  * Ensamblado de la página: la navegación cuenta la historia
  * «quién soy → qué sé → qué he construido → cómo contactarme».
+ * El contacto está en el footer (id="contacto").
  */
 export default function App() {
   return (
@@ -28,7 +28,6 @@ export default function App() {
         <Technologies />
         <Projects />
         <Trajectory />
-        <Contact />
       </main>
       <Footer />
       <CookieConsent />

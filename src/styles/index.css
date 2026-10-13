@@ -171,15 +171,28 @@ main:focus {
   color: var(--text);
 }
 
+/* Cuando el botón es un <button> (p. ej. copiar el email), sin el fondo y
+   el borde que el navegador pone por defecto */
+button.ui-btn {
+  padding: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+/* Iconos: circulares, con el mismo alto y el mismo contorno menta que los
+   botones secundarios («Contactar conmigo», «Ver CV») */
 .ui-btn--icon {
-  width: 2.6rem;
-  height: 2.6rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-strong);
-  color: var(--text-soft);
+  width: 3rem;
+  height: 3rem;
+  flex-shrink: 0;
+  /* 999px y no 50%: círculo en su tamaño normal y píldora si se estira
+     (p. ej. en la rejilla de botones del Hero en móvil) */
+  border-radius: 999px;
+  border: 1px solid var(--mint-35);
+  color: var(--mint);
 }
 .ui-btn--icon:hover {
-  border-color: var(--mint-35);
+  border-color: var(--mint);
   color: var(--mint);
 }
 
@@ -474,13 +487,6 @@ main:focus {
   * { transition-duration: 0.01ms !important; }
 }
 
-/* ---------- Tarjetas genéricas ---------- */
-.card-surface {
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-}
-
 /* ---------- Tarjetas de proyecto ---------- */
 .project-card {
   display: flex;
@@ -638,19 +644,7 @@ main:focus {
 }
 
 /* ---------- Sobre mí ---------- */
-.profile-card {
-  border-radius: var(--radius-lg);
-}
-.profile-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1.05rem 0;
-}
-.profile-row + .profile-row {
-  border-top: 1px solid var(--border);
-}
-/* Icono suelto, sin caja: acompaña al texto sin protagonismo */
+/* Icono suelto, sin caja: acompaña al texto sin protagonismo (Trayectoria) */
 .profile-icon {
   flex-shrink: 0;
   display: inline-flex;
@@ -658,17 +652,6 @@ main:focus {
   justify-content: center;
   padding-top: 0.15rem;
   color: var(--muted);
-}
-.profile-label {
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--muted);
-  margin-bottom: 0.15rem;
-}
-.profile-value {
-  color: var(--text);
-  margin: 0;
-  overflow-wrap: anywhere; /* evita desbordes con valores largos (email…) */
 }
 .about-intro p + p {
   margin-top: 1rem;
@@ -757,30 +740,202 @@ main:focus {
   }
 }
 
-/* ---------- Footer ---------- */
+/* ---------- Footer (Footer.jsx) ---------- */
+/* Arriba: presentación + 3 columnas; en medio, el nombre en grande solo
+   con contorno; abajo, copyright y enlaces legales */
 .footer {
   border-top: 1px solid var(--border);
-  background-color: rgba(25, 27, 30, 0.85);
-  padding: 1.6rem 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background-color: rgba(23, 25, 28, 0.9);
+  padding: clamp(3rem, 6vw, 4.5rem) 0 1.75rem;
 }
-.footer .brand-mark {
-  font-size: 1.1rem;
+
+.footer-top {
+  display: grid;
+  gap: 2.5rem;
 }
-.footer-note {
+@media (min-width: 992px) {
+  .footer-top {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 4rem;
+  }
+}
+
+/* Bloque izquierdo: título de la sección Contacto, texto y email */
+.footer-title {
+  margin-bottom: 0.75rem;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.footer-lead {
+  max-width: 34ch;
+  margin-bottom: 1.5rem;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+/* Email visible que se copia al pulsarlo */
+.footer-email {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 1rem;
+  max-width: 100%;
+  padding: 0.7rem 1.1rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--transition), background-color var(--transition);
+}
+.footer-email:hover {
+  border-color: var(--mint-35);
+  background: var(--mint-10);
+}
+.footer-email-address {
+  overflow-wrap: anywhere;
+  font-weight: 500;
+}
+.footer-email-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+.footer-email:hover .footer-email-action,
+.footer-email.is-copied .footer-email-action {
+  color: var(--mint);
+}
+/* Botones de icono de contacto (WhatsApp, GitHub, LinkedIn, CV y, en
+   escritorio, Email), como los de redes del Hero */
+.footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+.footer-btn--desktop {
+  display: none !important;
+}
+.footer-actions .is-copied {
+  border-color: var(--mint-35);
+  color: var(--mint);
+}
+/* Escritorio: la caja del email se sustituye por el botón de icono */
+@media (min-width: 992px) {
+  .footer-email {
+    display: none;
+  }
+  .footer-btn--desktop {
+    display: inline-flex !important;
+  }
+  .footer-actions {
+    margin-top: 0;
+  }
+}
+
+.footer-cols {
+  display: grid;
+  align-content: start;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+@media (min-width: 576px) {
+  .footer-cols {
+    gap: 2rem;
+  }
+}
+.footer-col {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-strong);
+}
+.footer-col-title {
+  margin-bottom: 0.85rem;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.footer-col-links {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.footer-col-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  transition: color var(--transition);
+}
+.footer-col-link:hover {
+  color: var(--mint);
+}
+@media (max-width: 575.98px) {
+  .footer-col-title {
+    font-size: 0.95rem;
+  }
+  .footer-col-link {
+    font-size: 0.875rem;
+  }
+}
+
+/* «SERGIO VIDAL» en grande: solo contorno, sutil, cortado por la línea
+   de la barra inferior */
+.footer-wordmark {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: clamp(3rem, 7vw, 5rem);
+  overflow: hidden;
+}
+.footer-wordmark text {
+  fill: none;
+  stroke: rgba(238, 241, 245, 0.22);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  font-family: var(--font-display);
+  font-size: 130px;
+  font-weight: 800;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
   color: var(--muted);
   font-size: 0.88rem;
 }
-.footer-sep {
-  margin: 0 0.5rem;
+.footer-copy {
+  margin: 0;
+}
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 .footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   padding: 0;
   border: 0;
   background: none;
   color: inherit;
   font: inherit;
-  text-decoration: underline;
-  text-underline-offset: 3px;
   cursor: pointer;
   transition: color var(--transition);
 }
@@ -952,30 +1107,6 @@ main:focus {
   vertical-align: middle;
 }
 
-/* ---------- Contacto: rejilla de canales ---------- */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  column-gap: 2.5rem;
-  padding: 0.5rem 1.5rem;
-}
-.contact-grid .profile-row + .profile-row {
-  border-top: 1px solid var(--border);
-}
-@media (min-width: 768px) {
-  .contact-grid {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 0.75rem 2rem;
-  }
-  /* En dos columnas solo se separan las filas, no las celdas vecinas */
-  .contact-grid .profile-row + .profile-row {
-    border-top: none;
-  }
-  .contact-grid .profile-row:nth-child(n + 3) {
-    border-top: 1px solid var(--border);
-  }
-}
-
 /* Texto introductorio de Sobre mí */
 .about-intro {
   font-size: 1.06rem;
@@ -1080,50 +1211,3 @@ main:focus {
   background: var(--muted);
 }
 
-/* ---------- Filas de canales de contacto ---------- */
-.contact-row {
-  color: var(--text);
-}
-.contact-row,
-.contact-row:hover {
-  text-decoration: none;
-  color: var(--text);
-}
-.contact-row-arrow {
-  align-self: center;
-  color: var(--muted);
-  transition: color var(--transition), transform var(--transition);
-}
-a.contact-row:hover .contact-row-arrow {
-  color: var(--mint);
-  transform: translate(2px, -2px);
-}
-a.contact-row:hover .profile-value {
-  color: var(--mint);
-}
-
-/* Fila del email como botón de copiar (se ve igual que las demás filas) */
-.contact-row--copy {
-  width: 100%;
-  background: none;
-  border: 0;
-  border-radius: 0;
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
-}
-.contact-row-copy {
-  align-self: center;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--muted);
-  transition: color var(--transition);
-}
-.contact-row--copy:hover .contact-row-copy,
-.contact-row--copy:hover .profile-value,
-.contact-row-copy.is-copied {
-  color: var(--mint);
-}
