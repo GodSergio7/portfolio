@@ -21,7 +21,7 @@ export default function Footer() {
           © {year} {profile.name}
           <span className="footer-sep" aria-hidden="true">·</span>
           <button type="button" className="footer-link" onClick={openCookiePolicy}>
-            Cookies
+            Privacidad
           </button>
         </p>
         <Button

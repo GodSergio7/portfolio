@@ -68,7 +68,7 @@ El objetivo es que la web sea a la vez una carta de presentación y una muestra 
 - **Analítica respetuosa:**
   - Google Analytics 4 solo con consentimiento;
   - banner de cookies con "Aceptar" y "Rechazar" al mismo nivel;
-  - política de cookies;
+  - política de privacidad y cookies;
   - eventos de interés: ver el CV, copiar el email, abrir WhatsApp, GitHub o LinkedIn, abrir proyectos.
 - **Carga por dispositivo:**
   - cada efecto se descarga solo donde se usa;
@@ -185,7 +185,7 @@ En el navegador, React se engancha con `hydrateRoot`. Para que el HTML generado 
 
 ### Analítica y privacidad
 
-Google Analytics no se carga hasta que el visitante acepta las cookies. La elección se guarda en `localStorage` y se puede cambiar desde el enlace "Cookies" del footer; al rechazar, se borran las cookies de Analytics.
+Google Analytics no se carga hasta que el visitante acepta las cookies. La elección se guarda en `localStorage` y se puede cambiar desde el enlace "Privacidad" del footer; al rechazar, se borran las cookies de Analytics.
 
 Para medir un clic basta con añadir los atributos `data-*` mediante `trackProps({ evento: 'nombre', ... })` (`src/lib/analytics.js`).
 

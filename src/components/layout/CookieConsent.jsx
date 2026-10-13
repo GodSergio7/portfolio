@@ -3,7 +3,7 @@ import { X } from 'lucide-react'
 import { GA_ID, getConsent, setConsent, subscribeConsent } from '../../lib/analytics'
 import { profile } from '../../data/profile'
 
-// Abre la política de cookies desde cualquier sitio (p. ej. el footer)
+// Abre la política de privacidad y cookies desde cualquier sitio (p. ej. el footer)
 const OPEN_EVENT = 'abrir-politica-cookies'
 export const openCookiePolicy = () => window.dispatchEvent(new Event(OPEN_EVENT))
 
@@ -45,7 +45,7 @@ function ConsentButtons({ onChoose }) {
 }
 
 /**
- * Banner de cookies + política de cookies (diálogo).
+ * Banner de cookies + política de privacidad y cookies (diálogo).
  * «Aceptar» y «Rechazar» tienen el mismo peso visual, como pide la AEPD.
  */
 export default function CookieConsent() {
@@ -68,7 +68,7 @@ export default function CookieConsent() {
             ¿Me ayudas a mejorar el portfolio? Con Google Analytics sé cuántas personas lo
             visitan y qué les interesa. Solo se activa si aceptas.{' '}
             <button type="button" className="cookie-link" onClick={openCookiePolicy}>
-              Política de cookies
+              Privacidad y cookies
             </button>
           </p>
           <ConsentButtons />
@@ -86,12 +86,28 @@ export default function CookieConsent() {
       >
         <div className="cookie-dialog-body">
           <div className="cookie-dialog-head">
-            <h2 id="cookie-dialog-title">Política de cookies</h2>
+            <h2 id="cookie-dialog-title">Privacidad y cookies</h2>
             <button type="button" className="cookie-close" onClick={close} aria-label="Cerrar">
               <X size={18} aria-hidden="true" />
             </button>
           </div>
 
+          <h3 className="cookie-dialog-subtitle">Datos de contacto</h3>
+          <p>
+            Si me escribes por email o por WhatsApp, usaré tu nombre, tu dirección o número y lo
+            que me cuentes solo para responderte. No cedo estos datos a terceros ni los uso para
+            enviarte publicidad, y los borro cuando dejan de ser necesarios. Puedes pedirme en
+            cualquier momento que los elimine escribiendo a {profile.email}.
+          </p>
+          <p>
+            WhatsApp es un servicio de Meta y se rige por su propia{' '}
+            <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">
+              política de privacidad
+            </a>
+            .
+          </p>
+
+          <h3 className="cookie-dialog-subtitle">Cookies</h3>
           <p>
             Esta web solo usa cookies de análisis de Google Analytics, y únicamente si las
             aceptas. Sirven para saber cuántas personas la visitan y qué secciones y enlaces

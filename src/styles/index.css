@@ -890,6 +890,15 @@ main:focus {
   margin: 0;
   font-size: 1.25rem;
 }
+.cookie-dialog-subtitle {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.cookie-dialog-head + .cookie-dialog-subtitle {
+  margin-top: 0;
+}
 .cookie-close {
   display: grid;
   place-items: center;
